@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "purpose": "Sample extraction from detail images before full OCR pipeline",
+    "ocr_available": false,
+    "method": "visual_read_from_detail_image + part_name/category cross-check",
+    "notes": [
+      "Local pytesseract package exists, but the tesseract executable is not installed or not on PATH.",
+      "Values below are sample candidates read from the stored detail images and should be reviewed before filling parts.json geometry."
+    ],
+    "count": 5
+  },
+  "candidates": [
+    {
+      "part_no": "1",
+      "name": "스트립-15",
+      "category": "strip",
+      "source_image": "images/1_detail.jpg",
+      "observed_dimension_texts": ["188.8mm", "12.7mm"],
+      "candidate_spec": {
+        "type": "strip",
+        "holes": 15,
+        "length_mm": 188.8,
+        "width_mm": 12.7,
+        "material": "금속"
+      },
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "part_no": "2",
+      "name": "스트립-11",
+      "category": "strip",
+      "source_image": "images/2_detail.jpg",
+      "observed_dimension_texts": ["139.2mm", "12.7mm"],
+      "candidate_spec": {
+        "type": "strip",
+        "holes": 11,
+        "length_mm": 139.2,
+        "width_mm": 12.7,
+        "material": "금속"
+      },
+      "confidence": 0.9,
+      "needs_review": false
+    },
+    {
+      "part_no": "6",
+      "name": "앵글-25",
+      "category": "angle",
+      "source_image": "images/6_detail.jpg",
+      "observed_dimension_texts": ["316.8mm", "13.5mm", "15mm"],
+      "candidate_spec": {
+        "type": "angle",
+        "holes": 25,
+        "length_mm": 316.8,
+        "leg_a_mm": 13.5,
+        "leg_b_mm": 15.0,
+        "material": "금속"
+      },
+      "confidence": 0.85,
+      "needs_review": true
+    },
+    {
+      "part_no": "16A",
+      "name": "ㄱ형브래킷 2X2",
+      "category": "bracket",
+      "source_image": "images/16A_detail.jpg",
+      "observed_dimension_texts": ["12.3mm", "26.3mm", "25.4mm"],
+      "candidate_spec": {
+        "type": "l_bracket",
+        "grid": "2x2",
+        "height_mm": 12.3,
+        "foot_length_mm": 26.3,
+        "width_mm": 25.4,
+        "material": "강한 금속"
+      },
+      "confidence": 0.75,
+      "needs_review": true
+    },
+    {
+      "part_no": "18",
+      "name": "축-29cm",
+      "category": "axle",
+      "source_image": "images/18_detail.jpg",
+      "observed_dimension_texts": ["294mm", "Ø4mm"],
+      "candidate_spec": {
+        "type": "axle",
+        "length_mm": 294.0,
+        "diameter_mm": 4.0,
+        "material": "금속"
+      },
+      "confidence": 0.9,
+      "needs_review": false
+    }
+  ]
+}

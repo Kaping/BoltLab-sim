@@ -419,8 +419,17 @@ function spin(delta) {
   while (queue.length) {
     const cur = queue.shift();
     for (const e of edges) {
-      if (e.a !== cur || ang.has(e.b)) continue;
-      ang.set(e.b, ang.get(cur) * e.k);
+      if (e.a !== cur) continue;
+      const expected = ang.get(cur) * e.k;
+      if (ang.has(e.b)) {
+        // 폐루프 모순 검출: 이미 정해진 각속도와 어긋나면 트레인 전체 잠김
+        if (Math.abs(ang.get(e.b) - expected) > Math.abs(delta) * 1e-3) {
+          setStatus('⚠ 기어 트레인 잠김 — 폐루프의 기어비가 서로 맞지 않습니다.');
+          return;
+        }
+        continue;
+      }
+      ang.set(e.b, expected);
       queue.push(e.b);
     }
   }

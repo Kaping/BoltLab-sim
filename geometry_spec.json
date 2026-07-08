@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "version": "0.1",
+    "scope": "프레임류 + 필수 기어류만. 애매한 부품(다목적기어, 체인기어, 십자홀 계열 등)은 보류.",
+    "generated": "2026-07-08",
+    "verified_by": "OCR 치수 교차검증 (spec_candidates.json)",
+    "system_constants": {
+      "grid_pitch_mm": 12.7,
+      "hole_diameter_mm": 4.1,
+      "axle_diameter_mm": 4.0,
+      "gear_module_mm": 0.6667,
+      "gear_module_note": "m=2/3mm (DP38, 메카노 호환). OD=(N+2)*m 으로 검증: 19T→Ø14.0, 57T→Ø39.3, 95T→Ø64.7 — OCR 실측과 정확히 일치",
+      "gear_mesh_on_grid": "기어쌍 중심거리가 그리드 배수와 일치: 19+19=12.67≈12.7 | 19+57=25.33≈25.4 | 57+57=38.0≈38.1 | 19+95=38.0 | 57+95=50.67≈50.8 | 95+95=63.33≈63.5 (오차≤0.17mm → 스냅 조립으로 자연 맞물림)",
+      "strip_length_rule": "실측 길이 ≈ holes*12.7 - (0~1.7mm). 시뮬 캐노니컬 길이는 holes*12.7 사용, measured_mm는 참고용",
+      "metal_thickness_mm_est": 1.0
+    },
+    "known_issues": [
+      "spec_candidates.json이 15398행에서 잘림(끝부분 후반 107개 부품 유실) — 재저장/재동기화 필요",
+      "49 ㄷ형스트립-7 길이가 62.8mm로 OCR됨(48번과 동일값). 7공이면 88.2mm 예상 → 재확인 필요",
+      "35 다목적기어: teeth=14 vs Ø29 모순(m=2/3이면 41~42T 예상) → 보류",
+      "볼트 나사규격 미확인(M4 추정), 금속 두께 실측 없음(1.0mm 추정)"
+    ]
+  },
+  "parts": {
+    "1":   { "type": "strip", "name": "스트립-15", "holes": 15, "width_mm": 12.7, "measured_mm": 188.8 },
+    "2":   { "type": "strip", "name": "스트립-11", "holes": 11, "width_mm": 12.7, "measured_mm": 139.2 },
+    "3":   { "type": "strip", "name": "스트립-9",  "holes": 9,  "width_mm": 12.7, "measured_mm": 113.8 },
+    "3A":  { "type": "strip", "name": "장공스트립-9", "holes": 9, "width_mm": 12.7, "measured_mm": 113.8, "slotted": true },
+    "4":   { "type": "strip", "name": "스트립-5",  "holes": 5,  "width_mm": 12.7, "measured_mm": 61.8 },
+    "4A":  { "type": "strip", "name": "장공스트립-5", "holes": 5, "width_mm": 12.7, "measured_mm": 61.8, "slotted": true },
+    "5":   { "type": "strip", "name": "스트립-5(S)", "holes": 5, "width_mm": 12.7, "measured_mm": 50.3, "note": "짧은 끝단 여백형 — 끝구멍이 모서리에 붙음" },
+    "127": { "type": "strip", "name": "스트립-25", "holes": 25, "width_mm": 12.7, "measured_mm": 317.8 },
+
+    "93":  { "type": "narrow_strip", "name": "좁은스트립-3", "holes": 3, "width_mm": 8.8, "measured_mm": 37.4 },
+    "89":  { "type": "narrow_strip", "name": "좁은스트립-5", "holes": 5, "width_mm": 8.8, "measured_mm": 62.8 },
+    "90":  { "type": "narrow_strip", "name": "좁은스트립-6", "holes": 6, "width_mm": 8.8, "measured_mm": 75.5 },
+    "91":  { "type": "narrow_strip", "name": "좁은스트립-7", "holes": 7, "width_mm": 8.8, "measured_mm": 88.2 },
+    "92":  { "type": "narrow_strip", "name": "좁은스트립-9", "holes": 9, "width_mm": 8.8, "measured_mm": 113.6 },
+
+    "6":   { "type": "angle", "name": "앵글-25", "holes": 25, "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 316.8 },
+    "7":   { "type": "angle", "name": "앵글-19", "holes": 19, "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 240.6 },
+    "8":   { "type": "angle", "name": "앵글-11", "holes": 11, "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 139.0 },
+    "9":   { "type": "angle", "name": "앵글-9",  "holes": 9,  "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 113.6 },
+    "10":  { "type": "angle", "name": "앵글-7",  "holes": 7,  "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 88.2 },
+    "11":  { "type": "angle", "name": "앵글-3",  "holes": 3,  "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 37.4 },
+    "132": { "type": "angle", "name": "앵글-2",  "holes": 2,  "leg_a_mm": 13.5, "leg_b_mm": 15.0, "measured_mm": 24.7 },
+
+    "47":  { "type": "u_strip", "name": "ㄷ형스트립-3", "holes": 3, "width_mm": 12.7, "depth_mm": 14.3, "measured_mm": 37.4 },
+    "48":  { "type": "u_strip", "name": "ㄷ형스트립-5", "holes": 5, "width_mm": 12.7, "depth_mm": 14.3, "measured_mm": 62.8 },
+    "49":  { "type": "u_strip", "name": "ㄷ형스트립-7", "holes": 7, "width_mm": 12.7, "depth_mm": 14.3, "measured_mm": null, "needs_review": "OCR이 48번과 동일한 62.8mm — 88.2mm 예상, 재확인" },
+
+    "12":  { "type": "connector_plate", "name": "이음판", "holes": 2, "width_mm": 12.7, "length_mm": 23.0 },
+    "13":  { "type": "u_bracket", "name": "ㄷ형브래킷(소)", "flange_holes": 1, "width_mm": 12.7, "flange_mm": 15.0, "span_mm": 12.5 },
+    "14":  { "type": "u_bracket", "name": "ㄷ형브래킷(대)", "flange_holes": 1, "width_mm": 12.7, "flange_mm": 15.0, "span_mm": 24.7 },
+    "15":  { "type": "l_bracket", "name": "ㄱ형브래킷(소)", "grid": "1x1", "foot_a_mm": 12.7, "foot_b_mm": 13.5, "height_mm": 10.7 },
+    "16":  { "type": "l_bracket", "name": "ㄱ형브래킷(대)", "grid": "1x2", "foot_a_mm": 12.7, "foot_b_mm": 26.3, "height_mm": 10.7 },
+    "16A": { "type": "l_bracket", "name": "ㄱ형브래킷 2X2", "grid": "2x2", "foot_a_mm": 25.4, "foot_b_mm": 26.3, "height_mm": 12.3 },
+    "17":  { "type": "obtuse_bracket", "name": "둔각브래킷", "angle_deg": 135, "width_mm": 12.7, "height_mm": 10.7 },
+
+    "18":  { "type": "axle", "name": "축-29cm",  "diameter_mm": 4.0, "length_mm": 294 },
+    "19":  { "type": "axle", "name": "축-14cm",  "diameter_mm": 4.0, "length_mm": 140 },
+    "20":  { "type": "axle", "name": "축-10cm",  "diameter_mm": 4.0, "length_mm": 102 },
+    "21":  { "type": "axle", "name": "축-9cm",   "diameter_mm": 4.0, "length_mm": 90 },
+    "21A": { "type": "axle", "name": "축-9.5cm", "diameter_mm": 4.0, "length_mm": 95 },
+    "22":  { "type": "axle", "name": "축-6.5cm", "diameter_mm": 4.0, "length_mm": 65 },
+    "23":  { "type": "axle", "name": "축-7.5cm", "diameter_mm": 4.0, "length_mm": 76 },
+    "24":  { "type": "axle", "name": "축-5cm",   "diameter_mm": 4.0, "length_mm": 51 },
+    "25":  { "type": "axle", "name": "축-4cm",   "diameter_mm": 4.0, "length_mm": 40 },
+
+    "32":  { "type": "gear_spur", "name": "피니언기어", "teeth": 19, "od_mm": 14.0, "face_mm": 14.5, "boss": true, "note": "OD=(19+2)*2/3=14.0 ✓" },
+    "33":  { "type": "gear_spur", "name": "평기어(소)", "teeth": 57, "od_mm": 39.3, "face_mm": 14.0, "boss": true, "face_holes": true, "note": "OD=(57+2)*2/3=39.3 ✓ · 면 구멍에 스트립 볼트결합 가능" },
+    "34":  { "type": "gear_spur", "name": "평기어(대)", "teeth": 95, "od_mm": 64.7, "face_mm": 14.0, "boss": true, "face_holes": true, "note": "OD=(95+2)*2/3=64.7 ✓ · 면 구멍에 스트립 볼트결합 가능" },
+    "36":  { "type": "gear_crown", "name": "크라운기어", "teeth": 50, "od_mm": 36.2, "face_mm": 15.0, "boss": true, "note": "직교축 전달용. OD가 잇면 기준(34.7)보다 림 포함 실측이 큼" },
+    "36A": { "type": "gear_crown", "name": "크라운기어 21T", "teeth": 21, "od_mm": null, "boss": true, "needs_review": "치수 OCR 없음 — m=2/3 가정 시 OD≈15.3" },
+    "37":  { "type": "gear_worm", "name": "워엄기어", "od_mm": 14.0, "length_mm": 26.0, "starts": 1, "boss": true, "note": "1줄 웜 가정 → 상대기어 잇수 = 감속비" },
+
+    "41":  { "type": "bolt", "name": "볼트 0.6cm", "length_mm": 6,  "thread": "M4(추정)" },
+    "65":  { "type": "bolt", "name": "볼트-1.3cm", "length_mm": 13, "thread": "M4(추정)" },
+    "66":  { "type": "bolt", "name": "볼트-2cm",  "length_mm": 20, "thread": "M4(추정)" },
+    "67":  { "type": "bolt", "name": "볼트-3cm",  "length_mm": 30, "thread": "M4(추정)" },
+    "42":  { "type": "nut",  "name": "너트", "height_mm": 2, "thread": "M4(추정)" },
+    "54":  { "type": "set_screw", "name": "멈춤나사", "length_mm": 4, "note": "기어/풀리 보스를 축에 고정" }
+  }
+}

@@ -8,10 +8,10 @@
 import * as THREE from 'three';
 
 export const PITCH = 12.7;      // 구멍 피치 (1/2인치)
-export const HOLE_R = 2.15;     // M4 볼트용 구멍 반지름 (Ø4.3)
+export const HOLE_R = 2.05;     // 볼트용 구멍 반지름 (Ø4.1, geometry_spec)
 export const THICK = 1.2;       // 강판 두께
 export const STRIP_W = 12.7;    // 표준 스트립 폭
-export const NARROW_W = 6.35;   // 좁은스트립 폭
+export const NARROW_W = 8.8;    // 좁은스트립 폭 (OCR 실측)
 
 // 기어 모듈: 평기어(소)+피니언 축간거리 = 25.4mm(구멍 2칸)이 되도록 역산
 // m*(57+19)/2 = 25.4 → m = 0.66842
@@ -71,9 +71,9 @@ function holeMeta(x, y, z, nx, ny, nz, t = THICK) {
   return { p: new THREE.Vector3(x, y, z), n: new THREE.Vector3(nx, ny, nz), t };
 }
 
-// ── 스트립-N ──  예) 스트립-15: 12.7 × 188.8mm ✓
+// ── 스트립-N ──  예) 스트립-15: 12.7 × 188.8mm ✓ / 좁은스트립-5: 8.8 × 62.8mm ✓
 export function makeStrip(n, width = STRIP_W) {
-  const endMargin = width === STRIP_W ? 5.5 : width / 2;
+  const endMargin = width === STRIP_W ? 5.5 : 6.0;
   const L = stripLength(n, endMargin);
   const holesXZ = lineXs(n).map(x => ({ x, z: 0 }));
   const mesh = new THREE.Mesh(flatPlateGeometry(L, width, holesXZ, width / 2 - 0.35), steelMaterial());
@@ -82,35 +82,36 @@ export function makeStrip(n, width = STRIP_W) {
   return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, 0, 0, 1, 0)) };
 }
 
-// ── 앵글-N ──  L자 단면, 양쪽 플랜지에 구멍 N개씩
+// ── 앵글-N ──  L자 단면 13.5×15 (실측), 양쪽 플랜지에 구멍 N개씩
 export function makeAngle(n) {
-  const W = STRIP_W;
+  const A = 13.5;  // 수평 플랜지 폭
+  const B = 15.0;  // 수직 플랜지 높이
   const L = stripLength(n, 5.5);
   const xs = lineXs(n);
   const holesXZ = xs.map(x => ({ x, z: 0 }));
   const group = new THREE.Group();
 
-  const flat = new THREE.Mesh(flatPlateGeometry(L, W, holesXZ, 1.5), steelMaterial());
-  flat.position.set(0, 0, W / 2);
+  const flat = new THREE.Mesh(flatPlateGeometry(L, A, holesXZ, 1.5), steelMaterial());
+  flat.position.set(0, 0, A / 2);
   group.add(flat);
 
-  const vert = new THREE.Mesh(flatPlateGeometry(L, W, holesXZ, 1.5), steelMaterial());
+  const vert = new THREE.Mesh(flatPlateGeometry(L, B, holesXZ, 1.5), steelMaterial());
   vert.rotation.x = Math.PI / 2;
-  vert.position.set(0, W / 2, 0);
+  vert.position.set(0, B / 2, 0);
   group.add(vert);
 
   const holes = [];
   for (const x of xs) {
-    holes.push(holeMeta(x, 0, W / 2, 0, 1, 0));
-    holes.push(holeMeta(x, W / 2, 0, 0, 0, 1));
+    holes.push(holeMeta(x, 0, A / 2, 0, 1, 0));
+    holes.push(holeMeta(x, B / 2, 0, 0, 0, 1));
   }
   return { group, kind: 'plate', holes };
 }
 
-// ── ㄷ형스트립-N ──  채널 단면
+// ── ㄷ형스트립-N ──  채널 단면, 벽 깊이 14.3 (실측)
 export function makeChannel(n) {
   const W = STRIP_W;
-  const H = 9.5;
+  const H = 14.3;
   const L = stripLength(n, 5.5);
   const xs = lineXs(n);
   const holesXZ = xs.map(x => ({ x, z: 0 }));
@@ -137,6 +138,61 @@ export function makeRectPlate(cols, rows) {
   const group = new THREE.Group();
   group.add(mesh);
   return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)) };
+}
+
+// ── 이음판 (12) ──  23×12.7, 구멍 2개 @12.7 피치
+export function makeJoinPlate() {
+  const L = 23, W = STRIP_W;
+  const holesXZ = [{ x: -PITCH / 2, z: 0 }, { x: PITCH / 2, z: 0 }];
+  const mesh = new THREE.Mesh(flatPlateGeometry(L, W, holesXZ, 2), steelMaterial());
+  const group = new THREE.Group();
+  group.add(mesh);
+  return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, 0, 0, 1, 0)) };
+}
+
+// ── ㄱ형브래킷 (15/16) ──  수평 발(구멍 nFoot개) + 수직 벽(구멍 1개)
+// 소: 발 13.5 구멍1 / 대: 발 26.3 구멍2 @12.7. 벽 높이 10.7 (실측)
+// 구멍 위치는 OCR 외형치수 기반 근사 — 코너에서 6.75mm
+export function makeLBracket(nFoot = 1) {
+  const W = STRIP_W, wallH = 10.7;
+  const footL = nFoot === 1 ? 13.5 : 26.3;
+  const group = new THREE.Group();
+
+  const footHoleXs = [];
+  for (let i = 0; i < nFoot; i++) footHoleXs.push(6.75 + i * PITCH);
+  const footLocal = footHoleXs.map(x => ({ x: x - footL / 2, z: 0 }));
+  const foot = new THREE.Mesh(flatPlateGeometry(footL, W, footLocal, 1.5), steelMaterial());
+  foot.position.x = footL / 2;
+  group.add(foot);
+
+  const wall = new THREE.Mesh(flatPlateGeometry(wallH, W, [{ x: 0, z: 0 }], 1.5), steelMaterial());
+  wall.rotation.z = Math.PI / 2;
+  wall.position.set(0, wallH / 2, 0);
+  group.add(wall);
+
+  const holes = footHoleXs.map(x => holeMeta(x, 0, 0, 0, 1, 0));
+  holes.push(holeMeta(0, wallH / 2, 0, 1, 0, 0));
+  return { group, kind: 'plate', holes };
+}
+
+// ── ㄷ형브래킷 (13) ──  U자: 바닥(span) + 양쪽 날개(높이 15), 구멍 각 1개
+export function makeUBracket(span = 12.5) {
+  const W = STRIP_W, wingH = 15;
+  const group = new THREE.Group();
+
+  const webHoles = span > 20 ? [{ x: -PITCH / 2, z: 0 }, { x: PITCH / 2, z: 0 }] : [{ x: 0, z: 0 }];
+  const web = new THREE.Mesh(flatPlateGeometry(span, W, webHoles, 1.0), steelMaterial());
+  group.add(web);
+
+  const holes = webHoles.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0));
+  for (const side of [-1, 1]) {
+    const wing = new THREE.Mesh(flatPlateGeometry(wingH, W, [{ x: 0, z: 0 }], 1.0), steelMaterial());
+    wing.rotation.z = Math.PI / 2;
+    wing.position.set(side * (span / 2 + THICK / 2), wingH / 2, 0);
+    group.add(wing);
+    holes.push(holeMeta(side * (span / 2 + THICK / 2), wingH / 2, 0, 1, 0, 0));
+  }
+  return { group, kind: 'plate', holes };
 }
 
 // ── 축 (Ø4 강봉, 로컬 +Y 방향) ──
@@ -173,7 +229,7 @@ function gearShape(teeth, mod) {
 }
 
 // ── 기어 공통 ──  디스크 두께 4mm(로컬 y ∈ [-2,2]), 허브 위쪽, 축 구멍 Ø4.1
-function makeGear(teeth, { boltHoleCount = 0, boltCircleR = 0, hubH = 10 } = {}) {
+function makeGear(teeth, { boltHoleCount = 0, boltCircleR = 0, boltHoleCount2 = 0, boltCircleR2 = 0, hubH = 10 } = {}) {
   const mod = GEAR_MODULE;
   const shape = gearShape(teeth, mod);
 
@@ -182,14 +238,18 @@ function makeGear(teeth, { boltHoleCount = 0, boltCircleR = 0, hubH = 10 } = {})
   shape.holes.push(hubHole);
 
   const holes = [];
-  for (let i = 0; i < boltHoleCount; i++) {
-    const ang = (i / boltHoleCount) * Math.PI * 2;
-    const sx = boltCircleR * Math.cos(ang), sy = boltCircleR * Math.sin(ang);
-    const path = new THREE.Path();
-    path.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true);
-    shape.holes.push(path);
-    holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, 4)); // shape(x,y) → 3D(x,0,-y)
-  }
+  const addRing = (count, r, angOffset = 0) => {
+    for (let i = 0; i < count; i++) {
+      const ang = angOffset + (i / count) * Math.PI * 2;
+      const sx = r * Math.cos(ang), sy = r * Math.sin(ang);
+      const path = new THREE.Path();
+      path.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true);
+      shape.holes.push(path);
+      holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, 4)); // shape(x,y) → 3D(x,0,-y)
+    }
+  };
+  addRing(boltHoleCount, boltCircleR);
+  if (boltHoleCount2) addRing(boltHoleCount2, boltCircleR2, Math.PI / boltHoleCount2);
 
   const geo = new THREE.ExtrudeGeometry(shape, { depth: 4, bevelEnabled: false, curveSegments: 8 });
   geo.translate(0, 0, -2);
@@ -210,9 +270,11 @@ function makeGear(teeth, { boltHoleCount = 0, boltCircleR = 0, hubH = 10 } = {})
   };
 }
 
-// 평기어(소): 57T, Ø39.3, 볼트 구멍 8개 / 피니언기어: 19T, Ø14
+// 평기어(소): 57T Ø39.3, 면 구멍 8개 (33_detail.jpg 확인) / 피니언: 19T Ø14
+// 평기어(대): 95T Ø64.7, 실물은 십자 장공 4개+원형 구멍 — 기본 구현은 8공 링 2줄로 근사
 export const makeSpurGearS = () => makeGear(57, { boltHoleCount: 8, boltCircleR: 12.7 });
 export const makePinionGear = () => makeGear(19, { hubH: 10.5 });
+export const makeSpurGearL = () => makeGear(95, { boltHoleCount: 8, boltCircleR: 12.7, boltHoleCount2: 8, boltCircleR2: 25.4 });
 
 // ── M4 볼트+너트 ──  로컬 +Y = 볼트 축
 export function makeBolt() {

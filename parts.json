@@ -1,0 +1,3142 @@
+{
+  "meta": {
+    "source": "sciencebox.co.kr",
+    "source_url": "https://www.sciencebox.co.kr/shop/list.php?ca_id=50",
+    "crawled_at": "2026-07-08T11:21:33.545863+00:00",
+    "count": 190
+  },
+  "parts": [
+    {
+      "it_id": "5000000001",
+      "part_no": "1",
+      "name": "스트립-15",
+      "category": "strip",
+      "price": 690,
+      "in_stock": false,
+      "images": {
+        "main": "images/1_main.jpg",
+        "detail": "images/1_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000001/1.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000001&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 15
+      }
+    },
+    {
+      "it_id": "5000000002",
+      "part_no": "2",
+      "name": "스트립-11",
+      "category": "strip",
+      "price": 570,
+      "in_stock": false,
+      "images": {
+        "main": "images/2_main.jpg",
+        "detail": "images/2_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000002/2.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000002&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 11
+      }
+    },
+    {
+      "it_id": "5000000003",
+      "part_no": "3",
+      "name": "스트립-9",
+      "category": "strip",
+      "price": 500,
+      "in_stock": false,
+      "images": {
+        "main": "images/3_main.jpg",
+        "detail": "images/3_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000003/3.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000003&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 9
+      }
+    },
+    {
+      "it_id": "5000000004",
+      "part_no": "3A",
+      "name": "장공스트립-9",
+      "category": "strip",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/3A_main.jpg",
+        "detail": "images/3A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000004/3A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000004&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 9
+      }
+    },
+    {
+      "it_id": "5000000005",
+      "part_no": "4",
+      "name": "스트립-5",
+      "category": "strip",
+      "price": 460,
+      "in_stock": false,
+      "images": {
+        "main": "images/4_main.jpg",
+        "detail": "images/4_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000005/4.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000005&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 5
+      }
+    },
+    {
+      "it_id": "5000000006",
+      "part_no": "4A",
+      "name": "장공스트립-5",
+      "category": "strip",
+      "price": 310,
+      "in_stock": false,
+      "images": {
+        "main": "images/4A_main.jpg",
+        "detail": "images/4A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000006/4A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000006&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 5
+      }
+    },
+    {
+      "it_id": "5000000007",
+      "part_no": "5",
+      "name": "스트립-5(S)",
+      "category": "strip",
+      "price": 460,
+      "in_stock": false,
+      "images": {
+        "main": "images/5_main.jpg",
+        "detail": "images/5_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000007/5.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000007&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 5
+      }
+    },
+    {
+      "it_id": "5000000008",
+      "part_no": "6",
+      "name": "앵글-25",
+      "category": "angle",
+      "price": 1120,
+      "in_stock": false,
+      "images": {
+        "main": "images/6_main.jpg",
+        "detail": "images/6_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000008/6.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000008&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 25
+      }
+    },
+    {
+      "it_id": "5000000009",
+      "part_no": "7",
+      "name": "앵글-19",
+      "category": "angle",
+      "price": 880,
+      "in_stock": false,
+      "images": {
+        "main": "images/7_main.jpg",
+        "detail": "images/7_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000009/7.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000009&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 19
+      }
+    },
+    {
+      "it_id": "5000000010",
+      "part_no": "8",
+      "name": "앵글-11",
+      "category": "angle",
+      "price": 700,
+      "in_stock": false,
+      "images": {
+        "main": "images/8_main.jpg",
+        "detail": "images/8_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000010/8.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000010&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 11
+      }
+    },
+    {
+      "it_id": "5000000011",
+      "part_no": "9",
+      "name": "앵글-9",
+      "category": "angle",
+      "price": 570,
+      "in_stock": false,
+      "images": {
+        "main": "images/9_main.jpg",
+        "detail": "images/9_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000011/9.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000011&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 9
+      }
+    },
+    {
+      "it_id": "5000000012",
+      "part_no": "10",
+      "name": "앵글-7",
+      "category": "angle",
+      "price": 500,
+      "in_stock": false,
+      "images": {
+        "main": "images/10_main.jpg",
+        "detail": "images/10_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000012/10.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000012&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 7
+      }
+    },
+    {
+      "it_id": "5000000013",
+      "part_no": "11",
+      "name": "앵글-3",
+      "category": "angle",
+      "price": 390,
+      "in_stock": false,
+      "images": {
+        "main": "images/11_main.jpg",
+        "detail": "images/11_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000013/11.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000013&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 3
+      }
+    },
+    {
+      "it_id": "5000000014",
+      "part_no": "12",
+      "name": "이음판",
+      "category": "plate_connector",
+      "price": 170,
+      "in_stock": false,
+      "images": {
+        "main": "images/12_main.jpg",
+        "detail": "images/12_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000014/12.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000014&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000015",
+      "part_no": "13",
+      "name": "ㄷ형브래킷(소)",
+      "category": "bracket",
+      "price": 220,
+      "in_stock": false,
+      "images": {
+        "main": "images/13_main.jpg",
+        "detail": "images/13_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000015/13.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000015&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000016",
+      "part_no": "14",
+      "name": "ㄷ형브래킷(대)",
+      "category": "bracket",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/14_main.jpg",
+        "detail": "images/14_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000016/14.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000016&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000017",
+      "part_no": "15",
+      "name": "ㄱ형브래킷(소)",
+      "category": "bracket",
+      "price": 220,
+      "in_stock": false,
+      "images": {
+        "main": "images/15_main.jpg",
+        "detail": "images/15_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000017/15.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000017&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000018",
+      "part_no": "16",
+      "name": "ㄱ형브래킷(대)",
+      "category": "bracket",
+      "price": 290,
+      "in_stock": false,
+      "images": {
+        "main": "images/16_main.jpg",
+        "detail": "images/16_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000018/16.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000018&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000019",
+      "part_no": "16A",
+      "name": "ㄱ형브래킷 2X2",
+      "category": "bracket",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/16A_main.jpg",
+        "detail": "images/16A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000019/16A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000019&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "2x2"
+      }
+    },
+    {
+      "it_id": "5000000020",
+      "part_no": "17",
+      "name": "둔각브래킷",
+      "category": "bracket",
+      "price": 200,
+      "in_stock": false,
+      "images": {
+        "main": "images/17_main.jpg",
+        "detail": "images/17_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000020/17.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000020&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000021",
+      "part_no": "17A",
+      "name": "둔각브래킷 2X3",
+      "category": "bracket",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/17A_main.jpg",
+        "detail": "images/17A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000021/17A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000021&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "2x3"
+      }
+    },
+    {
+      "it_id": "5000000022",
+      "part_no": "18",
+      "name": "축-29cm",
+      "category": "axle",
+      "price": 920,
+      "in_stock": false,
+      "images": {
+        "main": "images/18_main.jpg",
+        "detail": "images/18_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000022/18.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000022&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 29
+      }
+    },
+    {
+      "it_id": "5000000023",
+      "part_no": "19",
+      "name": "축-14cm",
+      "category": "axle",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/19_main.jpg",
+        "detail": "images/19_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000023/19.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000023&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 14
+      }
+    },
+    {
+      "it_id": "5000000024",
+      "part_no": "20",
+      "name": "축-10cm",
+      "category": "axle",
+      "price": 350,
+      "in_stock": false,
+      "images": {
+        "main": "images/20_main.jpg",
+        "detail": "images/20_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000024/20.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000024&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 10
+      }
+    },
+    {
+      "it_id": "5000000025",
+      "part_no": "21",
+      "name": "축-9cm",
+      "category": "axle",
+      "price": 320,
+      "in_stock": false,
+      "images": {
+        "main": "images/21_main.jpg",
+        "detail": "images/21_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000025/21.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000025&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 9
+      }
+    },
+    {
+      "it_id": "5000000026",
+      "part_no": "21A",
+      "name": "축-9.5cm",
+      "category": "axle",
+      "price": 320,
+      "in_stock": false,
+      "images": {
+        "main": "images/21A_main.jpg",
+        "detail": "images/21A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000026/21A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000026&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 9.5
+      }
+    },
+    {
+      "it_id": "5000000027",
+      "part_no": "22",
+      "name": "축-6.5cm",
+      "category": "axle",
+      "price": 280,
+      "in_stock": false,
+      "images": {
+        "main": "images/22_main.jpg",
+        "detail": "images/22_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000027/22.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000027&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 6.5
+      }
+    },
+    {
+      "it_id": "5000000028",
+      "part_no": "23",
+      "name": "축-7.5cm",
+      "category": "axle",
+      "price": 290,
+      "in_stock": false,
+      "images": {
+        "main": "images/23_main.jpg",
+        "detail": "images/23_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000028/23.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000028&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 7.5
+      }
+    },
+    {
+      "it_id": "5000000029",
+      "part_no": "24",
+      "name": "축-5cm",
+      "category": "axle",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/24_main.jpg",
+        "detail": "images/24_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000029/24.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000029&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 5
+      }
+    },
+    {
+      "it_id": "5000000030",
+      "part_no": "25",
+      "name": "축-4cm",
+      "category": "axle",
+      "price": 220,
+      "in_stock": false,
+      "images": {
+        "main": "images/25_main.jpg",
+        "detail": "images/25_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000030/25.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000030&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 4
+      }
+    },
+    {
+      "it_id": "5000000031",
+      "part_no": "26",
+      "name": "풀리(대)",
+      "category": "wheel_pulley",
+      "price": 1420,
+      "in_stock": false,
+      "images": {
+        "main": "images/26_main.jpg",
+        "detail": "images/26_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000031/26.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000031&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000032",
+      "part_no": "27",
+      "name": "풀리(중)",
+      "category": "wheel_pulley",
+      "price": 1060,
+      "in_stock": false,
+      "images": {
+        "main": "images/27_main.jpg",
+        "detail": "images/27_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000032/27.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000032&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "중"
+      }
+    },
+    {
+      "it_id": "5000000033",
+      "part_no": "28",
+      "name": "풀리 (소)",
+      "category": "wheel_pulley",
+      "price": 720,
+      "in_stock": false,
+      "images": {
+        "main": "images/28_main.jpg",
+        "detail": "images/28_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000033/28.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000033&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000034",
+      "part_no": "29",
+      "name": "타이어풀리",
+      "category": "wheel_pulley",
+      "price": 90,
+      "in_stock": false,
+      "images": {
+        "main": "images/29_main.jpg",
+        "detail": "images/29_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000034/29.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000034&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000035",
+      "part_no": "30",
+      "name": "휠판-8",
+      "category": "wheel_pulley",
+      "price": 730,
+      "in_stock": false,
+      "images": {
+        "main": "images/30_main.jpg",
+        "detail": "images/30_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000035/30.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000035&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000036",
+      "part_no": "32",
+      "name": "피니언기어",
+      "category": "gear",
+      "price": 990,
+      "in_stock": false,
+      "images": {
+        "main": "images/32_main.jpg",
+        "detail": "images/32_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000036/32.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000036&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000037",
+      "part_no": "33",
+      "name": "평기어(소)",
+      "category": "gear",
+      "price": 1390,
+      "in_stock": false,
+      "images": {
+        "main": "images/33_main.jpg",
+        "detail": "images/33_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000037/33.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000037&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000038",
+      "part_no": "34",
+      "name": "평기어(대)",
+      "category": "gear",
+      "price": 1570,
+      "in_stock": false,
+      "images": {
+        "main": "images/34_main.jpg",
+        "detail": "images/34_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000038/34.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000038&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000039",
+      "part_no": "35",
+      "name": "다목적기어",
+      "category": "gear",
+      "price": 1210,
+      "in_stock": false,
+      "images": {
+        "main": "images/35_main.jpg",
+        "detail": "images/35_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000039/35.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000039&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000040",
+      "part_no": "36",
+      "name": "크라운기어",
+      "category": "gear",
+      "price": 1380,
+      "in_stock": false,
+      "images": {
+        "main": "images/36_main.jpg",
+        "detail": "images/36_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000040/36.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000040&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000041",
+      "part_no": "36A",
+      "name": "크라운기어 21T",
+      "category": "gear",
+      "price": 880,
+      "in_stock": false,
+      "images": {
+        "main": "images/36A_main.jpg",
+        "detail": "images/36A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000041/36A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000041&cat=50",
+      "geometry": null,
+      "hints": {
+        "teeth": 21
+      }
+    },
+    {
+      "it_id": "5000000042",
+      "part_no": "37",
+      "name": "워엄기어",
+      "category": "gear",
+      "price": 860,
+      "in_stock": false,
+      "images": {
+        "main": "images/37_main.jpg",
+        "detail": "images/37_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000042/37.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000042&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000043",
+      "part_no": "38",
+      "name": "스패너",
+      "category": "misc",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/38_main.jpg",
+        "detail": "images/38_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000043/38.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000043&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000044",
+      "part_no": "39",
+      "name": "스프링클립(5개입)_100개이상주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 800,
+      "in_stock": false,
+      "images": {
+        "main": "images/39_main.jpg",
+        "detail": "images/39_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000044/39.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000044&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000045",
+      "part_no": "40",
+      "name": "드라이버",
+      "category": "misc",
+      "price": 1250,
+      "in_stock": false,
+      "images": {
+        "main": "images/40_main.jpg",
+        "detail": "images/40_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000045/40.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000045&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000046",
+      "part_no": "40A",
+      "name": "십자드라이버(소)",
+      "category": "misc",
+      "price": 1250,
+      "in_stock": false,
+      "images": {
+        "main": "images/40A_main.jpg",
+        "detail": "images/40A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000046/40A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000046&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000047",
+      "part_no": "41",
+      "name": "볼트 0.6cm (50개입)_500개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 650,
+      "in_stock": false,
+      "images": {
+        "main": "images/41_main.jpg",
+        "detail": "images/41_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000047/41.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000047&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 0.6
+      }
+    },
+    {
+      "it_id": "5000000049",
+      "part_no": "42",
+      "name": "너트 (50개입)_500개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 1250,
+      "in_stock": false,
+      "images": {
+        "main": "images/42_main.jpg",
+        "detail": "images/42_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000049/42.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000049&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000050",
+      "part_no": "42N",
+      "name": "너트 (50개입)_500개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 1250,
+      "in_stock": false,
+      "images": {
+        "main": "images/42N_main.jpg",
+        "detail": "images/42N_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000050/42N.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000050&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000051",
+      "part_no": "43",
+      "name": "와셔(소) (50개입)_500개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 1250,
+      "in_stock": false,
+      "images": {
+        "main": "images/43_main.jpg",
+        "detail": "images/43_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000051/43.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000051&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000052",
+      "part_no": "44",
+      "name": "와셔(대) (5개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/44_main.jpg",
+        "detail": "images/44_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000052/44.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000052&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000053",
+      "part_no": "45",
+      "name": "실",
+      "category": "misc",
+      "price": 310,
+      "in_stock": false,
+      "images": {
+        "main": "images/45_main.jpg",
+        "detail": "images/45_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000053/45.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000053&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000054",
+      "part_no": "46",
+      "name": "지지판",
+      "category": "plate",
+      "price": 230,
+      "in_stock": false,
+      "images": {
+        "main": "images/46_main.jpg",
+        "detail": "images/46_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000054/46.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000054&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000055",
+      "part_no": "47",
+      "name": "ㄷ형스트립-3",
+      "category": "strip",
+      "price": 270,
+      "in_stock": false,
+      "images": {
+        "main": "images/47_main.jpg",
+        "detail": "images/47_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000055/47.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000055&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 3
+      }
+    },
+    {
+      "it_id": "5000000056",
+      "part_no": "48",
+      "name": "ㄷ형스트립-5",
+      "category": "strip",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/48_main.jpg",
+        "detail": "images/48_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000056/48.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000056&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 5
+      }
+    },
+    {
+      "it_id": "5000000057",
+      "part_no": "49",
+      "name": "ㄷ형스트립-7",
+      "category": "strip",
+      "price": 520,
+      "in_stock": false,
+      "images": {
+        "main": "images/49_main.jpg",
+        "detail": "images/49_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000057/49.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000057&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 7
+      }
+    },
+    {
+      "it_id": "5000000058",
+      "part_no": "50",
+      "name": "플랜지판(소)",
+      "category": "plate",
+      "price": 690,
+      "in_stock": false,
+      "images": {
+        "main": "images/50_main.jpg",
+        "detail": "images/50_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000058/50.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000058&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000059",
+      "part_no": "51",
+      "name": "플랜지판(대)",
+      "category": "plate",
+      "price": 1100,
+      "in_stock": false,
+      "images": {
+        "main": "images/51_main.jpg",
+        "detail": "images/51_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000059/51.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000059&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000061",
+      "part_no": "52",
+      "name": "조정부싱",
+      "category": "misc",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/52_main.jpg",
+        "detail": "images/52_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000061/52.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000061&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000062",
+      "part_no": "53",
+      "name": "양팔크랭크",
+      "category": "misc",
+      "price": 680,
+      "in_stock": false,
+      "images": {
+        "main": "images/53_main.jpg",
+        "detail": "images/53_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000062/53.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000062&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000063",
+      "part_no": "54",
+      "name": "멈춤나사 (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 500,
+      "in_stock": false,
+      "images": {
+        "main": "images/54_main.jpg",
+        "detail": "images/54_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000063/54.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000063&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000064",
+      "part_no": "54A",
+      "name": "구동기어 멈춤나사 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "gear",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/54A_main.jpg",
+        "detail": "images/54A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000064/54A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000064&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000065",
+      "part_no": "55",
+      "name": "평판(대)",
+      "category": "plate",
+      "price": 1570,
+      "in_stock": false,
+      "images": {
+        "main": "images/55_main.jpg",
+        "detail": "images/55_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000065/55.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000065&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000066",
+      "part_no": "56",
+      "name": "평판(소)",
+      "category": "plate",
+      "price": 400,
+      "in_stock": false,
+      "images": {
+        "main": "images/56_main.jpg",
+        "detail": "images/56_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000066/56.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000066&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000067",
+      "part_no": "57",
+      "name": "나사봉-7.5cm",
+      "category": "axle",
+      "price": 130,
+      "in_stock": false,
+      "images": {
+        "main": "images/57_main.jpg",
+        "detail": "images/57_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000067/57.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000067&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 7.5
+      }
+    },
+    {
+      "it_id": "5000000068",
+      "part_no": "58",
+      "name": "나사봉-5cm",
+      "category": "axle",
+      "price": 100,
+      "in_stock": false,
+      "images": {
+        "main": "images/58_main.jpg",
+        "detail": "images/58_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000068/58.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000068&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 5
+      }
+    },
+    {
+      "it_id": "5000000069",
+      "part_no": "59",
+      "name": "원형스트립",
+      "category": "strip",
+      "price": 410,
+      "in_stock": false,
+      "images": {
+        "main": "images/59_main.jpg",
+        "detail": "images/59_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000069/59.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000069&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000070",
+      "part_no": "60",
+      "name": "평판-9",
+      "category": "plate",
+      "price": 760,
+      "in_stock": false,
+      "images": {
+        "main": "images/60_main.jpg",
+        "detail": "images/60_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000070/60.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000070&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000071",
+      "part_no": "60K",
+      "name": "평판-9(K)",
+      "category": "plate",
+      "price": 760,
+      "in_stock": false,
+      "images": {
+        "main": "images/60K_main.jpg",
+        "detail": "images/60K_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000071/60K.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000071&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000072",
+      "part_no": "61",
+      "name": "평판-7",
+      "category": "plate",
+      "price": 550,
+      "in_stock": false,
+      "images": {
+        "main": "images/61_main.jpg",
+        "detail": "images/61_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000072/61.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000072&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000073",
+      "part_no": "61K",
+      "name": "평판-7(K)",
+      "category": "plate",
+      "price": 550,
+      "in_stock": false,
+      "images": {
+        "main": "images/61K_main.jpg",
+        "detail": "images/61K_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000073/61K.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000073&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000074",
+      "part_no": "62",
+      "name": "평판-5",
+      "category": "plate",
+      "price": 410,
+      "in_stock": false,
+      "images": {
+        "main": "images/62_main.jpg",
+        "detail": "images/62_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000074/62.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000074&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000075",
+      "part_no": "63",
+      "name": "평판-3",
+      "category": "plate",
+      "price": 390,
+      "in_stock": false,
+      "images": {
+        "main": "images/63_main.jpg",
+        "detail": "images/63_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000075/63.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000075&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000076",
+      "part_no": "63K",
+      "name": "평판-3(K)",
+      "category": "plate",
+      "price": 390,
+      "in_stock": false,
+      "images": {
+        "main": "images/63K_main.jpg",
+        "detail": "images/63K_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000076/63K.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000076&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000077",
+      "part_no": "64",
+      "name": "면판휠",
+      "category": "wheel_pulley",
+      "price": 840,
+      "in_stock": false,
+      "images": {
+        "main": "images/64_main.jpg",
+        "detail": "images/64_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000077/64.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000077&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000078",
+      "part_no": "65",
+      "name": "볼트-1.3cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/65_main.jpg",
+        "detail": "images/65_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000078/65.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000078&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.3
+      }
+    },
+    {
+      "it_id": "5000000079",
+      "part_no": "65N",
+      "name": "볼트 1.3cm (10개입) - 단종 구입불가",
+      "category": "fastener",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/65N_main.jpg",
+        "detail": "images/65N_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000079/65N.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000079&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.3
+      }
+    },
+    {
+      "it_id": "5000000080",
+      "part_no": "66",
+      "name": "볼트-2cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/66_main.jpg",
+        "detail": "images/66_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000080/66.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000080&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 2
+      }
+    },
+    {
+      "it_id": "5000000081",
+      "part_no": "66N",
+      "name": "볼트 2cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/66N_main.jpg",
+        "detail": "images/66N_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000081/66N.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000081&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 2
+      }
+    },
+    {
+      "it_id": "5000000082",
+      "part_no": "67",
+      "name": "볼트-3cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/67_main.jpg",
+        "detail": "images/67_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000082/67.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000082&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 3
+      }
+    },
+    {
+      "it_id": "5000000084",
+      "part_no": "68",
+      "name": "나사핀",
+      "category": "fastener",
+      "price": 100,
+      "in_stock": false,
+      "images": {
+        "main": "images/68_main.jpg",
+        "detail": "images/68_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000084/68.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000084&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000085",
+      "part_no": "69",
+      "name": "프로펠러",
+      "category": "misc",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/69_main.jpg",
+        "detail": "images/69_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000085/69.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000085&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000086",
+      "part_no": "70",
+      "name": "역각브래킷",
+      "category": "bracket",
+      "price": 180,
+      "in_stock": false,
+      "images": {
+        "main": "images/70_main.jpg",
+        "detail": "images/70_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000086/70.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000086&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000087",
+      "part_no": "71",
+      "name": "오각평판",
+      "category": "plate",
+      "price": 460,
+      "in_stock": false,
+      "images": {
+        "main": "images/71_main.jpg",
+        "detail": "images/71_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000087/71.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000087&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000088",
+      "part_no": "72",
+      "name": "삼각브래킷",
+      "category": "bracket",
+      "price": 180,
+      "in_stock": false,
+      "images": {
+        "main": "images/72_main.jpg",
+        "detail": "images/72_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000088/72.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000088&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000089",
+      "part_no": "73",
+      "name": "훅",
+      "category": "misc",
+      "price": 140,
+      "in_stock": false,
+      "images": {
+        "main": "images/73_main.jpg",
+        "detail": "images/73_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000089/73.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000089&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000090",
+      "part_no": "74",
+      "name": "모서리브래킷(좌)",
+      "category": "bracket",
+      "price": 230,
+      "in_stock": false,
+      "images": {
+        "main": "images/74_main.jpg",
+        "detail": "images/74_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000090/74.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000090&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000091",
+      "part_no": "75",
+      "name": "모서리브래킷(우)",
+      "category": "bracket",
+      "price": 230,
+      "in_stock": false,
+      "images": {
+        "main": "images/75_main.jpg",
+        "detail": "images/75_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000091/75.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000091&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000092",
+      "part_no": "76",
+      "name": "상자형베어링",
+      "category": "misc",
+      "price": 520,
+      "in_stock": false,
+      "images": {
+        "main": "images/76_main.jpg",
+        "detail": "images/76_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000092/76.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000092&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000093",
+      "part_no": "77",
+      "name": "파워핸들",
+      "category": "misc",
+      "price": 700,
+      "in_stock": false,
+      "images": {
+        "main": "images/77_main.jpg",
+        "detail": "images/77_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000093/77.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000093&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000094",
+      "part_no": "78",
+      "name": "고무밴드(소)",
+      "category": "misc",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/78_main.jpg",
+        "detail": "images/78_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000094/78.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000094&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000095",
+      "part_no": "79",
+      "name": "고무밴드(대)",
+      "category": "misc",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/79_main.jpg",
+        "detail": "images/79_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000095/79.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000095&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000096",
+      "part_no": "80",
+      "name": "플라스틱판(파랑) 11X3",
+      "category": "plate",
+      "price": 130,
+      "in_stock": false,
+      "images": {
+        "main": "images/80_main.jpg",
+        "detail": "images/80_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000096/80.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000096&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "11x3",
+        "color": "파랑"
+      }
+    },
+    {
+      "it_id": "5000000097",
+      "part_no": "81",
+      "name": "플라스틱판(빨강) 7X5",
+      "category": "plate",
+      "price": 160,
+      "in_stock": false,
+      "images": {
+        "main": "images/81_main.jpg",
+        "detail": "images/81_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000097/81.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000097&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "7x5",
+        "color": "빨강"
+      }
+    },
+    {
+      "it_id": "5000000098",
+      "part_no": "82",
+      "name": "플라스틱판(빨강) 5X5",
+      "category": "plate",
+      "price": 110,
+      "in_stock": false,
+      "images": {
+        "main": "images/82_main.jpg",
+        "detail": "images/82_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000098/82.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000098&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "5x5",
+        "color": "빨강"
+      }
+    },
+    {
+      "it_id": "5000000099",
+      "part_no": "83",
+      "name": "플라스틱판(파랑) 5X3",
+      "category": "plate",
+      "price": 110,
+      "in_stock": false,
+      "images": {
+        "main": "images/83_main.jpg",
+        "detail": "images/83_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000099/83.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000099&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "5x3",
+        "color": "파랑"
+      }
+    },
+    {
+      "it_id": "5000000100",
+      "part_no": "84",
+      "name": "플라스틱판(투명) 5X3",
+      "category": "plate",
+      "price": 100,
+      "in_stock": false,
+      "images": {
+        "main": "images/84_main.jpg",
+        "detail": "images/84_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000100/84.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000100&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "5x3",
+        "color": "투명"
+      }
+    },
+    {
+      "it_id": "5000000101",
+      "part_no": "85",
+      "name": "플라스틱판(파랑) 11X5",
+      "category": "plate",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/85_main.jpg",
+        "detail": "images/85_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000101/85.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000101&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "11x5",
+        "color": "파랑"
+      }
+    },
+    {
+      "it_id": "5000000102",
+      "part_no": "86",
+      "name": "축이음쇠",
+      "category": "axle",
+      "price": 170,
+      "in_stock": false,
+      "images": {
+        "main": "images/86_main.jpg",
+        "detail": "images/86_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000102/86.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000102&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000103",
+      "part_no": "87",
+      "name": "반원판",
+      "category": "plate",
+      "price": 610,
+      "in_stock": false,
+      "images": {
+        "main": "images/87_main.jpg",
+        "detail": "images/87_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000103/87.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000103&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000104",
+      "part_no": "88",
+      "name": "곡면스트립",
+      "category": "strip",
+      "price": 270,
+      "in_stock": false,
+      "images": {
+        "main": "images/88_main.jpg",
+        "detail": "images/88_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000104/88.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000104&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000105",
+      "part_no": "89",
+      "name": "좁은스트립-5",
+      "category": "strip",
+      "price": 410,
+      "in_stock": false,
+      "images": {
+        "main": "images/89_main.jpg",
+        "detail": "images/89_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000105/89.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000105&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 5
+      }
+    },
+    {
+      "it_id": "5000000106",
+      "part_no": "90",
+      "name": "좁은스트립-6",
+      "category": "strip",
+      "price": 410,
+      "in_stock": false,
+      "images": {
+        "main": "images/90_main.jpg",
+        "detail": "images/90_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000106/90.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000106&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 6
+      }
+    },
+    {
+      "it_id": "5000000107",
+      "part_no": "91",
+      "name": "좁은스트립-7",
+      "category": "strip",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/91_main.jpg",
+        "detail": "images/91_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000107/91.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000107&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 7
+      }
+    },
+    {
+      "it_id": "5000000108",
+      "part_no": "92",
+      "name": "좁은스트립-9",
+      "category": "strip",
+      "price": 500,
+      "in_stock": false,
+      "images": {
+        "main": "images/92_main.jpg",
+        "detail": "images/92_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000108/92.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000108&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 9
+      }
+    },
+    {
+      "it_id": "5000000109",
+      "part_no": "93",
+      "name": "좁은스트립-3",
+      "category": "strip",
+      "price": 220,
+      "in_stock": false,
+      "images": {
+        "main": "images/93_main.jpg",
+        "detail": "images/93_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000109/93.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000109&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 3
+      }
+    },
+    {
+      "it_id": "5000000110",
+      "part_no": "94",
+      "name": "타이어(소)",
+      "category": "wheel_pulley",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/94_main.jpg",
+        "detail": "images/94_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000110/94.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000110&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000111",
+      "part_no": "97A",
+      "name": "모터뭉치 (콘넥터단자(신형))",
+      "category": "electric",
+      "price": 6050,
+      "in_stock": false,
+      "images": {
+        "main": "images/97A_main.jpg",
+        "detail": "images/97A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000111/97A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000111&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000112",
+      "part_no": "100A",
+      "name": "기어드모터",
+      "category": "gear",
+      "price": 13500,
+      "in_stock": false,
+      "images": {
+        "main": "images/100A_main.jpg",
+        "detail": "images/100A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000112/100A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000112&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000113",
+      "part_no": "100B",
+      "name": "구동기어뭉치(콘넥터단자(신형))",
+      "category": "gear",
+      "price": 9900,
+      "in_stock": false,
+      "images": {
+        "main": "images/100B_main.jpg",
+        "detail": "images/100B_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000113/100B.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000113&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000114",
+      "part_no": "102",
+      "name": "삼각플라스틱판",
+      "category": "plate",
+      "price": 130,
+      "in_stock": false,
+      "images": {
+        "main": "images/102_main.jpg",
+        "detail": "images/102_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000114/102.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000114&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000115",
+      "part_no": "103",
+      "name": "반원플라스틱판",
+      "category": "plate",
+      "price": 130,
+      "in_stock": false,
+      "images": {
+        "main": "images/103_main.jpg",
+        "detail": "images/103_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000115/103.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000115&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000116",
+      "part_no": "104",
+      "name": "체인 (50개입)_500개 이상 주문시 1봉투에 일괄포장",
+      "category": "misc",
+      "price": 1850,
+      "in_stock": false,
+      "images": {
+        "main": "images/104_main.jpg",
+        "detail": "images/104_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000116/104.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000116&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000117",
+      "part_no": "104A",
+      "name": "링크체인 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "misc",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/104A_main.jpg",
+        "detail": "images/104A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000117/104A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000117&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000118",
+      "part_no": "105",
+      "name": "체인기어(소)",
+      "category": "gear",
+      "price": 1090,
+      "in_stock": false,
+      "images": {
+        "main": "images/105_main.jpg",
+        "detail": "images/105_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000118/105.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000118&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000119",
+      "part_no": "106",
+      "name": "체인기어(대)",
+      "category": "gear",
+      "price": 1250,
+      "in_stock": false,
+      "images": {
+        "main": "images/106_main.jpg",
+        "detail": "images/106_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000119/106.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000119&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000120",
+      "part_no": "107",
+      "name": "타이어(중)",
+      "category": "wheel_pulley",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/107_main.jpg",
+        "detail": "images/107_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000120/107.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000120&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "중"
+      }
+    },
+    {
+      "it_id": "5000000121",
+      "part_no": "108",
+      "name": "래크",
+      "category": "gear",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/108_main.jpg",
+        "detail": "images/108_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000121/108.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000121&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000122",
+      "part_no": "109",
+      "name": "사다리꼴",
+      "category": "misc",
+      "price": 1210,
+      "in_stock": false,
+      "images": {
+        "main": "images/109_main.jpg",
+        "detail": "images/109_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000122/109.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000122&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000123",
+      "part_no": "110",
+      "name": "베어링뭉치",
+      "category": "misc",
+      "price": 1300,
+      "in_stock": false,
+      "images": {
+        "main": "images/110_main.jpg",
+        "detail": "images/110_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000123/110.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000123&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000124",
+      "part_no": "111",
+      "name": "이동클립",
+      "category": "fastener",
+      "price": 640,
+      "in_stock": false,
+      "images": {
+        "main": "images/111_main.jpg",
+        "detail": "images/111_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000124/111.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000124&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000125",
+      "part_no": "112",
+      "name": "축연결부싱",
+      "category": "axle",
+      "price": 880,
+      "in_stock": false,
+      "images": {
+        "main": "images/112_main.jpg",
+        "detail": "images/112_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000125/112.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000125&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000126",
+      "part_no": "120",
+      "name": "코드전선(구형)",
+      "category": "electric",
+      "price": 1050,
+      "in_stock": false,
+      "images": {
+        "main": "images/120_main.jpg",
+        "detail": "images/120_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000126/120.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000126&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000127",
+      "part_no": "120A",
+      "name": "콘넥터전선 30cm",
+      "category": "electric",
+      "price": 970,
+      "in_stock": false,
+      "images": {
+        "main": "images/120A_main.jpg",
+        "detail": "images/120A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000127/120A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000127&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 30
+      }
+    },
+    {
+      "it_id": "5000000128",
+      "part_no": "120B",
+      "name": "콘넥터코드전선(신형)",
+      "category": "electric",
+      "price": 1050,
+      "in_stock": false,
+      "images": {
+        "main": "images/120B_main.jpg",
+        "detail": "images/120B_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000128/120B.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000128&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000129",
+      "part_no": "121",
+      "name": "부품상자(소)",
+      "category": "misc",
+      "price": 310,
+      "in_stock": false,
+      "images": {
+        "main": "images/121_main.jpg",
+        "detail": "images/121_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000129/121.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000129&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000130",
+      "part_no": "122",
+      "name": "next 공구상자",
+      "category": "misc",
+      "price": 30000,
+      "in_stock": false,
+      "images": {
+        "main": "images/122_main.jpg",
+        "detail": "images/122_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000130/122.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000130&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000131",
+      "part_no": "123",
+      "name": "너트드라이버",
+      "category": "fastener",
+      "price": 1600,
+      "in_stock": false,
+      "images": {
+        "main": "images/123_main.jpg",
+        "detail": "images/123_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000131/123.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000131&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000132",
+      "part_no": "124",
+      "name": "축상자(소)",
+      "category": "axle",
+      "price": 310,
+      "in_stock": false,
+      "images": {
+        "main": "images/124_main.jpg",
+        "detail": "images/124_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000132/124.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000132&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000133",
+      "part_no": "124A",
+      "name": "축상자(대)",
+      "category": "axle",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/124A_main.jpg",
+        "detail": "images/124A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000133/124A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000133&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000134",
+      "part_no": "125",
+      "name": "고무캡",
+      "category": "misc",
+      "price": 280,
+      "in_stock": false,
+      "images": {
+        "main": "images/125_main.jpg",
+        "detail": "images/125_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000134/125.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000134&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000135",
+      "part_no": "127",
+      "name": "스트립-25",
+      "category": "strip",
+      "price": 1130,
+      "in_stock": false,
+      "images": {
+        "main": "images/127_main.jpg",
+        "detail": "images/127_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000135/127.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000135&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 25
+      }
+    },
+    {
+      "it_id": "5000000136",
+      "part_no": "128",
+      "name": "트러스스트립-25",
+      "category": "strip",
+      "price": 2080,
+      "in_stock": false,
+      "images": {
+        "main": "images/128_main.jpg",
+        "detail": "images/128_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000136/128.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000136&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 25
+      }
+    },
+    {
+      "it_id": "5000000137",
+      "part_no": "129",
+      "name": "사각평판",
+      "category": "plate",
+      "price": 620,
+      "in_stock": false,
+      "images": {
+        "main": "images/129_main.jpg",
+        "detail": "images/129_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000137/129.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000137&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000138",
+      "part_no": "130",
+      "name": "삼각평판",
+      "category": "plate",
+      "price": 690,
+      "in_stock": false,
+      "images": {
+        "main": "images/130_main.jpg",
+        "detail": "images/130_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000138/130.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000138&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000139",
+      "part_no": "130K",
+      "name": "삼각평판(K)",
+      "category": "plate",
+      "price": 690,
+      "in_stock": false,
+      "images": {
+        "main": "images/130K_main.jpg",
+        "detail": "images/130K_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000139/130K.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000139&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000140",
+      "part_no": "131",
+      "name": "바퀴평판",
+      "category": "wheel_pulley",
+      "price": 960,
+      "in_stock": false,
+      "images": {
+        "main": "images/131_main.jpg",
+        "detail": "images/131_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000140/131.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000140&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000141",
+      "part_no": "131K",
+      "name": "바퀴평판(K)",
+      "category": "wheel_pulley",
+      "price": 960,
+      "in_stock": false,
+      "images": {
+        "main": "images/131K_main.jpg",
+        "detail": "images/131K_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000141/131K.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000141&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000142",
+      "part_no": "132",
+      "name": "앵글-2",
+      "category": "angle",
+      "price": 330,
+      "in_stock": false,
+      "images": {
+        "main": "images/132_main.jpg",
+        "detail": "images/132_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000142/132.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000142&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 2
+      }
+    },
+    {
+      "it_id": "5000000143",
+      "part_no": "133",
+      "name": "조향브래킷",
+      "category": "bracket",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/133_main.jpg",
+        "detail": "images/133_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000143/133.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000143&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000144",
+      "part_no": "134",
+      "name": "플라스틱판(투명)",
+      "category": "plate",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/134_main.jpg",
+        "detail": "images/134_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000144/134.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000144&cat=50",
+      "geometry": null,
+      "hints": {
+        "color": "투명"
+      }
+    },
+    {
+      "it_id": "5000000145",
+      "part_no": "137",
+      "name": "십자축-5",
+      "category": "axle",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/137_main.jpg",
+        "detail": "images/137_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000145/137.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000145&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000146",
+      "part_no": "138",
+      "name": "사각홀고무부싱 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "misc",
+      "price": 730,
+      "in_stock": false,
+      "images": {
+        "main": "images/138_main.jpg",
+        "detail": "images/138_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000146/138.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000146&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000147",
+      "part_no": "139",
+      "name": "플라스틱부싱 (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "misc",
+      "price": 980,
+      "in_stock": false,
+      "images": {
+        "main": "images/139_main.jpg",
+        "detail": "images/139_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000147/139.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000147&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000148",
+      "part_no": "139A",
+      "name": "플라스틱부싱 1.2cm (5개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "misc",
+      "price": 730,
+      "in_stock": false,
+      "images": {
+        "main": "images/139A_main.jpg",
+        "detail": "images/139A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000148/139A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000148&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.2
+      }
+    },
+    {
+      "it_id": "5000000149",
+      "part_no": "140",
+      "name": "2단평기어(소)",
+      "category": "gear",
+      "price": 1670,
+      "in_stock": false,
+      "images": {
+        "main": "images/140_main.jpg",
+        "detail": "images/140_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000149/140.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000149&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "소"
+      }
+    },
+    {
+      "it_id": "5000000150",
+      "part_no": "141",
+      "name": "십자홀2단평기어",
+      "category": "gear",
+      "price": 550,
+      "in_stock": false,
+      "images": {
+        "main": "images/141_main.jpg",
+        "detail": "images/141_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000150/141.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000150&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000151",
+      "part_no": "142",
+      "name": "십자홀피니언",
+      "category": "gear",
+      "price": 250,
+      "in_stock": false,
+      "images": {
+        "main": "images/142_main.jpg",
+        "detail": "images/142_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000151/142.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000151&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000152",
+      "part_no": "143",
+      "name": "십자홀체인기어",
+      "category": "gear",
+      "price": 490,
+      "in_stock": false,
+      "images": {
+        "main": "images/143_main.jpg",
+        "detail": "images/143_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000152/143.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000152&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000153",
+      "part_no": "144",
+      "name": "2단풀리",
+      "category": "wheel_pulley",
+      "price": 2570,
+      "in_stock": false,
+      "images": {
+        "main": "images/144_main.jpg",
+        "detail": "images/144_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000153/144.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000153&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000154",
+      "part_no": "145",
+      "name": "피니언풀리",
+      "category": "gear",
+      "price": 2580,
+      "in_stock": false,
+      "images": {
+        "main": "images/145_main.jpg",
+        "detail": "images/145_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000154/145.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000154&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000155",
+      "part_no": "147",
+      "name": "캐노피",
+      "category": "misc",
+      "price": 430,
+      "in_stock": false,
+      "images": {
+        "main": "images/147_main.jpg",
+        "detail": "images/147_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000155/147.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000155&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000156",
+      "part_no": "148",
+      "name": "래크홀더",
+      "category": "gear",
+      "price": 970,
+      "in_stock": false,
+      "images": {
+        "main": "images/148_main.jpg",
+        "detail": "images/148_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000156/148.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000156&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000157",
+      "part_no": "149",
+      "name": "부품상자(대)",
+      "category": "misc",
+      "price": 550,
+      "in_stock": false,
+      "images": {
+        "main": "images/149_main.jpg",
+        "detail": "images/149_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000157/149.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000157&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000158",
+      "part_no": "151",
+      "name": "타이어(대)",
+      "category": "wheel_pulley",
+      "price": 680,
+      "in_stock": false,
+      "images": {
+        "main": "images/151_main.jpg",
+        "detail": "images/151_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000158/151.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000158&cat=50",
+      "geometry": null,
+      "hints": {
+        "size": "대"
+      }
+    },
+    {
+      "it_id": "5000000159",
+      "part_no": "152",
+      "name": "타이어(특대)",
+      "category": "wheel_pulley",
+      "price": 850,
+      "in_stock": false,
+      "images": {
+        "main": "images/152_main.jpg",
+        "detail": "images/152_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000159/152.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000159&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000160",
+      "part_no": "153",
+      "name": "스위치상자",
+      "category": "electric",
+      "price": 4850,
+      "in_stock": false,
+      "images": {
+        "main": "images/153_main.jpg",
+        "detail": "images/153_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000160/153.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000160&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000161",
+      "part_no": "153B",
+      "name": "조이스틱스위치상자",
+      "category": "electric",
+      "price": 7250,
+      "in_stock": false,
+      "images": {
+        "main": "images/153B_main.jpg",
+        "detail": "images/153B_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000161/153B.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000161&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000162",
+      "part_no": "156",
+      "name": "6V 배터리박스 (단종)",
+      "category": "misc",
+      "price": 4050,
+      "in_stock": false,
+      "images": {
+        "main": "images/156_main.jpg",
+        "detail": "images/156_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000162/156.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000162&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000163",
+      "part_no": "160",
+      "name": "모서리평판 1X5",
+      "category": "plate",
+      "price": 1040,
+      "in_stock": false,
+      "images": {
+        "main": "images/160_main.jpg",
+        "detail": "images/160_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000163/160.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000163&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "1x5"
+      }
+    },
+    {
+      "it_id": "5000000164",
+      "part_no": "161",
+      "name": "실리콘부싱 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "misc",
+      "price": 800,
+      "in_stock": false,
+      "images": {
+        "main": "images/161_main.jpg",
+        "detail": "images/161_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000164/161.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000164&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000165",
+      "part_no": "162",
+      "name": "휠캐스터 (단종)",
+      "category": "wheel_pulley",
+      "price": 1600,
+      "in_stock": false,
+      "images": {
+        "main": "images/162_main.jpg",
+        "detail": "images/162_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000165/162.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000165&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000166",
+      "part_no": "163",
+      "name": "스트립클립",
+      "category": "strip",
+      "price": 280,
+      "in_stock": false,
+      "images": {
+        "main": "images/163_main.jpg",
+        "detail": "images/163_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000166/163.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000166&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000167",
+      "part_no": "164",
+      "name": "센서박스(IR-1)",
+      "category": "misc",
+      "price": 20100,
+      "in_stock": false,
+      "images": {
+        "main": "images/164_main.jpg",
+        "detail": "images/164_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000167/164.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000167&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000168",
+      "part_no": "165",
+      "name": "적외선조종기-스핀마우스용",
+      "category": "misc",
+      "price": 13200,
+      "in_stock": false,
+      "images": {
+        "main": "images/165_main.jpg",
+        "detail": "images/165_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000168/165.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000168&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000169",
+      "part_no": "165A",
+      "name": "적외선조종기(M2)-빅스톰용",
+      "category": "misc",
+      "price": 15800,
+      "in_stock": false,
+      "images": {
+        "main": "images/165A_main.jpg",
+        "detail": "images/165A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000169/165A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000169&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000171",
+      "part_no": "166A",
+      "name": "적외선수신기(M2)-빅스톰용",
+      "category": "misc",
+      "price": 10,
+      "in_stock": false,
+      "images": {
+        "main": "images/166A_main.jpg",
+        "detail": "images/166A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000171/166A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000171&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000172",
+      "part_no": "167",
+      "name": "홈샤프트 1.6cm",
+      "category": "axle",
+      "price": 140,
+      "in_stock": false,
+      "images": {
+        "main": "images/167_main.jpg",
+        "detail": "images/167_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000172/167.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000172&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.6
+      }
+    },
+    {
+      "it_id": "5000000173",
+      "part_no": "168",
+      "name": "플랜지판 2x5",
+      "category": "plate",
+      "price": 460,
+      "in_stock": false,
+      "images": {
+        "main": "images/168_main.jpg",
+        "detail": "images/168_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000173/168.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000173&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "2x5"
+      }
+    },
+    {
+      "it_id": "5000000174",
+      "part_no": "169",
+      "name": "플랜지판 2x7",
+      "category": "plate",
+      "price": 540,
+      "in_stock": false,
+      "images": {
+        "main": "images/169_main.jpg",
+        "detail": "images/169_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000174/169.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000174&cat=50",
+      "geometry": null,
+      "hints": {
+        "grid": "2x7"
+      }
+    },
+    {
+      "it_id": "5000000175",
+      "part_no": "171",
+      "name": "홈샤프트캡",
+      "category": "axle",
+      "price": 140,
+      "in_stock": false,
+      "images": {
+        "main": "images/171_main.jpg",
+        "detail": "images/171_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000175/171.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000175&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000176",
+      "part_no": "172",
+      "name": "원형축캡",
+      "category": "axle",
+      "price": 110,
+      "in_stock": false,
+      "images": {
+        "main": "images/172_main.jpg",
+        "detail": "images/172_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000176/172.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000176&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000177",
+      "part_no": "173",
+      "name": "홈샤프트사각캡",
+      "category": "axle",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/173_main.jpg",
+        "detail": "images/173_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000177/173.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000177&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000178",
+      "part_no": "174",
+      "name": "홈샤프트 1.5cm(5단)",
+      "category": "axle",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/174_main.jpg",
+        "detail": "images/174_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000178/174.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000178&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.5
+      }
+    },
+    {
+      "it_id": "5000000179",
+      "part_no": "175",
+      "name": "홈샤프트 0.9cm(2단)",
+      "category": "axle",
+      "price": 190,
+      "in_stock": false,
+      "images": {
+        "main": "images/175_main.jpg",
+        "detail": "images/175_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000179/175.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000179&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 0.9
+      }
+    },
+    {
+      "it_id": "5000000180",
+      "part_no": "176",
+      "name": "2단볼트 1.5cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/176_main.jpg",
+        "detail": "images/176_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000180/176.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000180&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.5
+      }
+    },
+    {
+      "it_id": "5000000181",
+      "part_no": "176A",
+      "name": "2단볼트 1.7cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 370,
+      "in_stock": false,
+      "images": {
+        "main": "images/176A_main.jpg",
+        "detail": "images/176A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000181/176A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000181&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 1.7
+      }
+    },
+    {
+      "it_id": "5000000182",
+      "part_no": "177",
+      "name": "사각머리볼트 (4개입)_80개 이상 주문시 1봉투에 일괄포장",
+      "category": "fastener",
+      "price": 200,
+      "in_stock": false,
+      "images": {
+        "main": "images/177_main.jpg",
+        "detail": "images/177_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000182/177.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000182&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000183",
+      "part_no": "188A",
+      "name": "축-15.5cm",
+      "category": "axle",
+      "price": 410,
+      "in_stock": false,
+      "images": {
+        "main": "images/188A_main.jpg",
+        "detail": "images/188A_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000183/188A.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000183&cat=50",
+      "geometry": null,
+      "hints": {
+        "length_cm": 15.5
+      }
+    },
+    {
+      "it_id": "5000000184",
+      "part_no": "201",
+      "name": "스프로켓휠(8T)",
+      "category": "wheel_pulley",
+      "price": 1040,
+      "in_stock": false,
+      "images": {
+        "main": "images/201_main.jpg",
+        "detail": "images/201_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000184/201.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000184&cat=50",
+      "geometry": null,
+      "hints": {
+        "teeth": 8
+      }
+    },
+    {
+      "it_id": "5000000185",
+      "part_no": "202",
+      "name": "로드휠",
+      "category": "wheel_pulley",
+      "price": 350,
+      "in_stock": false,
+      "images": {
+        "main": "images/202_main.jpg",
+        "detail": "images/202_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000185/202.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000185&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000186",
+      "part_no": "203",
+      "name": "로드휠너클브래킷",
+      "category": "bracket",
+      "price": 410,
+      "in_stock": false,
+      "images": {
+        "main": "images/203_main.jpg",
+        "detail": "images/203_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000186/203.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000186&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000187",
+      "part_no": "204",
+      "name": "무한궤도",
+      "category": "misc",
+      "price": 90,
+      "in_stock": false,
+      "images": {
+        "main": "images/204_main.jpg",
+        "detail": "images/204_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000187/204.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000187&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000188",
+      "part_no": "205",
+      "name": "서보모터브래킷",
+      "category": "bracket",
+      "price": 610,
+      "in_stock": false,
+      "images": {
+        "main": "images/205_main.jpg",
+        "detail": "images/205_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000188/205.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000188&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000193",
+      "part_no": "453",
+      "name": "45도 스트립-5",
+      "category": "strip",
+      "price": 500,
+      "in_stock": false,
+      "images": {
+        "main": "images/453_main.jpg",
+        "detail": "images/453_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000193/453.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000193&cat=50",
+      "geometry": null,
+      "hints": {
+        "holes": 5
+      }
+    },
+    {
+      "it_id": "5000000194",
+      "part_no": "503",
+      "name": "기어드모터브래킷",
+      "category": "bracket",
+      "price": 140,
+      "in_stock": false,
+      "images": {
+        "main": "images/503_main.jpg",
+        "detail": "images/503_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000194/6riw7Ja065Oc66qo7YSw67iM656Y7YK3.png",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000194&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000189",
+      "part_no": "211",
+      "name": "3호→5호 업그레이드",
+      "category": "misc",
+      "price": 100700,
+      "in_stock": false,
+      "images": {
+        "main": "images/211_main.jpg",
+        "detail": "images/211_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000189/211.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000189&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000190",
+      "part_no": "212",
+      "name": "3호→6호 업그레이드",
+      "category": "misc",
+      "price": 157500,
+      "in_stock": false,
+      "images": {
+        "main": "images/212_main.jpg",
+        "detail": "images/212_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000190/212.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000190&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000191",
+      "part_no": "213",
+      "name": "5호→6호 업그레이드",
+      "category": "misc",
+      "price": 61600,
+      "in_stock": false,
+      "images": {
+        "main": "images/213_main.jpg",
+        "detail": "images/213_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000191/213.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000191&cat=50",
+      "geometry": null
+    },
+    {
+      "it_id": "5000000192",
+      "part_no": "214",
+      "name": "구형 6호→신형 6호 업그레이드",
+      "category": "misc",
+      "price": 24900,
+      "in_stock": false,
+      "images": {
+        "main": "images/214_main.jpg",
+        "detail": "images/214_detail.jpg"
+      },
+      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000192/214.jpg",
+      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000192&cat=50",
+      "geometry": null
+    }
+  ]
+}

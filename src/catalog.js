@@ -3,7 +3,8 @@
 
 import {
   makeStrip, makeAngle, makeChannel, makeRectPlate,
-  makeAxle, makeSpurGearS, makePinionGear, NARROW_W,
+  makeAxle, makeSpurGearS, makeSpurGearL, makePinionGear,
+  makeJoinPlate, makeLBracket, makeUBracket, NARROW_W,
 } from './generators.js';
 
 export const CATALOG = [
@@ -47,6 +48,15 @@ export const CATALOG = [
     ],
   },
   {
+    group: '브래킷',
+    items: [
+      { id: 'join-plate',   label: '이음판',        qty: 2, make: () => makeJoinPlate() },
+      { id: 'l-bracket-s',  label: 'ㄱ형브래킷(소)', qty: 6, make: () => makeLBracket(1) },
+      { id: 'l-bracket-l',  label: 'ㄱ형브래킷(대)', qty: 4, make: () => makeLBracket(2) },
+      { id: 'u-bracket-s',  label: 'ㄷ형브래킷(소)', qty: 2, make: () => makeUBracket(12.5) },
+    ],
+  },
+  {
     group: '평판',
     items: [
       { id: 'plate-3x5', label: '사각평판 3×5', qty: 2, make: () => makeRectPlate(5, 3) },
@@ -55,19 +65,20 @@ export const CATALOG = [
   {
     group: '축',
     items: [
-      { id: 'axle-290', label: '축 29cm',  qty: 2, make: () => makeAxle(290) },
+      { id: 'axle-290', label: '축 29cm',  qty: 2, make: () => makeAxle(294) },
       { id: 'axle-140', label: '축 14cm',  qty: 7, make: () => makeAxle(140) },
-      { id: 'axle-100', label: '축 10cm',  qty: 3, make: () => makeAxle(100) },
+      { id: 'axle-100', label: '축 10cm',  qty: 3, make: () => makeAxle(102) },
       { id: 'axle-90',  label: '축 9cm',   qty: 2, make: () => makeAxle(90) },
-      { id: 'axle-75',  label: '축 7.5cm', qty: 2, make: () => makeAxle(75) },
+      { id: 'axle-75',  label: '축 7.5cm', qty: 2, make: () => makeAxle(76) },
       { id: 'axle-65',  label: '축 6.5cm', qty: 2, make: () => makeAxle(65) },
-      { id: 'axle-50',  label: '축 5cm',   qty: 2, make: () => makeAxle(50) },
+      { id: 'axle-50',  label: '축 5cm',   qty: 2, make: () => makeAxle(51) },
       { id: 'axle-40',  label: '축 4cm',   qty: 1, make: () => makeAxle(40) },
     ],
   },
   {
     group: '기어',
     items: [
+      { id: 'gear-spur-l', label: '평기어(대) 95T', qty: 1, make: () => makeSpurGearL() },
       { id: 'gear-spur-s', label: '평기어(소) 57T', qty: 2, make: () => makeSpurGearS() },
       { id: 'gear-pinion', label: '피니언기어 19T', qty: 3, make: () => makePinionGear() },
     ],
