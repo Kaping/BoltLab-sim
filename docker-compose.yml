@@ -1,0 +1,7 @@
+name: sciencebox-sim
+
+services:
+  sciencebox-sim:
+    build: .
+    ports:
+      - "8080:80"
