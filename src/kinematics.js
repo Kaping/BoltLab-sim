@@ -1,7 +1,7 @@
 // 기구학(동작) 시뮬레이션
 //
 // 모델
-//  - 강체(body): bolt / clip 으로 묶인 부품 덩어리 (union-find)
+//  - 강체(body): bolt / clip / 그룹 으로 묶인 부품 덩어리 (union-find)
 //  - 회전 조인트: bearing(축↔판) / pivot(회전볼트, 판↔판) / drive(모터 출력↔축)
 //  - 구속: 폐루프 조인트(점 일치 + 축 평행), 모터 목표각, 기어 맞물림(잇수비), 손 구동
 //
@@ -88,6 +88,12 @@ export class KinematicModel {
     const parent = new Map(ids.map(i => [i, i]));
     const find = x => { while (parent.get(x) !== x) { parent.set(x, parent.get(parent.get(x))); x = parent.get(x); } return x; };
     for (const c of asm.connections) if (RIGID.has(c.type)) parent.set(find(c.a), find(c.b));
+    const groupHead = new Map(); // 그룹은 강체
+    for (const id of ids) {
+      const g = asm.parts.get(id).group;
+      if (g == null) continue;
+      if (groupHead.has(g)) parent.set(find(id), find(groupHead.get(g))); else groupHead.set(g, id);
+    }
 
     const rootToBody = new Map();
     this.bodies = [];            // [{ parts: [partId] }]

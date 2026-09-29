@@ -7,6 +7,7 @@ import { THICK } from './generators.js';
 
 let nextPartId = 1;
 let nextConnId = 1;
+let nextGroupId = 1;
 
 export class Assembly {
   constructor() {
@@ -27,6 +28,7 @@ export class Assembly {
       spinner: made.spinner,
       output: made.output,
       motorRpm: made.kind === 'motor' ? 60 : undefined,
+      group: null,            // 그룹 id: 같은 그룹은 한 덩어리로 고정
     };
     part.root.traverse(o => { o.userData.partId = id; });
     part.root.userData.partId = id;
@@ -45,7 +47,40 @@ export class Assembly {
     });
     this.usedCount.set(part.defId, (this.usedCount.get(part.defId) || 1) - 1);
     this.parts.delete(id);
+    if (part.group !== null) {
+      const rest = this.groupMembers(part.group);
+      if (rest.length < 2) for (const r of rest) this.parts.get(r).group = null;
+    }
     return removedMeshes;
+  }
+
+  clear() {
+    this.parts.clear();
+    this.connections = [];
+    this.usedCount.clear();
+  }
+
+  // ── 그룹: 볼트 없이도 한 덩어리로 고정 ──
+  groupMembers(gid) {
+    const out = [];
+    for (const p of this.parts.values()) if (p.group === gid) out.push(p.id);
+    return out;
+  }
+  setGroup(ids) {
+    const gid = nextGroupId++;
+    // 기존 그룹에 속한 부품은 그 그룹 전체를 흡수
+    const all = new Set(ids);
+    for (const id of ids) {
+      const g = this.parts.get(id)?.group;
+      if (g != null) for (const m of this.groupMembers(g)) all.add(m);
+    }
+    for (const id of all) this.parts.get(id).group = gid;
+    return gid;
+  }
+  ungroup(ids) {
+    const gids = new Set(ids.map(id => this.parts.get(id)?.group).filter(g => g != null));
+    for (const p of this.parts.values()) if (gids.has(p.group)) p.group = null;
+    return gids.size;
   }
 
   connect(type, a, b, holeA, holeB, mesh) {
@@ -73,6 +108,8 @@ export class Assembly {
         const nb = c.a === cur ? c.b : (c.b === cur ? c.a : null);
         if (nb !== null && !seen.has(nb)) { seen.add(nb); queue.push(nb); }
       }
+      const g = this.parts.get(cur)?.group;
+      if (g != null) for (const m of this.groupMembers(g)) if (!seen.has(m)) { seen.add(m); queue.push(m); }
     }
     return seen;
   }
