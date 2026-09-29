@@ -33,6 +33,14 @@
   #status { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px 12px; font-size: 12px; color: var(--dim); background: rgba(26,29,33,.85); pointer-events: none; }
   #help { position: absolute; top: 10px; right: 10px; background: rgba(35,39,46,.92); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: var(--dim); line-height: 1.8; }
   #help b { color: var(--text); }
+  #toolbar .sep { width: 1px; background: var(--border); margin: 0 4px; }
+  body.sim #btn-bolt, body.sim #btn-rotate, body.sim #btn-tilt, body.sim #btn-delete { opacity: .35; pointer-events: none; }
+  body.sim #sidebar { opacity: .5; pointer-events: none; }
+  body.sim #main::after { content: 'SIM'; position: absolute; bottom: 34px; right: 12px; font-size: 11px; letter-spacing: 2px; color: #10141a; background: #7cff6b; padding: 2px 8px; border-radius: 4px; }
+  #motor-panel { position: absolute; top: 52px; left: 10px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 12px; display: flex; gap: 8px; align-items: center; }
+  #motor-panel[hidden] { display: none; }
+  #motor-panel button { background: #2c313a; color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 3px 8px; cursor: pointer; }
+  #rpm-label { min-width: 62px; text-align: right; font-variant-numeric: tabular-nums; }
 </style>
 <script type="importmap">
 {
@@ -55,12 +63,22 @@
       <button id="btn-rotate" title="R">↻ 회전 90°</button>
       <button id="btn-tilt" title="F">⤴ 세우기 90°</button>
       <button id="btn-delete" title="Del">🗑 삭제</button>
+      <span class="sep"></span>
+      <button id="btn-play" title="Space">▶ 재생</button>
+      <button id="btn-reset" title="Esc">⟲ 원위치</button>
+      <button id="btn-pin" title="G">📌 고정</button>
+    </div>
+    <div id="motor-panel" hidden>
+      모터 속도 <input id="rpm" type="range" min="-120" max="120" step="5" value="60">
+      <span id="rpm-label">60 rpm</span>
+      <button id="btn-reverse" title="역회전">⇄</button>
     </div>
     <div id="help">
       <b>드래그</b> 이동 · <b>Shift+드래그</b> 세로 이동 (구멍/축 자동 스냅)<br>
       <b>R</b> 회전 · <b>F</b> 세우기 · <b>Q/E</b> 높이 (Shift: 미세)<br>
-      <b>B</b> 볼트 모드 → 링 클릭: <span style="color:#ffd54a">볼트</span> <span style="color:#4dd0e1">클립(기어·축)</span> <span style="color:#da70d6">베어링(축·판)</span><br>
-      <b>, / .</b> 축·기어 회전 구동 · <b>Del</b> 삭제 · 빈 곳 드래그: 카메라
+      <b>B</b> 볼트 모드 → 링 클릭: <span style="color:#ffd54a">볼트</span>(<b>Shift</b>: <span style="color:#ff8a3d">회전볼트</span>) <span style="color:#4dd0e1">클립</span> <span style="color:#da70d6">베어링</span> <span style="color:#7cff6b">모터</span><br>
+      <b>Space</b> 재생/일시정지 · <b>Esc</b> 원위치 · <b>G</b> 바닥 고정 · <b>[ ]</b> 모터 속도<br>
+      <b>, / .</b> 선택 부품 손으로 돌리기 · <b>Del</b> 삭제 · 빈 곳 드래그: 카메라
     </div>
     <div id="status">부품을 팔레트에서 클릭해 추가하세요.</div>
   </div>

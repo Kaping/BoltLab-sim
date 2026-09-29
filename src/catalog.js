@@ -4,7 +4,7 @@
 import {
   makeStrip, makeAngle, makeChannel, makeRectPlate,
   makeAxle, makeSpurGearS, makeSpurGearL, makePinionGear,
-  makeJoinPlate, makeLBracket, makeUBracket, NARROW_W,
+  makeJoinPlate, makeLBracket, makeUBracket, makeMotor, NARROW_W,
 } from './generators.js';
 
 export const CATALOG = [
@@ -81,6 +81,12 @@ export const CATALOG = [
       { id: 'gear-spur-l', label: '평기어(대) 95T', qty: 1, make: () => makeSpurGearL() },
       { id: 'gear-spur-s', label: '평기어(소) 57T', qty: 2, make: () => makeSpurGearS() },
       { id: 'gear-pinion', label: '피니언기어 19T', qty: 3, make: () => makePinionGear() },
+    ],
+  },
+  {
+    group: '구동',
+    items: [
+      { id: 'motor', label: '모터뭉치', qty: 1, make: () => makeMotor() },
     ],
   },
 ];

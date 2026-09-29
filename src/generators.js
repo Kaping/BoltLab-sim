@@ -2,7 +2,7 @@
 // 좌표계: 1 unit = 1mm. 판 부품: 길이=X, 두께=Y, 폭=Z. 회전 부품(축/기어): 축방향=로컬 +Y.
 // 반환: { group, holes, kind, ... }
 //   holes = [{ p: Vector3(로컬), n: Vector3(구멍 축), t: 그 지점의 판 두께 }]
-//   kind  = 'plate' | 'axle' | 'gear'
+//   kind  = 'plate' | 'axle' | 'gear' | 'motor'
 //   회전 부품은 spinner(자전용 내부 그룹) 포함
 
 import * as THREE from 'three';
@@ -275,6 +275,36 @@ function makeGear(teeth, { boltHoleCount = 0, boltCircleR = 0, boltHoleCount2 = 
 export const makeSpurGearS = () => makeGear(57, { boltHoleCount: 8, boltCircleR: 12.7 });
 export const makePinionGear = () => makeGear(19, { hubH: 10.5 });
 export const makeSpurGearL = () => makeGear(95, { boltHoleCount: 8, boltCircleR: 12.7, boltHoleCount2: 8, boltCircleR2: 25.4 });
+
+// ── 모터뭉치 ──  (규격 추정치: 실측 후 보정)
+// 바닥 플랜지 구멍 2개(@±12.7) + 상자 몸체, 출력축 허브는 로컬 +X 면, 높이 12.7
+// output = { p, n }: 축이 이 허브를 관통하면 'drive' 연결 (모터가 축을 구동)
+export const MOTOR_OUT_H = PITCH;
+export function makeMotor() {
+  const L = 38.1, W = 25.4, H = 24;
+  const group = new THREE.Group();
+  const baseHoles = [{ x: -PITCH, z: 0 }, { x: PITCH, z: 0 }];
+  const base = new THREE.Mesh(flatPlateGeometry(L + 12.7, W, baseHoles, 2), steelMaterial());
+  group.add(base);
+  const box = new THREE.Mesh(new THREE.BoxGeometry(L - 14, H, W - 2), plasticMaterial(0x2f6fb0));
+  box.position.y = THICK / 2 + H / 2;
+  group.add(box);
+  const outX = (L - 14) / 2;
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(4.5, 4.5, 5, 20), steelMaterial());
+  hub.rotation.z = -Math.PI / 2;
+  hub.position.set(outX + 2.5, MOTOR_OUT_H, 0);
+  group.add(hub);
+  // 방향 표시 화살표 (출력축 둘레)
+  const arrow = new THREE.Mesh(new THREE.TorusGeometry(7, 0.6, 6, 20, Math.PI * 1.4), new THREE.MeshBasicMaterial({ color: 0xffd54a }));
+  arrow.rotation.y = Math.PI / 2;
+  arrow.position.set(outX + 0.5, MOTOR_OUT_H, 0);
+  group.add(arrow);
+  return {
+    group, kind: 'motor',
+    holes: baseHoles.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)),
+    output: { p: new THREE.Vector3(outX + 5, MOTOR_OUT_H, 0), n: new THREE.Vector3(1, 0, 0) },
+  };
+}
 
 // ── M4 볼트+너트 ──  로컬 +Y = 볼트 축
 export function makeBolt() {

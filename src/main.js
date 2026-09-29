@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CATALOG, findDef } from './catalog.js';
 import { Assembly } from './assembly.js';
 import { makeBolt, makeClipRing, THICK, PITCH } from './generators.js';
+import { KinematicModel } from './kinematics.js';
 
 const SNAP_DIST = 6;      // 스냅 흡착 거리(mm)
 const COAX_RADIAL = 1.0;  // 동축(축-구멍) 체결 허용 반경 오차
@@ -52,6 +53,10 @@ let selectedId = null;
 let boltMode = false;
 let drag = null;
 let spawnIndex = 0;
+let pinnedPartId = null;
+
+// 시뮬 상태: active = 시뮬 모드(편집 잠금), playing = 재생 중
+const sim = { active: false, playing: false, model: null, meter: { t: 0, id: null, angle: 0 } };
 
 const statusEl = document.getElementById('status');
 const setStatus = t => { statusEl.textContent = t; };
@@ -129,6 +134,7 @@ function select(id) {
   if (selectedId !== null) setEmissive(selectedId, 0x000000);
   selectedId = id;
   if (id !== null) setEmissive(id, 0x16408a);
+  refreshMotorPanel();
 }
 
 // ── 레이캐스트 ──────────────────────────────────────────
@@ -169,6 +175,7 @@ function findCandidates() {
       const radial = d.clone().addScaledVector(B.n, -d.dot(B.n)).length();
       if (radial > COAX_RADIAL || axial > (A.t + B.t) / 2 + 0.6) continue;
       if (assembly.hasConnection('bolt', A.partId, A.index, B.partId, B.index)) continue;
+      if (assembly.hasConnection('pivot', A.partId, A.index, B.partId, B.index)) continue;
       out.push({ type: 'bolt', A, B, n: B.n, mid: new THREE.Vector3().addVectors(A.p, B.p).multiplyScalar(0.5) });
     }
   }
@@ -177,8 +184,9 @@ function findCandidates() {
       if (Math.abs(ax.dir.dot(hub.n)) < PARALLEL) continue;
       const { point, t } = closestOnLine(ax.origin, ax.dir, hub.p);
       if (point.distanceTo(hub.p) > COAX_RADIAL || Math.abs(t) > ax.halfLen + 1) continue;
-      if (assembly.hasLink('clip', ax.partId, hub.partId)) continue;
-      out.push({ type: 'clip', axle: ax, other: hub, n: ax.dir, mid: hub.p.clone() });
+      const type = hub.motor ? 'drive' : 'clip';
+      if (assembly.hasLink(type, ax.partId, hub.partId)) continue;
+      out.push({ type, axle: ax, other: hub, n: ax.dir, mid: hub.p.clone() });
     }
     for (const h of holes) {
       if (h.kind === 'gear') continue; // 기어 볼트구멍은 베어링 대상 아님
@@ -192,7 +200,7 @@ function findCandidates() {
   return out;
 }
 
-const MARKER_COLOR = { bolt: 0xffd54a, clip: 0x4dd0e1, bearing: 0xda70d6 };
+const MARKER_COLOR = { bolt: 0xffd54a, clip: 0x4dd0e1, bearing: 0xda70d6, drive: 0x7cff6b };
 
 function refreshMarkers() {
   markerGroup.clear();
@@ -205,19 +213,22 @@ function refreshMarkers() {
     markerGroup.add(ring);
   }
   setStatus(cands.length
-    ? `체결 가능 ${cands.length}곳 — 노랑=볼트, 하늘=클립(기어·축), 보라=베어링(축·판)`
+    ? `체결 가능 ${cands.length}곳 — 노랑=볼트(Shift+클릭: 회전볼트), 하늘=클립, 보라=베어링, 초록=모터 연결`
     : '체결 가능한 지점이 없습니다. 구멍을 겹치거나 축을 관통시키세요.');
 }
 
-function addConnection(c) {
+function addConnection(c, pivot = false) {
   let mesh, a, b, holeA = -1, holeB = -1;
+  let type = c.type;
   if (c.type === 'bolt') {
+    if (pivot) type = 'pivot';
     mesh = makeBolt();
+    if (pivot) mesh.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.color.setHex(0xff8a3d); } });
     mesh.position.copy(c.mid);
     mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), c.n.clone().normalize());
     a = c.A.partId; b = c.B.partId; holeA = c.A.index; holeB = c.B.index;
   } else {
-    mesh = makeClipRing(c.type === 'clip' ? 0x37474f : 0x7b4a8f);
+    mesh = makeClipRing({ clip: 0x37474f, bearing: 0x7b4a8f, drive: 0x2e7d32 }[c.type]);
     mesh.position.copy(c.mid);
     mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), c.n.clone().normalize());
     a = c.axle.partId; b = c.other.partId;
@@ -225,22 +236,28 @@ function addConnection(c) {
   }
   scene.add(mesh);
   assembly.parts.get(b).root.attach(mesh);
-  const conn = assembly.connect(c.type, a, b, holeA, holeB, mesh);
+  const conn = assembly.connect(type, a, b, holeA, holeB, mesh);
   mesh.userData.connId = conn.id;
   mesh.traverse(o => { o.userData.connId = conn.id; });
   refreshMarkers();
-  const msg = { bolt: '볼트 체결', clip: '스프링클립 고정(기어↔축)', bearing: '베어링 연결(축↔판)' };
-  setStatus(`${msg[c.type]} 완료.`);
+  const msg = { bolt: '볼트 고정', pivot: '회전볼트 체결(두 부품이 이 구멍을 축으로 돌 수 있음)', clip: '스프링클립 고정(기어↔축)', bearing: '베어링 연결(축↔판)', drive: '모터 연결(모터가 이 축을 돌림)' };
+  setStatus(`${msg[type]} 완료.`);
 }
 
 // ── 드래그 & 스냅 ───────────────────────────────────────
 canvas.addEventListener('pointerdown', e => {
   if (e.button !== 0) return;
 
+  if (sim.active) { // 시뮬 중에는 선택만
+    const hit = pickPart(e);
+    select(hit ? hit.partId : null);
+    return;
+  }
+
   if (boltMode) {
     setPointer(e);
     const mHits = raycaster.intersectObjects(markerGroup.children, false);
-    if (mHits.length) { addConnection(mHits[0].object.userData.candidate); return; }
+    if (mHits.length) { addConnection(mHits[0].object.userData.candidate, e.shiftKey); return; }
     const connMeshes = assembly.connections.map(c => c.mesh);
     const bHits = raycaster.intersectObjects(connMeshes, true);
     if (bHits.length) {
@@ -340,6 +357,7 @@ canvas.addEventListener('pointerup', () => {
 
 // ── 변환 조작 ───────────────────────────────────────────
 function transformComponent(fn) {
+  if (sim.active) return;
   if (selectedId === null || !assembly.parts.has(selectedId)) return;
   const component = assembly.componentOf(selectedId);
   const pivot = assembly.parts.get(selectedId).root.position.clone();
@@ -357,10 +375,11 @@ function moveSelectedY(dy) {
   transformComponent(root => { root.position.y += dy; });
 }
 function deleteSelected() {
-  if (selectedId === null) return;
+  if (sim.active || selectedId === null) return;
   const part = assembly.parts.get(selectedId);
   if (!part) return;
   for (const m of assembly.removePart(selectedId)) m.parent && m.parent.remove(m);
+  if (pinnedPartId === selectedId) pinnedPartId = null;
   partsRoot.remove(part.root);
   select(null);
   renderPalette();
@@ -368,76 +387,92 @@ function deleteSelected() {
   setStatus('부품을 삭제했습니다.');
 }
 function toggleBoltMode() {
+  if (sim.active) return;
   boltMode = !boltMode;
   document.getElementById('btn-bolt').classList.toggle('active', boltMode);
   refreshMarkers();
   if (!boltMode) setStatus('볼트 모드 해제.');
 }
 
-// ── 회전 전달 (기어 트레인) ─────────────────────────────
-// clip: 1:1 (축↔기어) / mesh: -tA/tB (맞물린 기어쌍, 동적 감지)
-function spinEdges() {
-  const edges = []; // {a, b, k}  ωb = ωa * k
-  for (const c of assembly.connections) {
-    if (c.type !== 'clip') continue;
-    const na = axisOf(c.a), nb = axisOf(c.b);
-    if (!na || !nb) continue;
-    const s = Math.sign(na.dot(nb)) || 1;
-    edges.push({ a: c.a, b: c.b, k: s }, { a: c.b, b: c.a, k: s });
-  }
-  const hubs = assembly.worldHubs();
-  for (let i = 0; i < hubs.length; i++) for (let j = i + 1; j < hubs.length; j++) {
-    const A = hubs[i], B = hubs[j];
-    const dot = A.n.dot(B.n);
-    if (Math.abs(dot) < PARALLEL) continue;
-    const d = new THREE.Vector3().subVectors(B.p, A.p);
-    if (Math.abs(d.dot(A.n)) > 3) continue; // 같은 평면
-    const centerDist = d.clone().addScaledVector(A.n, -d.dot(A.n)).length();
-    if (Math.abs(centerDist - (A.gear.pitchR + B.gear.pitchR)) > 1.5) continue;
-    const s = Math.sign(dot) || 1;
-    edges.push({ a: A.partId, b: B.partId, k: -s * A.gear.teeth / B.gear.teeth });
-    edges.push({ a: B.partId, b: A.partId, k: -s * B.gear.teeth / A.gear.teeth });
-  }
-  return edges;
+// ── 동작 시뮬레이션 ───────────────────────────────────
+const btnPlay = document.getElementById('btn-play');
+const motorPanel = document.getElementById('motor-panel');
+const rpmInput = document.getElementById('rpm');
+const rpmLabel = document.getElementById('rpm-label');
+
+function startSim() {
+  if (boltMode) toggleBoltMode();
+  drag = null;
+  sim.model = new KinematicModel(assembly, {
+    pinnedPart: pinnedPartId,
+    motorRpm: id => assembly.parts.get(id)?.motorRpm ?? 0,
+  });
+  sim.active = true;
+  document.body.classList.add('sim');
+  const m = sim.model.summary();
+  setStatus(`시뮬 시작 — 강체 ${m.bodies} · 회전축 ${m.joints} · 자유도 ${m.dof} · 폐루프 ${m.loops} · 모터 ${m.motors} · 기어쌍 ${m.gears}`
+    + (m.motors ? '' : '  |  모터가 없어요: 축·기어를 선택하고 , / . 로 손으로 돌려보세요'));
 }
-function axisOf(partId) {
-  const part = assembly.parts.get(partId);
-  if (!part || (part.kind !== 'axle' && part.kind !== 'gear')) return null;
-  part.root.updateMatrixWorld(true);
-  return new THREE.Vector3(0, 1, 0).transformDirection(part.root.matrixWorld);
+function togglePlay() {
+  if (!sim.active) startSim();
+  sim.playing = !sim.playing;
+  btnPlay.textContent = sim.playing ? '⏸ 일시정지' : '▶ 재생';
+  btnPlay.classList.toggle('active', sim.playing);
 }
-function spin(delta) {
+function resetSim() {
+  if (!sim.active) return;
+  sim.model.restore();
+  sim.model = null;
+  sim.active = false;
+  sim.playing = false;
+  btnPlay.textContent = '▶ 재생';
+  btnPlay.classList.remove('active');
+  document.body.classList.remove('sim');
+  setStatus('원위치로 되돌렸습니다. 다시 편집할 수 있어요.');
+}
+function handCrank(delta) {
+  if (selectedId === null) { setStatus('돌릴 축·기어·부품을 먼저 선택하세요.'); return; }
+  if (!sim.active) startSim();
+  if (!sim.model.nudge(selectedId, delta)) { setStatus('이 부품은 고정 강체라 돌릴 수 없어요.'); return; }
+  if (!sim.playing) { sim.model.step(0); sim.model.apply(); }
+}
+function togglePin() {
   if (selectedId === null) return;
-  const start = assembly.parts.get(selectedId);
-  if (!start || (start.kind !== 'axle' && start.kind !== 'gear')) {
-    setStatus('축이나 기어를 선택한 뒤 , / . 키로 돌려보세요.');
-    return;
+  pinnedPartId = pinnedPartId === selectedId ? null : selectedId;
+  setStatus(pinnedPartId === null ? '고정 해제 — 시뮬 시 프레임을 자동으로 고릅니다.'
+    : '📌 이 부품이 붙은 덩어리를 바닥(고정)으로 씁니다. (다음 시뮬부터 적용)');
+}
+function refreshMotorPanel() {
+  const part = selectedId !== null ? assembly.parts.get(selectedId) : null;
+  const isMotor = part && part.kind === 'motor';
+  motorPanel.hidden = !isMotor;
+  if (isMotor) { rpmInput.value = part.motorRpm; rpmLabel.textContent = `${part.motorRpm} rpm`; }
+}
+function setMotorRpm(v) {
+  const part = selectedId !== null ? assembly.parts.get(selectedId) : null;
+  if (!part || part.kind !== 'motor') return;
+  part.motorRpm = Math.max(-120, Math.min(120, Math.round(v)));
+  refreshMotorPanel();
+}
+rpmInput.addEventListener('input', () => setMotorRpm(Number(rpmInput.value)));
+document.getElementById('btn-reverse').addEventListener('click', () => {
+  const part = assembly.parts.get(selectedId);
+  if (part && part.kind === 'motor') setMotorRpm(-part.motorRpm);
+});
+
+// 선택 부품 회전속도 측정 (0.25초마다)
+function updateMeter(dt) {
+  const m = sim.meter;
+  m.t += dt;
+  if (m.t < 0.25) return;
+  const ang = selectedId !== null ? sim.model.angleOfPart(selectedId) : null;
+  if (m.id === selectedId && ang !== null && !sim.model.stalled) {
+    const rpm = ((ang - m.angle) / m.t) / (2 * Math.PI) * 60;
+    const part = assembly.parts.get(selectedId);
+    const label = findDef(part.defId)?.label ?? '';
+    setStatus(`▶ ${label}: ${Math.abs(rpm) < 0.05 ? '정지' : `${rpm.toFixed(1)} rpm`}  (연결된 부모 부품 기준)`);
   }
-  const edges = spinEdges();
-  const ang = new Map([[selectedId, delta]]);
-  const queue = [selectedId];
-  while (queue.length) {
-    const cur = queue.shift();
-    for (const e of edges) {
-      if (e.a !== cur) continue;
-      const expected = ang.get(cur) * e.k;
-      if (ang.has(e.b)) {
-        // 폐루프 모순 검출: 이미 정해진 각속도와 어긋나면 트레인 전체 잠김
-        if (Math.abs(ang.get(e.b) - expected) > Math.abs(delta) * 1e-3) {
-          setStatus('⚠ 기어 트레인 잠김 — 폐루프의 기어비가 서로 맞지 않습니다.');
-          return;
-        }
-        continue;
-      }
-      ang.set(e.b, expected);
-      queue.push(e.b);
-    }
-  }
-  for (const [id, a] of ang) {
-    const p = assembly.parts.get(id);
-    if (p && p.spinner) p.spinner.rotation.y += a;
-  }
-  if (ang.size > 1) setStatus(`회전 전달: ${ang.size}개 부품 (감속비 반영)`);
+  m.t = 0; m.id = selectedId; m.angle = ang ?? 0;
 }
 
 // ── 입력 바인딩 ─────────────────────────────────────────
@@ -448,8 +483,13 @@ window.addEventListener('keydown', e => {
     case 'q': moveSelectedY(e.shiftKey ? -1 : -PITCH / 2); break;
     case 'e': moveSelectedY(e.shiftKey ? 1 : PITCH / 2); break;
     case 'b': toggleBoltMode(); break;
-    case ',': spin(-0.12); break;
-    case '.': spin(0.12); break;
+    case ',': handCrank(-0.12); break;
+    case '.': handCrank(0.12); break;
+    case ' ': e.preventDefault(); togglePlay(); break;
+    case 'escape': resetSim(); break;
+    case 'g': togglePin(); break;
+    case '[': { const p = assembly.parts.get(selectedId); if (p?.kind === 'motor') setMotorRpm(p.motorRpm - 10); break; }
+    case ']': { const p = assembly.parts.get(selectedId); if (p?.kind === 'motor') setMotorRpm(p.motorRpm + 10); break; }
     case 'delete': case 'backspace': case 'x': deleteSelected(); break;
   }
 });
@@ -457,11 +497,28 @@ document.getElementById('btn-bolt').addEventListener('click', toggleBoltMode);
 document.getElementById('btn-rotate').addEventListener('click', () => rotateSelected(new THREE.Vector3(0, 1, 0)));
 document.getElementById('btn-tilt').addEventListener('click', () => rotateSelected(new THREE.Vector3(1, 0, 0)));
 document.getElementById('btn-delete').addEventListener('click', deleteSelected);
+btnPlay.addEventListener('click', togglePlay);
+document.getElementById('btn-reset').addEventListener('click', resetSim);
+document.getElementById('btn-pin').addEventListener('click', togglePin);
 
 // ── 루프 ────────────────────────────────────────────────
 renderPalette();
 resize();
+const clock = new THREE.Clock();
 renderer.setAnimationLoop(() => {
+  const dt = Math.min(clock.getDelta(), 1 / 30);
+  if (sim.active && sim.playing) {
+    const wasStalled = sim.model.stalled;
+    sim.model.step(dt);
+    sim.model.apply();
+    if (sim.model.stalled && !wasStalled) setStatus('⚠ 기구 잠김 — 이 자세에서 더 못 움직여요 (링크 길이·기어비·고정 상태 확인). Esc로 원위치.');
+    if (!sim.model.stalled) updateMeter(dt);
+  }
   controls.update();
   renderer.render(scene, camera);
 });
+
+// 디버그/자동 테스트용 훅: ?debug 로 열었을 때만 노출
+if (new URLSearchParams(location.search).has('debug')) {
+  window.__boltlab = { THREE, assembly, sim, spawnPart, findCandidates, addConnection, select, togglePlay, resetSim };
+}
