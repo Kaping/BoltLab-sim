@@ -1,6 +1,6 @@
 {
   "meta": {
-    "source": "sciencebox.co.kr detail images",
+    "source": "detail images",
     "generated_at": "2026-07-08T12:33:55.406206+00:00",
     "count": 190,
     "ocr_engine": "rapidocr-onnxruntime",
@@ -13,7 +13,6 @@
       "name": "스트립-15",
       "category": "strip",
       "source_image": "images/1_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000001&cat=50",
       "ocr_texts": [
         {
           "text": "1. ≤≤引 - 15",
@@ -189,7 +188,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.8946325999986584,
@@ -203,7 +202,6 @@
       "name": "스트립-11",
       "category": "strip",
       "source_image": "images/2_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000002&cat=50",
       "ocr_texts": [
         {
           "text": "2. △≤己 - 11",
@@ -379,7 +377,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.5450963000002957,
@@ -393,7 +391,6 @@
       "name": "스트립-9",
       "category": "strip",
       "source_image": "images/3_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000003&cat=50",
       "ocr_texts": [
         {
           "text": "3. △E引 - 9",
@@ -569,7 +566,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.40609589999985474,
@@ -583,7 +580,6 @@
       "name": "장공스트립-9",
       "category": "strip",
       "source_image": "images/3A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000004&cat=50",
       "ocr_texts": [
         {
           "text": "3A.9",
@@ -759,7 +755,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         1.1071461000010459,
@@ -773,7 +769,6 @@
       "name": "스트립-5",
       "category": "strip",
       "source_image": "images/4_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000005&cat=50",
       "ocr_texts": [
         {
           "text": "4. △三己 - 5",
@@ -949,7 +944,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.4986312999990332,
@@ -963,7 +958,6 @@
       "name": "장공스트립-5",
       "category": "strip",
       "source_image": "images/4A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000006&cat=50",
       "ocr_texts": [
         {
           "text": "4A.-5",
@@ -1139,7 +1133,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.5975492999987182,
@@ -1153,7 +1147,6 @@
       "name": "스트립-5(S)",
       "category": "strip",
       "source_image": "images/5_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000007&cat=50",
       "ocr_texts": [
         {
           "text": "5. △三引- 5(S)",
@@ -1329,7 +1322,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.6253300999997009,
@@ -1343,7 +1336,6 @@
       "name": "앵글-25",
       "category": "angle",
       "source_image": "images/6_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000008&cat=50",
       "ocr_texts": [
         {
           "text": "6. 0= - 25",
@@ -1586,7 +1578,6 @@
       "name": "앵글-19",
       "category": "angle",
       "source_image": "images/7_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000009&cat=50",
       "ocr_texts": [
         {
           "text": "7. 0 - 19",
@@ -1829,7 +1820,6 @@
       "name": "앵글-11",
       "category": "angle",
       "source_image": "images/8_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000010&cat=50",
       "ocr_texts": [
         {
           "text": "8. 0= - 11",
@@ -2072,7 +2062,6 @@
       "name": "앵글-9",
       "category": "angle",
       "source_image": "images/9_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000011&cat=50",
       "ocr_texts": [
         {
           "text": "6 - 品 6",
@@ -2315,7 +2304,6 @@
       "name": "앵글-7",
       "category": "angle",
       "source_image": "images/10_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000012&cat=50",
       "ocr_texts": [
         {
           "text": "10. 0 - 7",
@@ -2558,7 +2546,6 @@
       "name": "앵글-3",
       "category": "angle",
       "source_image": "images/11_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000013&cat=50",
       "ocr_texts": [
         {
           "text": "11. 0 - 3",
@@ -2801,7 +2788,6 @@
       "name": "이음판",
       "category": "plate_connector",
       "source_image": "images/12_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000014&cat=50",
       "ocr_texts": [
         {
           "text": "12.01%",
@@ -3012,7 +2998,6 @@
       "name": "ㄷ형브래킷(소)",
       "category": "bracket",
       "source_image": "images/13_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000015&cat=50",
       "ocr_texts": [
         {
           "text": "13. c旦2H入（全)",
@@ -3254,7 +3239,6 @@
       "name": "ㄷ형브래킷(대)",
       "category": "bracket",
       "source_image": "images/14_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000016&cat=50",
       "ocr_texts": [
         {
           "text": "24.7mm",
@@ -3418,7 +3402,6 @@
       "name": "ㄱ형브래킷(소)",
       "category": "bracket",
       "source_image": "images/15_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000017&cat=50",
       "ocr_texts": [
         {
           "text": "15. 旦2()",
@@ -3660,7 +3643,6 @@
       "name": "ㄱ형브래킷(대)",
       "category": "bracket",
       "source_image": "images/16_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000018&cat=50",
       "ocr_texts": [
         {
           "text": "(H)YH2可L'9L",
@@ -3876,7 +3858,6 @@
       "name": "ㄱ형브래킷 2X2",
       "category": "bracket",
       "source_image": "images/16A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000019&cat=50",
       "ocr_texts": [
         {
           "text": "16A.7旦2H2X2",
@@ -4093,7 +4074,6 @@
       "name": "둔각브래킷",
       "category": "bracket",
       "source_image": "images/17_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000020&cat=50",
       "ocr_texts": [
         {
           "text": "17.旦2",
@@ -4254,7 +4234,6 @@
       "name": "둔각브래킷 2X3",
       "category": "bracket",
       "source_image": "images/17A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000021&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -4329,7 +4308,6 @@
       "name": "축-29cm",
       "category": "axle",
       "source_image": "images/18_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000022&cat=50",
       "ocr_texts": [
         {
           "text": "18.＊-29cm",
@@ -4494,7 +4472,6 @@
       "name": "축-14cm",
       "category": "axle",
       "source_image": "images/19_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000023&cat=50",
       "ocr_texts": [
         {
           "text": "19.- 14cm",
@@ -4659,7 +4636,6 @@
       "name": "축-10cm",
       "category": "axle",
       "source_image": "images/20_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000024&cat=50",
       "ocr_texts": [
         {
           "text": "20.＊-10cm",
@@ -4824,7 +4800,6 @@
       "name": "축-9cm",
       "category": "axle",
       "source_image": "images/21_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000025&cat=50",
       "ocr_texts": [
         {
           "text": "21.  - 9cm",
@@ -4989,7 +4964,6 @@
       "name": "축-9.5cm",
       "category": "axle",
       "source_image": "images/21A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000026&cat=50",
       "ocr_texts": [
         {
           "text": "21A.- 9.5cm",
@@ -5154,7 +5128,6 @@
       "name": "축-6.5cm",
       "category": "axle",
       "source_image": "images/22_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000027&cat=50",
       "ocr_texts": [
         {
           "text": "22.  - 6.5cm",
@@ -5319,7 +5292,6 @@
       "name": "축-7.5cm",
       "category": "axle",
       "source_image": "images/23_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000028&cat=50",
       "ocr_texts": [
         {
           "text": "23.  - 7.5cm",
@@ -5484,7 +5456,6 @@
       "name": "축-5cm",
       "category": "axle",
       "source_image": "images/24_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000029&cat=50",
       "ocr_texts": [
         {
           "text": "24.＊ - 5cm",
@@ -5649,7 +5620,6 @@
       "name": "축-4cm",
       "category": "axle",
       "source_image": "images/25_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000030&cat=50",
       "ocr_texts": [
         {
           "text": "25.  - 4cm",
@@ -5814,7 +5784,6 @@
       "name": "풀리(대)",
       "category": "wheel_pulley",
       "source_image": "images/26_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000031&cat=50",
       "ocr_texts": [
         {
           "text": "26.2I(CH)",
@@ -5982,7 +5951,6 @@
       "name": "풀리(중)",
       "category": "wheel_pulley",
       "source_image": "images/27_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000032&cat=50",
       "ocr_texts": [
         {
           "text": "27.21(否)",
@@ -6176,7 +6144,6 @@
       "name": "풀리 (소)",
       "category": "wheel_pulley",
       "source_image": "images/28_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000033&cat=50",
       "ocr_texts": [
         {
           "text": "28.21(全)",
@@ -6337,7 +6304,6 @@
       "name": "타이어풀리",
       "category": "wheel_pulley",
       "source_image": "images/29_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000034&cat=50",
       "ocr_texts": [
         {
           "text": "29.E1010121",
@@ -6524,7 +6490,6 @@
       "name": "휠판-8",
       "category": "wheel_pulley",
       "source_image": "images/30_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000035&cat=50",
       "ocr_texts": [
         {
           "text": "30. 严 -8",
@@ -6657,7 +6622,6 @@
       "name": "피니언기어",
       "category": "gear",
       "source_image": "images/32_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000036&cat=50",
       "ocr_texts": [
         {
           "text": "32.IIL127101",
@@ -6890,7 +6854,6 @@
       "name": "평기어(소)",
       "category": "gear",
       "source_image": "images/33_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000037&cat=50",
       "ocr_texts": [
         {
           "text": "33.7101(全)",
@@ -7116,7 +7079,6 @@
       "name": "평기어(대)",
       "category": "gear",
       "source_image": "images/34_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000038&cat=50",
       "ocr_texts": [
         {
           "text": "34.7101(CH)",
@@ -7342,7 +7304,6 @@
       "name": "다목적기어",
       "category": "gear",
       "source_image": "images/35_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000039&cat=50",
       "ocr_texts": [
         {
           "text": "35.号27101",
@@ -7575,7 +7536,6 @@
       "name": "크라운기어",
       "category": "gear",
       "source_image": "images/36_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000040&cat=50",
       "ocr_texts": [
         {
           "text": "36.321号1101",
@@ -7827,7 +7787,6 @@
       "name": "크라운기어 21T",
       "category": "gear",
       "source_image": "images/36A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000041&cat=50",
       "ocr_texts": [
         {
           "text": "36A. 三2是1101 21T",
@@ -7920,7 +7879,6 @@
       "name": "워엄기어",
       "category": "gear",
       "source_image": "images/37_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000042&cat=50",
       "ocr_texts": [
         {
           "text": "37.907101",
@@ -8140,7 +8098,6 @@
       "name": "스패너",
       "category": "misc",
       "source_image": "images/38_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000043&cat=50",
       "ocr_texts": [
         {
           "text": "38. △IHL",
@@ -8272,7 +8229,6 @@
       "name": "스프링클립(5개입)_100개이상주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/39_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000044&cat=50",
       "ocr_texts": [
         {
           "text": "9mm",
@@ -8433,7 +8389,6 @@
       "name": "드라이버",
       "category": "misc",
       "source_image": "images/40_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000045&cat=50",
       "ocr_texts": [
         {
           "text": "40.≤2101H",
@@ -8620,7 +8575,6 @@
       "name": "십자드라이버(소)",
       "category": "misc",
       "source_image": "images/40A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000046&cat=50",
       "ocr_texts": [
         {
           "text": "40A.TE20IH（)",
@@ -8807,7 +8761,6 @@
       "name": "볼트 0.6cm (50개입)_500개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/41_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000047&cat=50",
       "ocr_texts": [
         {
           "text": "41. ≤ 0.6cm",
@@ -9001,7 +8954,6 @@
       "name": "너트 (50개입)_500개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/42_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000049&cat=50",
       "ocr_texts": [
         {
           "text": "42. LE",
@@ -9159,7 +9111,6 @@
       "name": "너트 (50개입)_500개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/42N_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000050&cat=50",
       "ocr_texts": [
         {
           "text": "42N. LE",
@@ -9291,7 +9242,6 @@
       "name": "와셔(소) (50개입)_500개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/43_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000051&cat=50",
       "ocr_texts": [
         {
           "text": "43.人（全)",
@@ -9478,7 +9428,6 @@
       "name": "와셔(대) (5개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/44_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000052&cat=50",
       "ocr_texts": [
         {
           "text": "44. 2A(CH)",
@@ -9665,7 +9614,6 @@
       "name": "실",
       "category": "misc",
       "source_image": "images/45_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000053&cat=50",
       "ocr_texts": [
         {
           "text": "45.叁",
@@ -9714,7 +9662,6 @@
       "name": "지지판",
       "category": "plate",
       "source_image": "images/46_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000054&cat=50",
       "ocr_texts": [
         {
           "text": "46.XI",
@@ -10007,7 +9954,6 @@
       "name": "ㄷ형스트립-3",
       "category": "strip",
       "source_image": "images/47_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000055&cat=50",
       "ocr_texts": [
         {
           "text": "47. c9△三引 - 3",
@@ -10263,7 +10209,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.40114360000006855,
@@ -10277,7 +10223,6 @@
       "name": "ㄷ형스트립-5",
       "category": "strip",
       "source_image": "images/48_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000056&cat=50",
       "ocr_texts": [
         {
           "text": "48. c9三引 - 5",
@@ -10507,7 +10452,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.39519060000020545,
@@ -10521,7 +10466,6 @@
       "name": "ㄷ형스트립-7",
       "category": "strip",
       "source_image": "images/49_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000057&cat=50",
       "ocr_texts": [
         {
           "text": "49. c9E引 - 7",
@@ -10751,7 +10695,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.42363839999961783,
@@ -10765,7 +10709,6 @@
       "name": "플랜지판(소)",
       "category": "plate",
       "source_image": "images/50_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000058&cat=50",
       "ocr_texts": [
         {
           "text": "50.芸2大芒（）",
@@ -11004,7 +10947,6 @@
       "name": "플랜지판(대)",
       "category": "plate",
       "source_image": "images/51_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000059&cat=50",
       "ocr_texts": [
         {
           "text": "51.音2HTI芒（CH）",
@@ -11243,7 +11185,6 @@
       "name": "조정부싱",
       "category": "misc",
       "source_image": "images/52_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000061&cat=50",
       "ocr_texts": [
         {
           "text": "52.不否早合",
@@ -11430,7 +11371,6 @@
       "name": "양팔크랭크",
       "category": "misc",
       "source_image": "images/53_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000062&cat=50",
       "ocr_texts": [
         {
           "text": "E晟E显品'S",
@@ -11617,7 +11557,6 @@
       "name": "멈춤나사 (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/54_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000063&cat=50",
       "ocr_texts": [
         {
           "text": "54.L人",
@@ -11749,7 +11688,6 @@
       "name": "구동기어 멈춤나사 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "gear",
       "source_image": "images/54A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000064&cat=50",
       "ocr_texts": [
         {
           "text": "54A.1101L人",
@@ -11935,7 +11873,6 @@
       "name": "평판(대)",
       "category": "plate",
       "source_image": "images/55_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000065&cat=50",
       "ocr_texts": [
         {
           "text": "55.芒（CH)",
@@ -12146,7 +12083,6 @@
       "name": "평판(소)",
       "category": "plate",
       "source_image": "images/56_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000066&cat=50",
       "ocr_texts": [
         {
           "text": "56.芒(全)",
@@ -12358,7 +12294,6 @@
       "name": "나사봉-7.5cm",
       "category": "axle",
       "source_image": "images/57_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000067&cat=50",
       "ocr_texts": [
         {
           "text": "57.L以 - 7.5cm",
@@ -12488,7 +12423,6 @@
       "name": "나사봉-5cm",
       "category": "axle",
       "source_image": "images/58_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000068&cat=50",
       "ocr_texts": [
         {
           "text": "58.L人号-5cm",
@@ -12618,7 +12552,6 @@
       "name": "원형스트립",
       "category": "strip",
       "source_image": "images/59_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000069&cat=50",
       "ocr_texts": [
         {
           "text": "24mm",
@@ -12777,7 +12710,6 @@
       "name": "평판-9",
       "category": "plate",
       "source_image": "images/60_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000070&cat=50",
       "ocr_texts": [
         {
           "text": "60.-9",
@@ -12962,7 +12894,6 @@
       "name": "평판-9(K)",
       "category": "plate",
       "source_image": "images/60K_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000071&cat=50",
       "ocr_texts": [
         {
           "text": "60K.-9(K)",
@@ -13173,7 +13104,6 @@
       "name": "평판-7",
       "category": "plate",
       "source_image": "images/61_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000072&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -13248,7 +13178,6 @@
       "name": "평판-7(K)",
       "category": "plate",
       "source_image": "images/61K_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000073&cat=50",
       "ocr_texts": [
         {
           "text": "61K.芒-7(K)",
@@ -13433,7 +13362,6 @@
       "name": "평판-5",
       "category": "plate",
       "source_image": "images/62_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000074&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -13508,7 +13436,6 @@
       "name": "평판-3",
       "category": "plate",
       "source_image": "images/63_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000075&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -13583,7 +13510,6 @@
       "name": "평판-3(K)",
       "category": "plate",
       "source_image": "images/63K_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000076&cat=50",
       "ocr_texts": [
         {
           "text": "63K.芒-3（K)",
@@ -13768,7 +13694,6 @@
       "name": "면판휠",
       "category": "wheel_pulley",
       "source_image": "images/64_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000077&cat=50",
       "ocr_texts": [
         {
           "text": "64.芒窖",
@@ -13901,7 +13826,6 @@
       "name": "볼트-1.3cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/65_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000078&cat=50",
       "ocr_texts": [
         {
           "text": "65. 是≤ - 1.3cm",
@@ -14059,7 +13983,6 @@
       "name": "볼트 1.3cm (10개입) - 단종 구입불가",
       "category": "fastener",
       "source_image": "images/65N_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000079&cat=50",
       "ocr_texts": [
         {
           "text": "65N.是≤ - 1.3cm",
@@ -14191,7 +14114,6 @@
       "name": "볼트-2cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/66_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000080&cat=50",
       "ocr_texts": [
         {
           "text": "66.昱≤- 2cm",
@@ -14349,7 +14271,6 @@
       "name": "볼트 2cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/66N_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000081&cat=50",
       "ocr_texts": [
         {
           "text": "66N.昱≤- 2cm",
@@ -14481,7 +14402,6 @@
       "name": "볼트-3cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/67_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000082&cat=50",
       "ocr_texts": [
         {
           "text": "67.是≤ - 3cm",
@@ -14639,7 +14559,6 @@
       "name": "나사핀",
       "category": "fastener",
       "source_image": "images/68_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000084&cat=50",
       "ocr_texts": [
         {
           "text": "68. L以巴!",
@@ -14745,7 +14664,6 @@
       "name": "프로펠러",
       "category": "misc",
       "source_image": "images/69_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000085&cat=50",
       "ocr_texts": [
         {
           "text": "上2晨百元69",
@@ -14938,7 +14856,6 @@
       "name": "역각브래킷",
       "category": "bracket",
       "source_image": "images/70_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000086&cat=50",
       "ocr_texts": [
         {
           "text": "70.",
@@ -15235,7 +15152,6 @@
       "name": "오각평판",
       "category": "plate",
       "source_image": "images/71_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000087&cat=50",
       "ocr_texts": [
         {
           "text": "71.",
@@ -15500,7 +15416,6 @@
       "name": "삼각브래킷",
       "category": "bracket",
       "source_image": "images/72_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000088&cat=50",
       "ocr_texts": [
         {
           "text": "72.合旦2",
@@ -15687,7 +15602,6 @@
       "name": "훅",
       "category": "misc",
       "source_image": "images/73_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000089&cat=50",
       "ocr_texts": [
         {
           "text": "73.",
@@ -15874,7 +15788,6 @@
       "name": "모서리브래킷(좌)",
       "category": "bracket",
       "source_image": "images/74_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000090&cat=50",
       "ocr_texts": [
         {
           "text": "74.空人月2旦2H买（)",
@@ -16114,7 +16027,6 @@
       "name": "모서리브래킷(우)",
       "category": "bracket",
       "source_image": "images/75_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000091&cat=50",
       "ocr_texts": [
         {
           "text": "75.豆人21旦2H（号）",
@@ -16354,7 +16266,6 @@
       "name": "상자형베어링",
       "category": "misc",
       "source_image": "images/76_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000092&cat=50",
       "ocr_texts": [
         {
           "text": "76.02",
@@ -16596,7 +16507,6 @@
       "name": "파워핸들",
       "category": "misc",
       "source_image": "images/77_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000093&cat=50",
       "ocr_texts": [
         {
           "text": "77.",
@@ -16645,7 +16555,6 @@
       "name": "고무밴드(소)",
       "category": "misc",
       "source_image": "images/78_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000094&cat=50",
       "ocr_texts": [
         {
           "text": "78.卫早U≤（全)",
@@ -16751,7 +16660,6 @@
       "name": "고무밴드(대)",
       "category": "misc",
       "source_image": "images/79_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000095&cat=50",
       "ocr_texts": [
         {
           "text": "79.早≤（CH)",
@@ -16883,7 +16791,6 @@
       "name": "플라스틱판(파랑) 11X3",
       "category": "plate",
       "source_image": "images/80_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000096&cat=50",
       "ocr_texts": [
         {
           "text": "4-R6.4",
@@ -17070,7 +16977,6 @@
       "name": "플라스틱판(빨강) 7X5",
       "category": "plate",
       "source_image": "images/81_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000097&cat=50",
       "ocr_texts": [
         {
           "text": "4-R6.4",
@@ -17257,7 +17163,6 @@
       "name": "플라스틱판(빨강) 5X5",
       "category": "plate",
       "source_image": "images/82_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000098&cat=50",
       "ocr_texts": [
         {
           "text": "82.25X5",
@@ -17470,7 +17375,6 @@
       "name": "플라스틱판(파랑) 5X3",
       "category": "plate",
       "source_image": "images/83_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000099&cat=50",
       "ocr_texts": [
         {
           "text": "83.225X3",
@@ -17682,7 +17586,6 @@
       "name": "플라스틱판(투명) 5X3",
       "category": "plate",
       "source_image": "images/84_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000100&cat=50",
       "ocr_texts": [
         {
           "text": "84.2月5X3",
@@ -17894,7 +17797,6 @@
       "name": "플라스틱판(파랑) 11X5",
       "category": "plate",
       "source_image": "images/85_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000101&cat=50",
       "ocr_texts": [
         {
           "text": "85.2211X5",
@@ -18080,7 +17982,6 @@
       "name": "축이음쇠",
       "category": "axle",
       "source_image": "images/86_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000102&cat=50",
       "ocr_texts": [
         {
           "text": "86.＊01%全",
@@ -18265,7 +18166,6 @@
       "name": "반원판",
       "category": "plate",
       "source_image": "images/87_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000103&cat=50",
       "ocr_texts": [
         {
           "text": "37.4mm",
@@ -18450,7 +18350,6 @@
       "name": "곡면스트립",
       "category": "strip",
       "source_image": "images/88_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000104&cat=50",
       "ocr_texts": [
         {
           "text": "88.号人三引",
@@ -18635,7 +18534,6 @@
       "name": "좁은스트립-5",
       "category": "strip",
       "source_image": "images/89_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000105&cat=50",
       "ocr_texts": [
         {
           "text": "89.香号三引- 5",
@@ -18811,7 +18709,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.37722370000119554,
@@ -18825,7 +18723,6 @@
       "name": "좁은스트립-6",
       "category": "strip",
       "source_image": "images/90_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000106&cat=50",
       "ocr_texts": [
         {
           "text": "90.香号人三引- 6",
@@ -19001,7 +18898,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.4012214000013046,
@@ -19015,7 +18912,6 @@
       "name": "좁은스트립-7",
       "category": "strip",
       "source_image": "images/91_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000107&cat=50",
       "ocr_texts": [
         {
           "text": "8.8mm",
@@ -19165,7 +19061,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.4556127000014385,
@@ -19179,7 +19075,6 @@
       "name": "좁은스트립-9",
       "category": "strip",
       "source_image": "images/92_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000108&cat=50",
       "ocr_texts": [
         {
           "text": "92.香号人引-9",
@@ -19355,7 +19250,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.488776100000905,
@@ -19369,7 +19264,6 @@
       "name": "좁은스트립-3",
       "category": "strip",
       "source_image": "images/93_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000109&cat=50",
       "ocr_texts": [
         {
           "text": "93.香三引-3",
@@ -19545,7 +19439,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.3809602999990602,
@@ -19559,7 +19453,6 @@
       "name": "타이어(소)",
       "category": "wheel_pulley",
       "source_image": "images/94_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000110&cat=50",
       "ocr_texts": [
         {
           "text": "94.E10101(±)",
@@ -19753,7 +19646,6 @@
       "name": "모터뭉치 (콘넥터단자(신형))",
       "category": "electric",
       "source_image": "images/97A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000111&cat=50",
       "ocr_texts": [
         {
           "text": "97A.E（E",
@@ -20036,7 +19928,6 @@
       "name": "기어드모터",
       "category": "gear",
       "source_image": "images/100A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000112&cat=50",
       "ocr_texts": [
         {
           "text": "100A.1I01≤豆E",
@@ -20412,7 +20303,6 @@
       "name": "구동기어뭉치(콘넥터단자(신형))",
       "category": "gear",
       "source_image": "images/100B_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000113&cat=50",
       "ocr_texts": [
         {
           "text": "100B.0（E",
@@ -20675,7 +20565,6 @@
       "name": "삼각플라스틱판",
       "category": "plate",
       "source_image": "images/102_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000114&cat=50",
       "ocr_texts": [
         {
           "text": "102",
@@ -20912,7 +20801,6 @@
       "name": "반원플라스틱판",
       "category": "plate",
       "source_image": "images/103_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000115&cat=50",
       "ocr_texts": [
         {
           "text": "103",
@@ -21149,7 +21037,6 @@
       "name": "체인 (50개입)_500개 이상 주문시 1봉투에 일괄포장",
       "category": "misc",
       "source_image": "images/104_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000116&cat=50",
       "ocr_texts": [
         {
           "text": "104. 机12!",
@@ -21307,7 +21194,6 @@
       "name": "링크체인 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "misc",
       "source_image": "images/104A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000117&cat=50",
       "ocr_texts": [
         {
           "text": "104A.23M0",
@@ -21382,7 +21268,6 @@
       "name": "체인기어(소)",
       "category": "gear",
       "source_image": "images/105_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000118&cat=50",
       "ocr_texts": [
         {
           "text": "105.12!7101()",
@@ -21634,7 +21519,6 @@
       "name": "체인기어(대)",
       "category": "gear",
       "source_image": "images/106_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000119&cat=50",
       "ocr_texts": [
         {
           "text": "106.12!7101(CH)",
@@ -21860,7 +21744,6 @@
       "name": "타이어(중)",
       "category": "wheel_pulley",
       "source_image": "images/107_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000120&cat=50",
       "ocr_texts": [
         {
           "text": "107.E10101（)",
@@ -22054,7 +21937,6 @@
       "name": "래크",
       "category": "gear",
       "source_image": "images/108_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000121&cat=50",
       "ocr_texts": [
         {
           "text": "108.2H3",
@@ -22296,7 +22178,6 @@
       "name": "사다리꼴",
       "category": "misc",
       "source_image": "images/109_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000122&cat=50",
       "ocr_texts": [
         {
           "text": "109.",
@@ -22593,7 +22474,6 @@
       "name": "베어링뭉치",
       "category": "misc",
       "source_image": "images/110_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000123&cat=50",
       "ocr_texts": [
         {
           "text": "110.时0引号大",
@@ -22746,7 +22626,6 @@
       "name": "이동클립",
       "category": "fastener",
       "source_image": "images/111_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000124&cat=50",
       "ocr_texts": [
         {
           "text": "111.01是2！",
@@ -22988,7 +22867,6 @@
       "name": "축연결부싱",
       "category": "axle",
       "source_image": "images/112_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000125&cat=50",
       "ocr_texts": [
         {
           "text": "112.2早",
@@ -23173,7 +23051,6 @@
       "name": "코드전선(구형)",
       "category": "electric",
       "source_image": "images/120_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000126&cat=50",
       "ocr_texts": [
         {
           "text": "120.3≤22",
@@ -23248,7 +23125,6 @@
       "name": "콘넥터전선 30cm",
       "category": "electric",
       "source_image": "images/120A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000127&cat=50",
       "ocr_texts": [
         {
           "text": "120A.2E12230cm",
@@ -23323,7 +23199,6 @@
       "name": "콘넥터코드전선(신형)",
       "category": "electric",
       "source_image": "images/120B_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000128&cat=50",
       "ocr_texts": [
         {
           "text": "120B.2E3≤22",
@@ -23424,7 +23299,6 @@
       "name": "부품상자(소)",
       "category": "misc",
       "source_image": "images/121_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000129&cat=50",
       "ocr_texts": [
         {
           "text": "121.早（）",
@@ -23666,7 +23540,6 @@
       "name": "next 공구상자",
       "category": "misc",
       "source_image": "images/122_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000130&cat=50",
       "ocr_texts": [
         {
           "text": "122.next74T",
@@ -23934,7 +23807,6 @@
       "name": "너트드라이버",
       "category": "fastener",
       "source_image": "images/123_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000131&cat=50",
       "ocr_texts": [
         {
           "text": "123.LE≤2101H",
@@ -24121,7 +23993,6 @@
       "name": "축상자(소)",
       "category": "axle",
       "source_image": "images/124_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000132&cat=50",
       "ocr_texts": [
         {
           "text": "124.夸含（）",
@@ -24359,7 +24230,6 @@
       "name": "축상자(대)",
       "category": "axle",
       "source_image": "images/124A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000133&cat=50",
       "ocr_texts": [
         {
           "text": "124A. (CH)",
@@ -24623,7 +24493,6 @@
       "name": "고무캡",
       "category": "misc",
       "source_image": "images/125_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000134&cat=50",
       "ocr_texts": [
         {
           "text": "125.号",
@@ -24698,7 +24567,6 @@
       "name": "스트립-25",
       "category": "strip",
       "source_image": "images/127_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000135&cat=50",
       "ocr_texts": [
         {
           "text": "127.△≤引 - 25",
@@ -24874,7 +24742,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.5213961000008567,
@@ -24888,7 +24756,6 @@
       "name": "트러스스트립-25",
       "category": "strip",
       "source_image": "images/128_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000136&cat=50",
       "ocr_texts": [
         {
           "text": "128,2引- 25",
@@ -25090,7 +24957,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.4124716000005719,
@@ -25104,7 +24971,6 @@
       "name": "사각평판",
       "category": "plate",
       "source_image": "images/129_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000137&cat=50",
       "ocr_texts": [
         {
           "text": "129.3X5",
@@ -25315,7 +25181,6 @@
       "name": "삼각평판",
       "category": "plate",
       "source_image": "images/130_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000138&cat=50",
       "ocr_texts": [
         {
           "text": "130.3×5",
@@ -25526,7 +25391,6 @@
       "name": "삼각평판(K)",
       "category": "plate",
       "source_image": "images/130K_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000139&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -25601,7 +25465,6 @@
       "name": "바퀴평판",
       "category": "wheel_pulley",
       "source_image": "images/131_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000140&cat=50",
       "ocr_texts": [
         {
           "text": "131.",
@@ -25840,7 +25703,6 @@
       "name": "바퀴평판(K)",
       "category": "wheel_pulley",
       "source_image": "images/131K_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000141&cat=50",
       "ocr_texts": [
         {
           "text": "131K.(K)",
@@ -26079,7 +25941,6 @@
       "name": "앵글-2",
       "category": "angle",
       "source_image": "images/132_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000142&cat=50",
       "ocr_texts": [
         {
           "text": "132. %≥ - 2",
@@ -26322,7 +26183,6 @@
       "name": "조향브래킷",
       "category": "bracket",
       "source_image": "images/133_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000143&cat=50",
       "ocr_texts": [
         {
           "text": "133.不旦2",
@@ -26728,7 +26588,6 @@
       "name": "플라스틱판(투명)",
       "category": "plate",
       "source_image": "images/134_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000144&cat=50",
       "ocr_texts": [
         {
           "text": "134.2引世（)",
@@ -26914,7 +26773,6 @@
       "name": "십자축-5",
       "category": "axle",
       "source_image": "images/137_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000145&cat=50",
       "ocr_texts": [
         {
           "text": "137.仑",
@@ -26989,7 +26847,6 @@
       "name": "사각홀고무부싱 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "misc",
       "source_image": "images/138_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000146&cat=50",
       "ocr_texts": [
         {
           "text": "138.人早早",
@@ -27150,7 +27007,6 @@
       "name": "플라스틱부싱 (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "misc",
       "source_image": "images/139_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000147&cat=50",
       "ocr_texts": [
         {
           "text": "139.2月早0.6cm",
@@ -27343,7 +27199,6 @@
       "name": "플라스틱부싱 1.2cm (5개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "misc",
       "source_image": "images/139A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000148&cat=50",
       "ocr_texts": [
         {
           "text": "139A.2月早01.2cm",
@@ -27536,7 +27391,6 @@
       "name": "2단평기어(소)",
       "category": "gear",
       "source_image": "images/140_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000149&cat=50",
       "ocr_texts": [
         {
           "text": "140.2E710()",
@@ -27851,7 +27705,6 @@
       "name": "십자홀2단평기어",
       "category": "gear",
       "source_image": "images/141_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000150&cat=50",
       "ocr_texts": [
         {
           "text": "141.2110",
@@ -28140,7 +27993,6 @@
       "name": "십자홀피니언",
       "category": "gear",
       "source_image": "images/142_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000151&cat=50",
       "ocr_texts": [
         {
           "text": "142.ⅡLI",
@@ -28373,7 +28225,6 @@
       "name": "십자홀체인기어",
       "category": "gear",
       "source_image": "images/143_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000152&cat=50",
       "ocr_texts": [
         {
           "text": "143.毫刘27101",
@@ -28599,7 +28450,6 @@
       "name": "2단풀리",
       "category": "wheel_pulley",
       "source_image": "images/144_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000153&cat=50",
       "ocr_texts": [
         {
           "text": "144. 2E 2l",
@@ -28875,7 +28725,6 @@
       "name": "피니언풀리",
       "category": "gear",
       "source_image": "images/145_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000154&cat=50",
       "ocr_texts": [
         {
           "text": "145.LI2",
@@ -29164,7 +29013,6 @@
       "name": "캐노피",
       "category": "misc",
       "source_image": "images/147_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000155&cat=50",
       "ocr_texts": [
         {
           "text": "14 7.AHⅡI",
@@ -29331,7 +29179,6 @@
       "name": "래크홀더",
       "category": "gear",
       "source_image": "images/148_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000156&cat=50",
       "ocr_texts": [
         {
           "text": "148.2H三毫CH",
@@ -29544,7 +29391,6 @@
       "name": "부품상자(대)",
       "category": "misc",
       "source_image": "images/149_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000157&cat=50",
       "ocr_texts": [
         {
           "text": "149.早合H（CH）",
@@ -29786,7 +29632,6 @@
       "name": "타이어(대)",
       "category": "wheel_pulley",
       "source_image": "images/151_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000158&cat=50",
       "ocr_texts": [
         {
           "text": "151.E1010H(CH)",
@@ -30006,7 +29851,6 @@
       "name": "타이어(특대)",
       "category": "wheel_pulley",
       "source_image": "images/152_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000159&cat=50",
       "ocr_texts": [
         {
           "text": "152.E10101(号CH)",
@@ -30226,7 +30070,6 @@
       "name": "스위치상자",
       "category": "electric",
       "source_image": "images/153_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000160&cat=50",
       "ocr_texts": [
         {
           "text": "153.≤早大1合个",
@@ -30465,7 +30308,6 @@
       "name": "조이스틱스위치상자",
       "category": "electric",
       "source_image": "images/153B_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000161&cat=50",
       "ocr_texts": [
         {
           "text": "153B.不01叁早大公",
@@ -30626,7 +30468,6 @@
       "name": "6V 배터리박스 (단종)",
       "category": "misc",
       "source_image": "images/156_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000162&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -30701,7 +30542,6 @@
       "name": "모서리평판 1X5",
       "category": "plate",
       "source_image": "images/160_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000163&cat=50",
       "ocr_texts": [
         {
           "text": "160.月21×5",
@@ -30776,7 +30616,6 @@
       "name": "실리콘부싱 (5개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "misc",
       "source_image": "images/161_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000164&cat=50",
       "ocr_texts": [
         {
           "text": "161.2212早0",
@@ -30995,7 +30834,6 @@
       "name": "휠캐스터 (단종)",
       "category": "wheel_pulley",
       "source_image": "images/162_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000165&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -31070,7 +30908,6 @@
       "name": "스트립클립",
       "category": "strip",
       "source_image": "images/163_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000166&cat=50",
       "ocr_texts": [
         {
           "text": "163.",
@@ -31119,7 +30956,6 @@
       "name": "센서박스(IR-1)",
       "category": "misc",
       "source_image": "images/164_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000167&cat=50",
       "ocr_texts": [
         {
           "text": "164.M人H（IR-1)",
@@ -31168,7 +31004,6 @@
       "name": "적외선조종기-스핀마우스용",
       "category": "misc",
       "source_image": "images/165_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000168&cat=50",
       "ocr_texts": [],
       "ocr_dimensions": [],
       "teeth_candidates": [],
@@ -31185,7 +31020,6 @@
       "name": "적외선조종기(M2)-빅스톰용",
       "category": "misc",
       "source_image": "images/165A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000169&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -31260,7 +31094,6 @@
       "name": "적외선수신기(M2)-빅스톰용",
       "category": "misc",
       "source_image": "images/166A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000171&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -31335,7 +31168,6 @@
       "name": "홈샤프트 1.6cm",
       "category": "axle",
       "source_image": "images/167_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000172&cat=50",
       "ocr_texts": [
         {
           "text": "罕号LH",
@@ -31410,7 +31242,6 @@
       "name": "플랜지판 2x5",
       "category": "plate",
       "source_image": "images/168_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000173&cat=50",
       "ocr_texts": [
         {
           "text": "168.2HT1上2X5",
@@ -31650,7 +31481,6 @@
       "name": "플랜지판 2x7",
       "category": "plate",
       "source_image": "images/169_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000174&cat=50",
       "ocr_texts": [
         {
           "text": "169.2HT12X7",
@@ -31810,7 +31640,6 @@
       "name": "홈샤프트캡",
       "category": "axle",
       "source_image": "images/171_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000175&cat=50",
       "ocr_texts": [
         {
           "text": "171.客人三三型",
@@ -31885,7 +31714,6 @@
       "name": "원형축캡",
       "category": "axle",
       "source_image": "images/172_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000176&cat=50",
       "ocr_texts": [
         {
           "text": "172.",
@@ -31934,7 +31762,6 @@
       "name": "홈샤프트사각캡",
       "category": "axle",
       "source_image": "images/173_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000177&cat=50",
       "ocr_texts": [
         {
           "text": "173.人人",
@@ -32199,7 +32026,6 @@
       "name": "홈샤프트 1.5cm(5단)",
       "category": "axle",
       "source_image": "images/174_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000178&cat=50",
       "ocr_texts": [
         {
           "text": "174.喜人1.5cm（5）",
@@ -32492,7 +32318,6 @@
       "name": "홈샤프트 0.9cm(2단)",
       "category": "axle",
       "source_image": "images/175_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000179&cat=50",
       "ocr_texts": [
         {
           "text": "175.喜人=0.9cm（2E）",
@@ -32759,7 +32584,6 @@
       "name": "2단볼트 1.5cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/176_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000180&cat=50",
       "ocr_texts": [
         {
           "text": "176.2E 1.5cm",
@@ -32834,7 +32658,6 @@
       "name": "2단볼트 1.7cm (10개입)_100개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/176A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000181&cat=50",
       "ocr_texts": [
         {
           "text": "176A.2E≤ 1.7cm",
@@ -32909,7 +32732,6 @@
       "name": "사각머리볼트 (4개입)_80개 이상 주문시 1봉투에 일괄포장",
       "category": "fastener",
       "source_image": "images/177_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000182&cat=50",
       "ocr_texts": [
         {
           "text": "177.人202",
@@ -33245,7 +33067,6 @@
       "name": "축-15.5cm",
       "category": "axle",
       "source_image": "images/188A_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000183&cat=50",
       "ocr_texts": [
         {
           "text": "188A.＊ - 15.5cm",
@@ -33462,7 +33283,6 @@
       "name": "스프로켓휠(8T)",
       "category": "wheel_pulley",
       "source_image": "images/201_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000184&cat=50",
       "ocr_texts": [
         {
           "text": "201.(8T）",
@@ -33555,7 +33375,6 @@
       "name": "로드휠",
       "category": "wheel_pulley",
       "source_image": "images/202_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000185&cat=50",
       "ocr_texts": [
         {
           "text": "202.引三割",
@@ -33656,7 +33475,6 @@
       "name": "로드휠너클브래킷",
       "category": "bracket",
       "source_image": "images/203_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000186&cat=50",
       "ocr_texts": [
         {
           "text": "203.2三L旦2H天",
@@ -33731,7 +33549,6 @@
       "name": "무한궤도",
       "category": "misc",
       "source_image": "images/204_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000187&cat=50",
       "ocr_texts": [
         {
           "text": "204.早克至",
@@ -33806,7 +33623,6 @@
       "name": "서보모터브래킷",
       "category": "bracket",
       "source_image": "images/205_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000188&cat=50",
       "ocr_texts": [
         {
           "text": "205.",
@@ -34048,7 +33864,6 @@
       "name": "45도 스트립-5",
       "category": "strip",
       "source_image": "images/453_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000193&cat=50",
       "ocr_texts": [
         {
           "text": "453. 45 △己!- 5",
@@ -34412,7 +34227,7 @@
       "confidence": 0.88,
       "needs_review": false,
       "notes": [
-        "hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text"
+        "hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text"
       ],
       "ocr_elapsed": [
         0.42205529999955615,
@@ -34426,7 +34241,6 @@
       "name": "기어드모터브래킷",
       "category": "bracket",
       "source_image": "images/503_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000194&cat=50",
       "ocr_texts": [
         {
           "text": "503. 70≤日旦引2",
@@ -34579,7 +34393,6 @@
       "name": "3호→5호 업그레이드",
       "category": "misc",
       "source_image": "images/211_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000189&cat=50",
       "ocr_texts": [
         {
           "text": "211. 3克 → 5引0早",
@@ -34628,7 +34441,6 @@
       "name": "3호→6호 업그레이드",
       "category": "misc",
       "source_image": "images/212_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000190&cat=50",
       "ocr_texts": [
         {
           "text": "212. 3 → 6 0 早",
@@ -34677,7 +34489,6 @@
       "name": "5호→6호 업그레이드",
       "category": "misc",
       "source_image": "images/213_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000191&cat=50",
       "ocr_texts": [
         {
           "text": "213. 5→ 6引0I早",
@@ -34726,7 +34537,6 @@
       "name": "구형 6호→신형 6호 업그레이드",
       "category": "misc",
       "source_image": "images/214_detail.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000192&cat=50",
       "ocr_texts": [
         {
           "text": "214.  6克 →",

@@ -1,7 +1,7 @@
-name: sciencebox-sim
+name: boltlab-sim
 
 services:
-  sciencebox-sim:
+  boltlab-sim:
     build: .
     ports:
       - "8080:80"

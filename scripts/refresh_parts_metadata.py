@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from crawl_sciencebox_parts import category_for_name, hints_for_name
+from crawl_parts import category_for_name, hints_for_name
 
 
 ROOT = Path(__file__).resolve().parents[1]

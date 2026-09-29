@@ -1,6 +1,6 @@
-# 과학상자 조립 시뮬레이터
+# BoltLab-sim
 
-과학상자 6호 부품을 3D로 배치하고 M4 볼트로 체결하는 조립 시뮬레이터.
+½인치(12.7mm) 격자 금속 조립 키트 부품을 3D로 배치하고 M4 볼트로 체결하는 조립 시뮬레이터.
 
 ## 실행
 
@@ -51,7 +51,7 @@ src/generators.js   파라메트릭 지오메트리 (판/축/기어, 구멍 메�
 src/catalog.js      6호 부품 카탈로그 (CSV 수량 반영)
 src/assembly.js     부품 인스턴스 + 체결 그래프 (bolt/clip/bearing)
 src/main.js         씬·팔레트·드래그/스냅/체결/회전 전달
-data/               부품리스트 CSV 원본
+data/parts_list.csv 부품리스트 CSV 원본
 ```
 
 ## 다음 단계 후보

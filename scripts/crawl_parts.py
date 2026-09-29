@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import random
 import re
 import time
@@ -17,10 +18,11 @@ from bs4 import BeautifulSoup
 from PIL import Image
 
 
-BASE_URL = "https://www.sciencebox.co.kr"
+# 크롤링 대상 쇼핑몰 주소는 환경변수로 지정 (예: PARTS_BASE_URL=https://example.com)
+BASE_URL = os.environ.get("PARTS_BASE_URL", "").rstrip("/")
 LIST_URL = f"{BASE_URL}/shop/list.php?ca_id=50&page={{page}}"
 ITEM_URL = f"{BASE_URL}/shop/item.php?it_id={{it_id}}&cat=50"
-USER_AGENT = "ScienceboxSimulatorDataBot/1.0 (+local simulator data build; polite crawl)"
+USER_AGENT = "BoltLabSimDataBot/1.0 (+local simulator data build; polite crawl)"
 EXPECTED_COUNT = 190
 MIN_DELAY_SECONDS = 0.55
 MAX_DELAY_SECONDS = 0.95
@@ -303,8 +305,6 @@ def validate(parts: list[dict[str, Any]], report: CrawlReport) -> None:
 def write_parts_json(parts: list[dict[str, Any]]) -> None:
     payload = {
         "meta": {
-            "source": "sciencebox.co.kr",
-            "source_url": f"{BASE_URL}/shop/list.php?ca_id=50",
             "crawled_at": datetime.now(timezone.utc).isoformat(),
             "count": len(parts),
         },
@@ -315,10 +315,9 @@ def write_parts_json(parts: list[dict[str, Any]]) -> None:
 
 def write_report(parts: list[dict[str, Any]], report: CrawlReport) -> None:
     lines = [
-        "# Sciencebox Parts Crawl Report",
+        "# Parts Crawl Report",
         "",
         f"- Crawled at: {datetime.now(timezone.utc).isoformat()}",
-        f"- Source: {BASE_URL}/shop/list.php?ca_id=50",
         f"- Robots: {report.robots_status}",
         f"- Expected count: {EXPECTED_COUNT}",
         f"- Actual count: {len(parts)}",
@@ -377,6 +376,8 @@ def main() -> None:
     report = CrawlReport()
     client = PoliteClient()
 
+    if not BASE_URL:
+        raise SystemExit("PARTS_BASE_URL 환경변수를 설정하세요.")
     check_robots(client, report)
 
     listed_parts: list[dict[str, Any]] = []
@@ -415,8 +416,6 @@ def main() -> None:
             "price": part["price"],
             "in_stock": info["in_stock"],
             "images": {"main": main_rel, "detail": detail_rel},
-            "thumb_url": part["thumb_url"],
-            "url": part["url"],
             "geometry": None,
         }
         hints = hints_for_name(part["name"])

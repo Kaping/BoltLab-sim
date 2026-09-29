@@ -208,7 +208,7 @@ def infer_spec(
             spec["width_mm"] = smallest
         if holes and holes > 1:
             spec["hole_pitch_mm"] = 12.7
-            notes.append("hole_pitch_mm is inferred from the Sciencebox standard pitch, not OCR text")
+            notes.append("hole_pitch_mm is inferred from the 12.7mm standard pitch, not OCR text")
         needs_review = not ("width_mm" in spec and holes)
         confidence = 0.88 if not needs_review else 0.68
 
@@ -342,7 +342,6 @@ def main() -> None:
             "name": part["name"],
             "category": part["category"],
             "source_image": part["images"]["detail"],
-            "url": part["url"],
             "ocr_texts": serialize_ocr_texts(ocr_items),
             "ocr_dimensions": [serialize_dimension(dimension) for dimension in dimensions],
             "teeth_candidates": teeth_candidates,
@@ -359,7 +358,7 @@ def main() -> None:
 
     output = {
         "meta": {
-            "source": "sciencebox.co.kr detail images",
+            "source": "detail images",
             "generated_at": datetime.now(timezone.utc).isoformat(),
             "count": len(candidates),
             "ocr_engine": "rapidocr-onnxruntime",

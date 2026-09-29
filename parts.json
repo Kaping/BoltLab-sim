@@ -1,7 +1,5 @@
 {
   "meta": {
-    "source": "sciencebox.co.kr",
-    "source_url": "https://www.sciencebox.co.kr/shop/list.php?ca_id=50",
     "crawled_at": "2026-07-08T11:21:33.545863+00:00",
     "count": 190
   },
@@ -17,8 +15,6 @@
         "main": "images/1_main.jpg",
         "detail": "images/1_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000001/1.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000001&cat=50",
       "geometry": null,
       "hints": {
         "holes": 15
@@ -35,8 +31,6 @@
         "main": "images/2_main.jpg",
         "detail": "images/2_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000002/2.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000002&cat=50",
       "geometry": null,
       "hints": {
         "holes": 11
@@ -53,8 +47,6 @@
         "main": "images/3_main.jpg",
         "detail": "images/3_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000003/3.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000003&cat=50",
       "geometry": null,
       "hints": {
         "holes": 9
@@ -71,8 +63,6 @@
         "main": "images/3A_main.jpg",
         "detail": "images/3A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000004/3A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000004&cat=50",
       "geometry": null,
       "hints": {
         "holes": 9
@@ -89,8 +79,6 @@
         "main": "images/4_main.jpg",
         "detail": "images/4_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000005/4.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000005&cat=50",
       "geometry": null,
       "hints": {
         "holes": 5
@@ -107,8 +95,6 @@
         "main": "images/4A_main.jpg",
         "detail": "images/4A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000006/4A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000006&cat=50",
       "geometry": null,
       "hints": {
         "holes": 5
@@ -125,8 +111,6 @@
         "main": "images/5_main.jpg",
         "detail": "images/5_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000007/5.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000007&cat=50",
       "geometry": null,
       "hints": {
         "holes": 5
@@ -143,8 +127,6 @@
         "main": "images/6_main.jpg",
         "detail": "images/6_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000008/6.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000008&cat=50",
       "geometry": null,
       "hints": {
         "holes": 25
@@ -161,8 +143,6 @@
         "main": "images/7_main.jpg",
         "detail": "images/7_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000009/7.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000009&cat=50",
       "geometry": null,
       "hints": {
         "holes": 19
@@ -179,8 +159,6 @@
         "main": "images/8_main.jpg",
         "detail": "images/8_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000010/8.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000010&cat=50",
       "geometry": null,
       "hints": {
         "holes": 11
@@ -197,8 +175,6 @@
         "main": "images/9_main.jpg",
         "detail": "images/9_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000011/9.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000011&cat=50",
       "geometry": null,
       "hints": {
         "holes": 9
@@ -215,8 +191,6 @@
         "main": "images/10_main.jpg",
         "detail": "images/10_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000012/10.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000012&cat=50",
       "geometry": null,
       "hints": {
         "holes": 7
@@ -233,8 +207,6 @@
         "main": "images/11_main.jpg",
         "detail": "images/11_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000013/11.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000013&cat=50",
       "geometry": null,
       "hints": {
         "holes": 3
@@ -251,8 +223,6 @@
         "main": "images/12_main.jpg",
         "detail": "images/12_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000014/12.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000014&cat=50",
       "geometry": null
     },
     {
@@ -266,8 +236,6 @@
         "main": "images/13_main.jpg",
         "detail": "images/13_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000015/13.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000015&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -284,8 +252,6 @@
         "main": "images/14_main.jpg",
         "detail": "images/14_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000016/14.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000016&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -302,8 +268,6 @@
         "main": "images/15_main.jpg",
         "detail": "images/15_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000017/15.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000017&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -320,8 +284,6 @@
         "main": "images/16_main.jpg",
         "detail": "images/16_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000018/16.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000018&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -338,8 +300,6 @@
         "main": "images/16A_main.jpg",
         "detail": "images/16A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000019/16A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000019&cat=50",
       "geometry": null,
       "hints": {
         "grid": "2x2"
@@ -356,8 +316,6 @@
         "main": "images/17_main.jpg",
         "detail": "images/17_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000020/17.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000020&cat=50",
       "geometry": null
     },
     {
@@ -371,8 +329,6 @@
         "main": "images/17A_main.jpg",
         "detail": "images/17A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000021/17A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000021&cat=50",
       "geometry": null,
       "hints": {
         "grid": "2x3"
@@ -389,8 +345,6 @@
         "main": "images/18_main.jpg",
         "detail": "images/18_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000022/18.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000022&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 29
@@ -407,8 +361,6 @@
         "main": "images/19_main.jpg",
         "detail": "images/19_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000023/19.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000023&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 14
@@ -425,8 +377,6 @@
         "main": "images/20_main.jpg",
         "detail": "images/20_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000024/20.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000024&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 10
@@ -443,8 +393,6 @@
         "main": "images/21_main.jpg",
         "detail": "images/21_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000025/21.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000025&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 9
@@ -461,8 +409,6 @@
         "main": "images/21A_main.jpg",
         "detail": "images/21A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000026/21A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000026&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 9.5
@@ -479,8 +425,6 @@
         "main": "images/22_main.jpg",
         "detail": "images/22_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000027/22.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000027&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 6.5
@@ -497,8 +441,6 @@
         "main": "images/23_main.jpg",
         "detail": "images/23_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000028/23.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000028&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 7.5
@@ -515,8 +457,6 @@
         "main": "images/24_main.jpg",
         "detail": "images/24_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000029/24.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000029&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 5
@@ -533,8 +473,6 @@
         "main": "images/25_main.jpg",
         "detail": "images/25_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000030/25.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000030&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 4
@@ -551,8 +489,6 @@
         "main": "images/26_main.jpg",
         "detail": "images/26_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000031/26.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000031&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -569,8 +505,6 @@
         "main": "images/27_main.jpg",
         "detail": "images/27_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000032/27.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000032&cat=50",
       "geometry": null,
       "hints": {
         "size": "중"
@@ -587,8 +521,6 @@
         "main": "images/28_main.jpg",
         "detail": "images/28_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000033/28.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000033&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -605,8 +537,6 @@
         "main": "images/29_main.jpg",
         "detail": "images/29_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000034/29.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000034&cat=50",
       "geometry": null
     },
     {
@@ -620,8 +550,6 @@
         "main": "images/30_main.jpg",
         "detail": "images/30_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000035/30.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000035&cat=50",
       "geometry": null
     },
     {
@@ -635,8 +563,6 @@
         "main": "images/32_main.jpg",
         "detail": "images/32_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000036/32.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000036&cat=50",
       "geometry": null
     },
     {
@@ -650,8 +576,6 @@
         "main": "images/33_main.jpg",
         "detail": "images/33_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000037/33.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000037&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -668,8 +592,6 @@
         "main": "images/34_main.jpg",
         "detail": "images/34_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000038/34.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000038&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -686,8 +608,6 @@
         "main": "images/35_main.jpg",
         "detail": "images/35_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000039/35.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000039&cat=50",
       "geometry": null
     },
     {
@@ -701,8 +621,6 @@
         "main": "images/36_main.jpg",
         "detail": "images/36_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000040/36.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000040&cat=50",
       "geometry": null
     },
     {
@@ -716,8 +634,6 @@
         "main": "images/36A_main.jpg",
         "detail": "images/36A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000041/36A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000041&cat=50",
       "geometry": null,
       "hints": {
         "teeth": 21
@@ -734,8 +650,6 @@
         "main": "images/37_main.jpg",
         "detail": "images/37_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000042/37.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000042&cat=50",
       "geometry": null
     },
     {
@@ -749,8 +663,6 @@
         "main": "images/38_main.jpg",
         "detail": "images/38_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000043/38.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000043&cat=50",
       "geometry": null
     },
     {
@@ -764,8 +676,6 @@
         "main": "images/39_main.jpg",
         "detail": "images/39_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000044/39.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000044&cat=50",
       "geometry": null
     },
     {
@@ -779,8 +689,6 @@
         "main": "images/40_main.jpg",
         "detail": "images/40_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000045/40.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000045&cat=50",
       "geometry": null
     },
     {
@@ -794,8 +702,6 @@
         "main": "images/40A_main.jpg",
         "detail": "images/40A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000046/40A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000046&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -812,8 +718,6 @@
         "main": "images/41_main.jpg",
         "detail": "images/41_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000047/41.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000047&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 0.6
@@ -830,8 +734,6 @@
         "main": "images/42_main.jpg",
         "detail": "images/42_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000049/42.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000049&cat=50",
       "geometry": null
     },
     {
@@ -845,8 +747,6 @@
         "main": "images/42N_main.jpg",
         "detail": "images/42N_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000050/42N.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000050&cat=50",
       "geometry": null
     },
     {
@@ -860,8 +760,6 @@
         "main": "images/43_main.jpg",
         "detail": "images/43_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000051/43.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000051&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -878,8 +776,6 @@
         "main": "images/44_main.jpg",
         "detail": "images/44_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000052/44.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000052&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -896,8 +792,6 @@
         "main": "images/45_main.jpg",
         "detail": "images/45_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000053/45.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000053&cat=50",
       "geometry": null
     },
     {
@@ -911,8 +805,6 @@
         "main": "images/46_main.jpg",
         "detail": "images/46_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000054/46.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000054&cat=50",
       "geometry": null
     },
     {
@@ -926,8 +818,6 @@
         "main": "images/47_main.jpg",
         "detail": "images/47_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000055/47.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000055&cat=50",
       "geometry": null,
       "hints": {
         "holes": 3
@@ -944,8 +834,6 @@
         "main": "images/48_main.jpg",
         "detail": "images/48_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000056/48.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000056&cat=50",
       "geometry": null,
       "hints": {
         "holes": 5
@@ -962,8 +850,6 @@
         "main": "images/49_main.jpg",
         "detail": "images/49_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000057/49.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000057&cat=50",
       "geometry": null,
       "hints": {
         "holes": 7
@@ -980,8 +866,6 @@
         "main": "images/50_main.jpg",
         "detail": "images/50_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000058/50.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000058&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -998,8 +882,6 @@
         "main": "images/51_main.jpg",
         "detail": "images/51_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000059/51.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000059&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -1016,8 +898,6 @@
         "main": "images/52_main.jpg",
         "detail": "images/52_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000061/52.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000061&cat=50",
       "geometry": null
     },
     {
@@ -1031,8 +911,6 @@
         "main": "images/53_main.jpg",
         "detail": "images/53_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000062/53.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000062&cat=50",
       "geometry": null
     },
     {
@@ -1046,8 +924,6 @@
         "main": "images/54_main.jpg",
         "detail": "images/54_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000063/54.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000063&cat=50",
       "geometry": null
     },
     {
@@ -1061,8 +937,6 @@
         "main": "images/54A_main.jpg",
         "detail": "images/54A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000064/54A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000064&cat=50",
       "geometry": null
     },
     {
@@ -1076,8 +950,6 @@
         "main": "images/55_main.jpg",
         "detail": "images/55_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000065/55.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000065&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -1094,8 +966,6 @@
         "main": "images/56_main.jpg",
         "detail": "images/56_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000066/56.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000066&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -1112,8 +982,6 @@
         "main": "images/57_main.jpg",
         "detail": "images/57_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000067/57.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000067&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 7.5
@@ -1130,8 +998,6 @@
         "main": "images/58_main.jpg",
         "detail": "images/58_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000068/58.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000068&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 5
@@ -1148,8 +1014,6 @@
         "main": "images/59_main.jpg",
         "detail": "images/59_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000069/59.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000069&cat=50",
       "geometry": null
     },
     {
@@ -1163,8 +1027,6 @@
         "main": "images/60_main.jpg",
         "detail": "images/60_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000070/60.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000070&cat=50",
       "geometry": null
     },
     {
@@ -1178,8 +1040,6 @@
         "main": "images/60K_main.jpg",
         "detail": "images/60K_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000071/60K.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000071&cat=50",
       "geometry": null
     },
     {
@@ -1193,8 +1053,6 @@
         "main": "images/61_main.jpg",
         "detail": "images/61_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000072/61.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000072&cat=50",
       "geometry": null
     },
     {
@@ -1208,8 +1066,6 @@
         "main": "images/61K_main.jpg",
         "detail": "images/61K_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000073/61K.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000073&cat=50",
       "geometry": null
     },
     {
@@ -1223,8 +1079,6 @@
         "main": "images/62_main.jpg",
         "detail": "images/62_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000074/62.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000074&cat=50",
       "geometry": null
     },
     {
@@ -1238,8 +1092,6 @@
         "main": "images/63_main.jpg",
         "detail": "images/63_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000075/63.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000075&cat=50",
       "geometry": null
     },
     {
@@ -1253,8 +1105,6 @@
         "main": "images/63K_main.jpg",
         "detail": "images/63K_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000076/63K.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000076&cat=50",
       "geometry": null
     },
     {
@@ -1268,8 +1118,6 @@
         "main": "images/64_main.jpg",
         "detail": "images/64_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000077/64.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000077&cat=50",
       "geometry": null
     },
     {
@@ -1283,8 +1131,6 @@
         "main": "images/65_main.jpg",
         "detail": "images/65_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000078/65.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000078&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.3
@@ -1301,8 +1147,6 @@
         "main": "images/65N_main.jpg",
         "detail": "images/65N_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000079/65N.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000079&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.3
@@ -1319,8 +1163,6 @@
         "main": "images/66_main.jpg",
         "detail": "images/66_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000080/66.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000080&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 2
@@ -1337,8 +1179,6 @@
         "main": "images/66N_main.jpg",
         "detail": "images/66N_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000081/66N.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000081&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 2
@@ -1355,8 +1195,6 @@
         "main": "images/67_main.jpg",
         "detail": "images/67_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000082/67.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000082&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 3
@@ -1373,8 +1211,6 @@
         "main": "images/68_main.jpg",
         "detail": "images/68_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000084/68.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000084&cat=50",
       "geometry": null
     },
     {
@@ -1388,8 +1224,6 @@
         "main": "images/69_main.jpg",
         "detail": "images/69_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000085/69.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000085&cat=50",
       "geometry": null
     },
     {
@@ -1403,8 +1237,6 @@
         "main": "images/70_main.jpg",
         "detail": "images/70_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000086/70.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000086&cat=50",
       "geometry": null
     },
     {
@@ -1418,8 +1250,6 @@
         "main": "images/71_main.jpg",
         "detail": "images/71_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000087/71.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000087&cat=50",
       "geometry": null
     },
     {
@@ -1433,8 +1263,6 @@
         "main": "images/72_main.jpg",
         "detail": "images/72_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000088/72.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000088&cat=50",
       "geometry": null
     },
     {
@@ -1448,8 +1276,6 @@
         "main": "images/73_main.jpg",
         "detail": "images/73_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000089/73.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000089&cat=50",
       "geometry": null
     },
     {
@@ -1463,8 +1289,6 @@
         "main": "images/74_main.jpg",
         "detail": "images/74_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000090/74.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000090&cat=50",
       "geometry": null
     },
     {
@@ -1478,8 +1302,6 @@
         "main": "images/75_main.jpg",
         "detail": "images/75_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000091/75.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000091&cat=50",
       "geometry": null
     },
     {
@@ -1493,8 +1315,6 @@
         "main": "images/76_main.jpg",
         "detail": "images/76_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000092/76.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000092&cat=50",
       "geometry": null
     },
     {
@@ -1508,8 +1328,6 @@
         "main": "images/77_main.jpg",
         "detail": "images/77_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000093/77.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000093&cat=50",
       "geometry": null
     },
     {
@@ -1523,8 +1341,6 @@
         "main": "images/78_main.jpg",
         "detail": "images/78_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000094/78.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000094&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -1541,8 +1357,6 @@
         "main": "images/79_main.jpg",
         "detail": "images/79_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000095/79.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000095&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -1559,8 +1373,6 @@
         "main": "images/80_main.jpg",
         "detail": "images/80_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000096/80.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000096&cat=50",
       "geometry": null,
       "hints": {
         "grid": "11x3",
@@ -1578,8 +1390,6 @@
         "main": "images/81_main.jpg",
         "detail": "images/81_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000097/81.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000097&cat=50",
       "geometry": null,
       "hints": {
         "grid": "7x5",
@@ -1597,8 +1407,6 @@
         "main": "images/82_main.jpg",
         "detail": "images/82_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000098/82.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000098&cat=50",
       "geometry": null,
       "hints": {
         "grid": "5x5",
@@ -1616,8 +1424,6 @@
         "main": "images/83_main.jpg",
         "detail": "images/83_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000099/83.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000099&cat=50",
       "geometry": null,
       "hints": {
         "grid": "5x3",
@@ -1635,8 +1441,6 @@
         "main": "images/84_main.jpg",
         "detail": "images/84_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000100/84.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000100&cat=50",
       "geometry": null,
       "hints": {
         "grid": "5x3",
@@ -1654,8 +1458,6 @@
         "main": "images/85_main.jpg",
         "detail": "images/85_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000101/85.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000101&cat=50",
       "geometry": null,
       "hints": {
         "grid": "11x5",
@@ -1673,8 +1475,6 @@
         "main": "images/86_main.jpg",
         "detail": "images/86_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000102/86.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000102&cat=50",
       "geometry": null
     },
     {
@@ -1688,8 +1488,6 @@
         "main": "images/87_main.jpg",
         "detail": "images/87_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000103/87.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000103&cat=50",
       "geometry": null
     },
     {
@@ -1703,8 +1501,6 @@
         "main": "images/88_main.jpg",
         "detail": "images/88_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000104/88.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000104&cat=50",
       "geometry": null
     },
     {
@@ -1718,8 +1514,6 @@
         "main": "images/89_main.jpg",
         "detail": "images/89_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000105/89.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000105&cat=50",
       "geometry": null,
       "hints": {
         "holes": 5
@@ -1736,8 +1530,6 @@
         "main": "images/90_main.jpg",
         "detail": "images/90_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000106/90.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000106&cat=50",
       "geometry": null,
       "hints": {
         "holes": 6
@@ -1754,8 +1546,6 @@
         "main": "images/91_main.jpg",
         "detail": "images/91_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000107/91.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000107&cat=50",
       "geometry": null,
       "hints": {
         "holes": 7
@@ -1772,8 +1562,6 @@
         "main": "images/92_main.jpg",
         "detail": "images/92_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000108/92.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000108&cat=50",
       "geometry": null,
       "hints": {
         "holes": 9
@@ -1790,8 +1578,6 @@
         "main": "images/93_main.jpg",
         "detail": "images/93_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000109/93.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000109&cat=50",
       "geometry": null,
       "hints": {
         "holes": 3
@@ -1808,8 +1594,6 @@
         "main": "images/94_main.jpg",
         "detail": "images/94_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000110/94.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000110&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -1826,8 +1610,6 @@
         "main": "images/97A_main.jpg",
         "detail": "images/97A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000111/97A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000111&cat=50",
       "geometry": null
     },
     {
@@ -1841,8 +1623,6 @@
         "main": "images/100A_main.jpg",
         "detail": "images/100A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000112/100A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000112&cat=50",
       "geometry": null
     },
     {
@@ -1856,8 +1636,6 @@
         "main": "images/100B_main.jpg",
         "detail": "images/100B_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000113/100B.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000113&cat=50",
       "geometry": null
     },
     {
@@ -1871,8 +1649,6 @@
         "main": "images/102_main.jpg",
         "detail": "images/102_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000114/102.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000114&cat=50",
       "geometry": null
     },
     {
@@ -1886,8 +1662,6 @@
         "main": "images/103_main.jpg",
         "detail": "images/103_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000115/103.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000115&cat=50",
       "geometry": null
     },
     {
@@ -1901,8 +1675,6 @@
         "main": "images/104_main.jpg",
         "detail": "images/104_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000116/104.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000116&cat=50",
       "geometry": null
     },
     {
@@ -1916,8 +1688,6 @@
         "main": "images/104A_main.jpg",
         "detail": "images/104A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000117/104A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000117&cat=50",
       "geometry": null
     },
     {
@@ -1931,8 +1701,6 @@
         "main": "images/105_main.jpg",
         "detail": "images/105_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000118/105.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000118&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -1949,8 +1717,6 @@
         "main": "images/106_main.jpg",
         "detail": "images/106_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000119/106.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000119&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -1967,8 +1733,6 @@
         "main": "images/107_main.jpg",
         "detail": "images/107_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000120/107.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000120&cat=50",
       "geometry": null,
       "hints": {
         "size": "중"
@@ -1985,8 +1749,6 @@
         "main": "images/108_main.jpg",
         "detail": "images/108_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000121/108.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000121&cat=50",
       "geometry": null
     },
     {
@@ -2000,8 +1762,6 @@
         "main": "images/109_main.jpg",
         "detail": "images/109_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000122/109.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000122&cat=50",
       "geometry": null
     },
     {
@@ -2015,8 +1775,6 @@
         "main": "images/110_main.jpg",
         "detail": "images/110_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000123/110.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000123&cat=50",
       "geometry": null
     },
     {
@@ -2030,8 +1788,6 @@
         "main": "images/111_main.jpg",
         "detail": "images/111_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000124/111.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000124&cat=50",
       "geometry": null
     },
     {
@@ -2045,8 +1801,6 @@
         "main": "images/112_main.jpg",
         "detail": "images/112_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000125/112.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000125&cat=50",
       "geometry": null
     },
     {
@@ -2060,8 +1814,6 @@
         "main": "images/120_main.jpg",
         "detail": "images/120_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000126/120.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000126&cat=50",
       "geometry": null
     },
     {
@@ -2075,8 +1827,6 @@
         "main": "images/120A_main.jpg",
         "detail": "images/120A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000127/120A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000127&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 30
@@ -2093,8 +1843,6 @@
         "main": "images/120B_main.jpg",
         "detail": "images/120B_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000128/120B.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000128&cat=50",
       "geometry": null
     },
     {
@@ -2108,8 +1856,6 @@
         "main": "images/121_main.jpg",
         "detail": "images/121_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000129/121.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000129&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -2126,8 +1872,6 @@
         "main": "images/122_main.jpg",
         "detail": "images/122_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000130/122.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000130&cat=50",
       "geometry": null
     },
     {
@@ -2141,8 +1885,6 @@
         "main": "images/123_main.jpg",
         "detail": "images/123_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000131/123.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000131&cat=50",
       "geometry": null
     },
     {
@@ -2156,8 +1898,6 @@
         "main": "images/124_main.jpg",
         "detail": "images/124_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000132/124.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000132&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -2174,8 +1914,6 @@
         "main": "images/124A_main.jpg",
         "detail": "images/124A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000133/124A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000133&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -2192,8 +1930,6 @@
         "main": "images/125_main.jpg",
         "detail": "images/125_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000134/125.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000134&cat=50",
       "geometry": null
     },
     {
@@ -2207,8 +1943,6 @@
         "main": "images/127_main.jpg",
         "detail": "images/127_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000135/127.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000135&cat=50",
       "geometry": null,
       "hints": {
         "holes": 25
@@ -2225,8 +1959,6 @@
         "main": "images/128_main.jpg",
         "detail": "images/128_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000136/128.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000136&cat=50",
       "geometry": null,
       "hints": {
         "holes": 25
@@ -2243,8 +1975,6 @@
         "main": "images/129_main.jpg",
         "detail": "images/129_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000137/129.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000137&cat=50",
       "geometry": null
     },
     {
@@ -2258,8 +1988,6 @@
         "main": "images/130_main.jpg",
         "detail": "images/130_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000138/130.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000138&cat=50",
       "geometry": null
     },
     {
@@ -2273,8 +2001,6 @@
         "main": "images/130K_main.jpg",
         "detail": "images/130K_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000139/130K.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000139&cat=50",
       "geometry": null
     },
     {
@@ -2288,8 +2014,6 @@
         "main": "images/131_main.jpg",
         "detail": "images/131_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000140/131.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000140&cat=50",
       "geometry": null
     },
     {
@@ -2303,8 +2027,6 @@
         "main": "images/131K_main.jpg",
         "detail": "images/131K_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000141/131K.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000141&cat=50",
       "geometry": null
     },
     {
@@ -2318,8 +2040,6 @@
         "main": "images/132_main.jpg",
         "detail": "images/132_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000142/132.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000142&cat=50",
       "geometry": null,
       "hints": {
         "holes": 2
@@ -2336,8 +2056,6 @@
         "main": "images/133_main.jpg",
         "detail": "images/133_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000143/133.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000143&cat=50",
       "geometry": null
     },
     {
@@ -2351,8 +2069,6 @@
         "main": "images/134_main.jpg",
         "detail": "images/134_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000144/134.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000144&cat=50",
       "geometry": null,
       "hints": {
         "color": "투명"
@@ -2369,8 +2085,6 @@
         "main": "images/137_main.jpg",
         "detail": "images/137_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000145/137.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000145&cat=50",
       "geometry": null
     },
     {
@@ -2384,8 +2098,6 @@
         "main": "images/138_main.jpg",
         "detail": "images/138_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000146/138.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000146&cat=50",
       "geometry": null
     },
     {
@@ -2399,8 +2111,6 @@
         "main": "images/139_main.jpg",
         "detail": "images/139_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000147/139.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000147&cat=50",
       "geometry": null
     },
     {
@@ -2414,8 +2124,6 @@
         "main": "images/139A_main.jpg",
         "detail": "images/139A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000148/139A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000148&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.2
@@ -2432,8 +2140,6 @@
         "main": "images/140_main.jpg",
         "detail": "images/140_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000149/140.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000149&cat=50",
       "geometry": null,
       "hints": {
         "size": "소"
@@ -2450,8 +2156,6 @@
         "main": "images/141_main.jpg",
         "detail": "images/141_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000150/141.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000150&cat=50",
       "geometry": null
     },
     {
@@ -2465,8 +2169,6 @@
         "main": "images/142_main.jpg",
         "detail": "images/142_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000151/142.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000151&cat=50",
       "geometry": null
     },
     {
@@ -2480,8 +2182,6 @@
         "main": "images/143_main.jpg",
         "detail": "images/143_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000152/143.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000152&cat=50",
       "geometry": null
     },
     {
@@ -2495,8 +2195,6 @@
         "main": "images/144_main.jpg",
         "detail": "images/144_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000153/144.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000153&cat=50",
       "geometry": null
     },
     {
@@ -2510,8 +2208,6 @@
         "main": "images/145_main.jpg",
         "detail": "images/145_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000154/145.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000154&cat=50",
       "geometry": null
     },
     {
@@ -2525,8 +2221,6 @@
         "main": "images/147_main.jpg",
         "detail": "images/147_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000155/147.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000155&cat=50",
       "geometry": null
     },
     {
@@ -2540,8 +2234,6 @@
         "main": "images/148_main.jpg",
         "detail": "images/148_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000156/148.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000156&cat=50",
       "geometry": null
     },
     {
@@ -2555,8 +2247,6 @@
         "main": "images/149_main.jpg",
         "detail": "images/149_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000157/149.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000157&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -2573,8 +2263,6 @@
         "main": "images/151_main.jpg",
         "detail": "images/151_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000158/151.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000158&cat=50",
       "geometry": null,
       "hints": {
         "size": "대"
@@ -2591,8 +2279,6 @@
         "main": "images/152_main.jpg",
         "detail": "images/152_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000159/152.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000159&cat=50",
       "geometry": null
     },
     {
@@ -2606,8 +2292,6 @@
         "main": "images/153_main.jpg",
         "detail": "images/153_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000160/153.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000160&cat=50",
       "geometry": null
     },
     {
@@ -2621,8 +2305,6 @@
         "main": "images/153B_main.jpg",
         "detail": "images/153B_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000161/153B.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000161&cat=50",
       "geometry": null
     },
     {
@@ -2636,8 +2318,6 @@
         "main": "images/156_main.jpg",
         "detail": "images/156_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000162/156.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000162&cat=50",
       "geometry": null
     },
     {
@@ -2651,8 +2331,6 @@
         "main": "images/160_main.jpg",
         "detail": "images/160_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000163/160.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000163&cat=50",
       "geometry": null,
       "hints": {
         "grid": "1x5"
@@ -2669,8 +2347,6 @@
         "main": "images/161_main.jpg",
         "detail": "images/161_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000164/161.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000164&cat=50",
       "geometry": null
     },
     {
@@ -2684,8 +2360,6 @@
         "main": "images/162_main.jpg",
         "detail": "images/162_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000165/162.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000165&cat=50",
       "geometry": null
     },
     {
@@ -2699,8 +2373,6 @@
         "main": "images/163_main.jpg",
         "detail": "images/163_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000166/163.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000166&cat=50",
       "geometry": null
     },
     {
@@ -2714,8 +2386,6 @@
         "main": "images/164_main.jpg",
         "detail": "images/164_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000167/164.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000167&cat=50",
       "geometry": null
     },
     {
@@ -2729,8 +2399,6 @@
         "main": "images/165_main.jpg",
         "detail": "images/165_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000168/165.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000168&cat=50",
       "geometry": null
     },
     {
@@ -2744,8 +2412,6 @@
         "main": "images/165A_main.jpg",
         "detail": "images/165A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000169/165A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000169&cat=50",
       "geometry": null
     },
     {
@@ -2759,8 +2425,6 @@
         "main": "images/166A_main.jpg",
         "detail": "images/166A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000171/166A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000171&cat=50",
       "geometry": null
     },
     {
@@ -2774,8 +2438,6 @@
         "main": "images/167_main.jpg",
         "detail": "images/167_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000172/167.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000172&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.6
@@ -2792,8 +2454,6 @@
         "main": "images/168_main.jpg",
         "detail": "images/168_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000173/168.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000173&cat=50",
       "geometry": null,
       "hints": {
         "grid": "2x5"
@@ -2810,8 +2470,6 @@
         "main": "images/169_main.jpg",
         "detail": "images/169_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000174/169.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000174&cat=50",
       "geometry": null,
       "hints": {
         "grid": "2x7"
@@ -2828,8 +2486,6 @@
         "main": "images/171_main.jpg",
         "detail": "images/171_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000175/171.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000175&cat=50",
       "geometry": null
     },
     {
@@ -2843,8 +2499,6 @@
         "main": "images/172_main.jpg",
         "detail": "images/172_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000176/172.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000176&cat=50",
       "geometry": null
     },
     {
@@ -2858,8 +2512,6 @@
         "main": "images/173_main.jpg",
         "detail": "images/173_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000177/173.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000177&cat=50",
       "geometry": null
     },
     {
@@ -2873,8 +2525,6 @@
         "main": "images/174_main.jpg",
         "detail": "images/174_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000178/174.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000178&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.5
@@ -2891,8 +2541,6 @@
         "main": "images/175_main.jpg",
         "detail": "images/175_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000179/175.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000179&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 0.9
@@ -2909,8 +2557,6 @@
         "main": "images/176_main.jpg",
         "detail": "images/176_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000180/176.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000180&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.5
@@ -2927,8 +2573,6 @@
         "main": "images/176A_main.jpg",
         "detail": "images/176A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000181/176A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000181&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 1.7
@@ -2945,8 +2589,6 @@
         "main": "images/177_main.jpg",
         "detail": "images/177_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000182/177.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000182&cat=50",
       "geometry": null
     },
     {
@@ -2960,8 +2602,6 @@
         "main": "images/188A_main.jpg",
         "detail": "images/188A_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000183/188A.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000183&cat=50",
       "geometry": null,
       "hints": {
         "length_cm": 15.5
@@ -2978,8 +2618,6 @@
         "main": "images/201_main.jpg",
         "detail": "images/201_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000184/201.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000184&cat=50",
       "geometry": null,
       "hints": {
         "teeth": 8
@@ -2996,8 +2634,6 @@
         "main": "images/202_main.jpg",
         "detail": "images/202_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000185/202.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000185&cat=50",
       "geometry": null
     },
     {
@@ -3011,8 +2647,6 @@
         "main": "images/203_main.jpg",
         "detail": "images/203_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000186/203.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000186&cat=50",
       "geometry": null
     },
     {
@@ -3026,8 +2660,6 @@
         "main": "images/204_main.jpg",
         "detail": "images/204_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000187/204.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000187&cat=50",
       "geometry": null
     },
     {
@@ -3041,8 +2673,6 @@
         "main": "images/205_main.jpg",
         "detail": "images/205_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000188/205.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000188&cat=50",
       "geometry": null
     },
     {
@@ -3056,8 +2686,6 @@
         "main": "images/453_main.jpg",
         "detail": "images/453_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000193/453.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000193&cat=50",
       "geometry": null,
       "hints": {
         "holes": 5
@@ -3074,8 +2702,6 @@
         "main": "images/503_main.jpg",
         "detail": "images/503_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000194/6riw7Ja065Oc66qo7YSw67iM656Y7YK3.png",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000194&cat=50",
       "geometry": null
     },
     {
@@ -3089,8 +2715,6 @@
         "main": "images/211_main.jpg",
         "detail": "images/211_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000189/211.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000189&cat=50",
       "geometry": null
     },
     {
@@ -3104,8 +2728,6 @@
         "main": "images/212_main.jpg",
         "detail": "images/212_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000190/212.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000190&cat=50",
       "geometry": null
     },
     {
@@ -3119,8 +2741,6 @@
         "main": "images/213_main.jpg",
         "detail": "images/213_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000191/213.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000191&cat=50",
       "geometry": null
     },
     {
@@ -3134,8 +2754,6 @@
         "main": "images/214_main.jpg",
         "detail": "images/214_detail.jpg"
       },
-      "thumb_url": "https://www.sciencebox.co.kr/data/item/5000000192/214.jpg",
-      "url": "https://www.sciencebox.co.kr/shop/item.php?it_id=5000000192&cat=50",
       "geometry": null
     }
   ]

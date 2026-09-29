@@ -1,4 +1,4 @@
-// 과학상자 조립 시뮬레이터 — 메인
+// BoltLab-sim — 메인
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { CATALOG, findDef } from './catalog.js';
