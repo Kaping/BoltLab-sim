@@ -55,6 +55,7 @@ export const CATALOG = [
       { id: 'join-plate',   label: '이음판',        qty: 2, make: () => makeJoinPlate() },
       { id: 'l-bracket-s',  label: 'ㄱ형브래킷(소)', qty: 6, make: () => makeLBracket(1) },
       { id: 'l-bracket-l',  label: 'ㄱ형브래킷(대)', qty: 4, make: () => makeLBracket(2) },
+      { id: 'l-bracket-2x2', label: 'ㄱ형브래킷 2×2', qty: 2, make: () => makeLBracket(2, 2, 12.3) },
       { id: 'u-bracket-s',  label: 'ㄷ형브래킷(소)', qty: 2, make: () => makeUBracket(12.5) },
     ],
   },

@@ -181,25 +181,27 @@ export function makeJoinPlate() {
 // ── ㄱ형브래킷 (15/16) ──  수평 발(구멍 nFoot개) + 수직 벽(구멍 1개)
 // 소: 발 13.5 구멍1 / 대: 발 26.3 구멍2 @12.7. 벽 높이 10.7 (실측)
 // 구멍 위치는 OCR 외형치수 기반 근사 — 코너에서 6.75mm
-export function makeLBracket(nFoot = 1) {
-  const W = STRIP_W, wallH = 10.7;
+// 2×2 (16A): 폭 25.4 (구멍 2열), 발 26.3 구멍 2×2, 벽 높이 12.3 구멍 2개 — 벽 구멍 수는 높이로 보아 1행 가정(추정)
+export function makeLBracket(nFoot = 1, nWide = 1, wallH = 10.7) {
+  const W = nWide === 1 ? STRIP_W : nWide * PITCH;
   const footL = nFoot === 1 ? 13.5 : 26.3;
+  const zs = Array.from({ length: nWide }, (_, j) => (j - (nWide - 1) / 2) * PITCH);
   const group = new THREE.Group();
 
   const footHoleXs = [];
   for (let i = 0; i < nFoot; i++) footHoleXs.push(6.75 + i * PITCH);
-  const footLocal = footHoleXs.map(x => ({ x: x - footL / 2, z: 0 }));
+  const footLocal = footHoleXs.flatMap(x => zs.map(z => ({ x: x - footL / 2, z })));
   const foot = new THREE.Mesh(flatPlateGeometry(footL, W, footLocal, 1.5), steelMaterial());
   foot.position.x = footL / 2;
   group.add(foot);
 
-  const wall = new THREE.Mesh(flatPlateGeometry(wallH, W, [{ x: 0, z: 0 }], 1.5), steelMaterial());
+  const wall = new THREE.Mesh(flatPlateGeometry(wallH, W, zs.map(z => ({ x: 0, z })), 1.5), steelMaterial());
   wall.rotation.z = Math.PI / 2;
   wall.position.set(0, wallH / 2, 0);
   group.add(wall);
 
-  const holes = footHoleXs.map(x => holeMeta(x, 0, 0, 0, 1, 0));
-  holes.push(holeMeta(0, wallH / 2, 0, 1, 0, 0));
+  const holes = footHoleXs.flatMap(x => zs.map(z => holeMeta(x, 0, z, 0, 1, 0)));
+  for (const z of zs) holes.push(holeMeta(0, wallH / 2, z, 1, 0, 0));
   return { group, kind: 'plate', holes };
 }
 

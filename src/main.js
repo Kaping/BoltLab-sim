@@ -105,8 +105,8 @@ function renderPalette() {
       const el = document.createElement('div');
       el.className = 'pal-item';
       const qty = document.createElement('span');
-      qty.className = 'qty' + (used > item.qty ? ' over' : '');
-      qty.textContent = `${used}/${item.qty}`;
+      qty.className = 'qty';
+      qty.textContent = used ? `×${used}` : '';  // 재고 제한 없음 — 사용 중인 개수만 표시
       el.append(Object.assign(document.createElement('span'), { textContent: item.label }), qty);
       el.addEventListener('click', () => spawnPart(item.id));
       paletteEl.appendChild(el);
