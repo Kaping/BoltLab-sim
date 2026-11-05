@@ -3,7 +3,7 @@
 
 import {
   makeStrip, makeAngle, makeChannel, makeRectPlate, makeGridPlate, makeFlatPlateN, makePentagonPlate, makeTrianglePlate,
-  makeAxle, makeSpurGearS, makeSpurGearL, makePinionGear, makeWheelPlate8, makeGearedMotor,
+  makeAxle, makeSpurGearS, makeSpurGearL, makePinionGear, makeWormGear, makeWheelPlate8, makeGearedMotor,
   makeJoinPlate, makeLBracket, makeUBracket, makeMotor, makeSprocketS, makeSprocketL, makePulleyL, makePulleyM, makePulleyS, makeTirePulley, makeSlottedStrip, NARROW_W,
 } from './generators.js';
 
@@ -92,6 +92,7 @@ export const CATALOG = [
       { id: 'gear-spur-l', label: '평기어(대) 95T', make: () => makeSpurGearL() },
       { id: 'gear-spur-s', label: '평기어(소) 57T', make: () => makeSpurGearS() },
       { id: 'gear-pinion', label: '피니언기어 19T', make: () => makePinionGear() },
+      { id: 'gear-worm', label: '워엄기어 Ø14', make: () => makeWormGear() },
       { id: 'sprocket-s', label: '체인기어(소) 12T', make: () => makeSprocketS() },
       { id: 'sprocket-l', label: '체인기어(대) 25T', make: () => makeSprocketL() },
     ],

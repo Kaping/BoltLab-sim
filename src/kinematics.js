@@ -260,14 +260,32 @@ export class KinematicModel {
       return out;
     };
     for (let i = 0; i < gInfo.length; i++) for (let k = i + 1; k < gInfo.length; k++) {
-      const A = gInfo[i], B = gInfo[k];
+      let A = gInfo[i], B = gInfo[k];
       if (A.gear.chain || B.gear.chain || A.gear.belt || B.gear.belt || A.gear.noMesh || B.gear.noMesh) continue; // 체인기어·풀리·휠판은 이빨로 안 맞물림
-      const dot = A.n.dot(B.n);
-      if (Math.abs(dot) < PARALLEL) continue;
-      const d = B.c.clone().sub(A.c);
-      if (Math.abs(d.dot(A.n)) > 3) continue;
-      const cd = d.clone().addScaledVector(A.n, -d.dot(A.n)).length();
-      if (Math.abs(cd - (A.gear.pitchR + B.gear.pitchR)) > 1.5) continue;
+      // 잔차 tA·θA + s·tB·θB = 0 의 계수
+      let tA, tB, s;
+      if (A.gear.worm || B.gear.worm) {
+        // 웜: 축이 직각으로 엇갈려 맞물림. 웜 축이 상대 기어의 중간면 안에서 피치원에 접하고(중심거리 = 피치 반지름 합),
+        // 접점은 웜의 나사산 구간 안. 한 바퀴(나사선 1줄)에 상대 기어 이 1개 → θ기어 = ±θ웜 / 잇수
+        if (B.gear.worm && !A.gear.worm) [A, B] = [B, A];                  // A = 웜
+        if (B.gear.worm || !B.gear.teeth) continue;
+        if (Math.abs(A.n.dot(B.n)) > 0.1) continue;                       // 두 축이 직각
+        const d = B.c.clone().sub(A.c);
+        if (Math.abs(d.dot(B.n)) > 3) continue;                           // 웜 축이 기어 중간면 위
+        const de = d.dot(new THREE.Vector3().crossVectors(A.n, B.n).normalize());  // 두 축의 공통 수선 방향 성분
+        if (Math.abs(Math.abs(de) - (A.gear.pitchR + B.gear.pitchR)) > 1.5) continue;
+        if (Math.abs(d.dot(A.n)) > A.gear.len / 2 + 1) continue;          // 접점이 나사산 길이 안
+        // 오른나사(hand=+1): 웜이 +θ 돌면 나사산이 접점에서 -축 방향으로 흘러 기어를 κ·θ/T 만큼 돌린다 (κ = 공통 수선 방향 부호)
+        tA = A.gear.starts ?? 1; tB = B.gear.teeth; s = -(A.gear.hand ?? 1) * (Math.sign(de) || 1);
+      } else {
+        const dot = A.n.dot(B.n);
+        if (Math.abs(dot) < PARALLEL) continue;
+        const d = B.c.clone().sub(A.c);
+        if (Math.abs(d.dot(A.n)) > 3) continue;
+        const cd = d.clone().addScaledVector(A.n, -d.dot(A.n)).length();
+        if (Math.abs(cd - (A.gear.pitchR + B.gear.pitchR)) > 1.5) continue;
+        tA = A.gear.teeth; tB = B.gear.teeth; s = Math.sign(dot) || 1;
+      }
       if (A.body === B.body) continue;
       const cA = carriersOf(A), cB = carriersOf(B);
       const common = [...cA].filter(x => cB.has(x) && x !== A.body && x !== B.body);
@@ -281,7 +299,7 @@ export class KinematicModel {
         continue;
       }
       this.gears.push({
-        tA: A.gear.teeth, tB: B.gear.teeth, s: Math.sign(dot) || 1,
+        tA, tB, s,
         mA: A.body === carrier ? -1 : addMeas(A.body, carrier, A.n, A.c),
         mB: B.body === carrier ? -1 : addMeas(B.body, carrier, B.n, B.c),
         parts: [A.id, B.id],

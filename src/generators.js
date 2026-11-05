@@ -410,6 +410,53 @@ export const makeSpurGearS = () => makeGear(57, { boltHoleCount: 8, boltCircleR:
 export const makePinionGear = () => makeGear(19, { hubH: 10.5 });
 export const makeSpurGearL = () => makeGear(95, { boltHoleCount: 8, boltCircleR: 12.7, boltHoleCount2: 8, boltCircleR2: 25.4 });
 
+// ── 워엄기어 (37) ──  Ø14 × 26 (상품 이미지): 노란 한 줄 나사선 + 아래쪽 금속 허브(멈춤나사). 축 = 로컬 +Y.
+// 평기어(소)와 같은 모듈(0.668): 축방향 피치 π·m = 2.1, 피치 반지름 = 6.35(=OD 14 에서 이끝 높이 m 뺀 값) →
+// 57T 평기어와 중심거리 25.4(격자 2칸) — 피니언과 똑같이 격자에 맞음. 나사 방향은 오른나사 가정(gear.hand).
+// 허브 길이 8·나사산 길이 18·단면 치수는 이미지 비율 추정. 원점 = 나사산 중앙.
+function helixThreadGeometry(rRoot, rTip, pitch, length, hwRoot, hwTip, seg = 28) {
+  const turns = length / pitch, steps = Math.ceil(turns * seg);
+  const prof = [[rRoot, -hwRoot], [rTip, -hwTip], [rTip, hwTip], [rRoot, hwRoot]];
+  const pos = [], idx = [];
+  for (let i = 0; i <= steps; i++) {
+    const phi = (i / steps) * turns * Math.PI * 2;
+    const y0 = -length / 2 + (phi / (Math.PI * 2)) * pitch;           // 각도(+Y 둘레 +방향)가 늘면 +Y 로 전진 = 오른나사
+    for (const [r, dy] of prof) pos.push(r * Math.cos(phi), y0 + dy, -r * Math.sin(phi));
+  }
+  for (let i = 0; i < steps; i++) for (let k = 0; k < 4; k++) {
+    const a = i * 4 + k, b = i * 4 + (k + 1) % 4, c = (i + 1) * 4 + k, d = (i + 1) * 4 + (k + 1) % 4;
+    idx.push(a, b, c, b, d, c);
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setIndex(idx);
+  geo.computeVertexNormals();
+  return geo;
+}
+export const WORM_LEN = 18;           // 나사산 길이
+export function makeWormGear() {
+  const pitch = Math.PI * GEAR_MODULE, rTip = 7, rRoot = 5.5, hubR = 4.5, hubH = 8;
+  const spinner = new THREE.Group();
+  const yellow = plasticMaterial(0xe8b90f);
+  yellow.side = THREE.DoubleSide;
+  spinner.add(new THREE.Mesh(helixThreadGeometry(rRoot, rTip, pitch, WORM_LEN - 1.7, 0.85, 0.25), yellow));   // 나사산 끝(±0.85)까지 포함해 전체 18
+  const core = new THREE.Mesh(new THREE.CylinderGeometry(rRoot - 0.05, rRoot - 0.05, WORM_LEN, 32), plasticMaterial(0xe8b90f));
+  spinner.add(core);
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(hubR, hubR, hubH, 24), steelMaterial());
+  hub.position.y = -WORM_LEN / 2 - hubH / 2;
+  spinner.add(hub);
+  const screw = new THREE.Mesh(new THREE.CylinderGeometry(1.3, 1.3, 1.2, 12), boltMaterial());   // 멈춤나사
+  screw.rotation.z = Math.PI / 2;
+  screw.position.set(hubR, hub.position.y, 0);
+  spinner.add(screw);
+  const group = new THREE.Group();
+  group.add(spinner);
+  return {
+    group, kind: 'gear', holes: [], spinner,
+    gear: { worm: true, starts: 1, hand: 1, pitchR: PITCH / 2, thick: WORM_LEN, len: WORM_LEN },   // 6.35 (= 7 - 모듈 0.67 ≈ 6.33)
+  };
+}
+
 // ── 체인기어 (스프로킷) ──  체인 피치 6.35mm(OCR, 104번 체인).
 // 피치원 R = p / (2·sin(π/N)) — 검산: 12T 외경 ≈ 2R+3.7 = 28.2 ✓(OCR Ø28.2), 25T ≈ 54.4 ✓(OCR Ø54.5)
 // 전체 높이(디스크+허브): 소 14.6 / 대 15.5 (OCR). 디스크 두께·롤러 자리 반경은 추정치.
@@ -633,11 +680,12 @@ export function makeMotor() {
 
 // 기어드모터 (100A) — 상품 이미지: 검정 플라스틱 기어박스 몸체 + 양옆에 세운 구멍판 + 금속 출력축.
 // 외형 52(축 방향) × 35(양옆 판 바깥 폭) mm, 4.5V · 무부하 250rpm. 출력축 = 로컬 +X, Ø4.
-// 구멍(사용자 제보로 보정): 양옆 판 구멍 3칸×2줄 / 바닥 3×3 격자 중 가운데 줄(x=0)을 뺀 6곳 — 아래에서 볼트 체결 가능.
-// 바닥 격자의 "가운데 줄" 방향(축 방향 x 로 가정)과 몸체 높이·축 길이는 추정치.
+// 구멍(사용자 제보로 보정): 양옆 판 구멍 3칸×2줄 / 바닥 3×3 격자 중 가운데 줄(z=0, 축 방향 줄)을 뺀 6곳 — 아래에서 볼트 체결 가능.
+// 옆판·몸체 길이 = 구멍 3칸(38.1). 여기에 출력축 14 를 더하면 외형 52 와 맞는다(52 = 몸체 + 튀어나온 축).
+// 몸체 높이·축 길이는 추정치.
 export function makeGearedMotor() {
-  const PL = 52, PW = 35, PT = 2, PH = 25.4;           // 구멍판 길이·바깥 폭·두께·높이
-  const BODY_L = 40, BODY_X = 0;                        // 몸체 길이, 중심 x
+  const PL = 3 * PITCH, PW = 35, PT = 2, PH = 25.4;     // 구멍판 길이·바깥 폭·두께·높이
+  const BODY_L = PL, BODY_X = 0;                        // 몸체 길이(옆판과 같음), 중심 x
   const SHAFT_LEN = 14;
   const Y0 = -1, Y1 = Y0 + PH;                          // 바닥판 중심이 y=0 (다른 판 부품과 같은 기준)
   const cy = (Y0 + Y1) / 2;                             // 옆판 중심 = 출력축 높이
@@ -656,10 +704,10 @@ export function makeGearedMotor() {
     group.add(nub);
   }
 
-  // 바닥판: 3×3 격자(12.7) 중 가운데 줄(x=0)은 막혀 있고 양쪽 두 줄 6곳에 구멍
+  // 바닥판: 3×3 격자(12.7) 중 가운데 줄(z=0, 축 방향)은 막혀 있고 좌우 두 줄(z=±12.7) 6곳에 구멍
   const holes = [];
   const baseHoles = [];
-  for (const x of [-PITCH, PITCH]) for (const z of lineXs(3)) baseHoles.push({ x, z });
+  for (const z of [-PITCH, PITCH]) for (const x of lineXs(3)) baseHoles.push({ x, z });
   const base = new THREE.Mesh(flatPlateGeometry(BODY_L, PW - 2 * PT, baseHoles, 1.5, 2), dark);
   group.add(base);
   for (const h of baseHoles) holes.push(holeMeta(h.x, 0, h.z, 0, -1, 0, 2));
