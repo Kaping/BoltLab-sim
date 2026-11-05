@@ -1,0 +1,203 @@
+// 부품 인스턴스 + 체결 그래프 관리
+// 연결 type: 'bolt'(구멍-구멍 고정) | 'pivot'(회전볼트: 구멍-구멍 회전) | 'clip'(기어-축 고정)
+//            'bearing'(축-구멍 베어링) | 'drive'(모터 출력축 ← 축 또는 기어를 고정; a=구동받는 부품, b=모터)
+//            'chain'(체인기어 a ↔ 체인기어 b: 위치는 안 묶고 회전만 연동, mesh 는 월드 좌표)
+//            'belt'(풀리 a ↔ 풀리 b, 고무줄: chain 과 같은 구조, 회전비 = 홈 반지름비)
+//            'slot'(장공 볼트: a = 장공 부품, holeA = 장공 번호, b = 볼트가 고정된 부품, holeB = 구멍. 미끄럼 + 회전)
+
+import * as THREE from 'three';
+import { THICK } from './generators.js';
+
+let nextPartId = 1;
+let nextConnId = 1;
+let nextGroupId = 1;
+
+export class Assembly {
+  constructor() {
+    this.parts = new Map();     // partId -> { id, defId, root, holes, kind, axisLen?, gear?, spinner? }
+    this.connections = [];      // { id, type, a, b, holeA, holeB, mesh }
+    this.usedCount = new Map();
+  }
+
+  addPart(defId, made) {
+    const id = nextPartId++;
+    const part = {
+      id, defId,
+      root: made.group,
+      holes: made.holes || [],
+      slots: made.slots || [],   // 장공 [{ a, b, n, t }] (로컬)
+      kind: made.kind || 'plate',
+      axisLen: made.axisLen,
+      gear: made.gear,
+      spinner: made.spinner,
+      output: made.output,
+      tireSpec: made.tireSpec, // 풀리: 씌울 수 있는 타이어 규격
+      tire: null,              // 풀리: 씌운 타이어 메시 (없으면 null)
+      motorRpm: made.kind === 'motor' ? 60 : undefined,
+      group: null,            // 그룹 id: 같은 그룹은 한 덩어리로 고정
+    };
+    part.root.traverse(o => { o.userData.partId = id; });
+    part.root.userData.partId = id;
+    this.parts.set(id, part);
+    this.usedCount.set(defId, (this.usedCount.get(defId) || 0) + 1);
+    return part;
+  }
+
+  removePart(id) {
+    const part = this.parts.get(id);
+    if (!part) return [];
+    const removedMeshes = [];
+    this.connections = this.connections.filter(c => {
+      if (c.a === id || c.b === id) { removedMeshes.push(c.mesh); return false; }
+      return true;
+    });
+    this.usedCount.set(part.defId, (this.usedCount.get(part.defId) || 1) - 1);
+    this.parts.delete(id);
+    if (part.group !== null) {
+      const rest = this.groupMembers(part.group);
+      if (rest.length < 2) for (const r of rest) this.parts.get(r).group = null;
+    }
+    return removedMeshes;
+  }
+
+  clear() {
+    this.parts.clear();
+    this.connections = [];
+    this.usedCount.clear();
+  }
+
+  // ── 그룹: 볼트 없이도 한 덩어리로 고정 ──
+  groupMembers(gid) {
+    const out = [];
+    for (const p of this.parts.values()) if (p.group === gid) out.push(p.id);
+    return out;
+  }
+  setGroup(ids) {
+    const gid = nextGroupId++;
+    // 기존 그룹에 속한 부품은 그 그룹 전체를 흡수
+    const all = new Set(ids);
+    for (const id of ids) {
+      const g = this.parts.get(id)?.group;
+      if (g != null) for (const m of this.groupMembers(g)) all.add(m);
+    }
+    for (const id of all) this.parts.get(id).group = gid;
+    return gid;
+  }
+  ungroup(ids) {
+    const gids = new Set(ids.map(id => this.parts.get(id)?.group).filter(g => g != null));
+    for (const p of this.parts.values()) if (gids.has(p.group)) p.group = null;
+    return gids.size;
+  }
+
+  connect(type, a, b, holeA, holeB, mesh) {
+    const conn = { id: nextConnId++, type, a, b, holeA, holeB, mesh };
+    this.connections.push(conn);
+    return conn;
+  }
+
+  disconnectByMesh(obj) {
+    let g = obj;
+    while (g && !g.userData.connId) g = g.parent;
+    if (!g) return null;
+    const idx = this.connections.findIndex(c => c.id === g.userData.connId);
+    if (idx < 0) return null;
+    const [conn] = this.connections.splice(idx, 1);
+    return conn;
+  }
+
+  componentOf(id) {
+    const seen = new Set([id]);
+    const queue = [id];
+    while (queue.length) {
+      const cur = queue.pop();
+      for (const c of this.connections) {
+        if (c.type === 'chain' || c.type === 'belt') continue; // 체인·고무줄은 같이 끌려가지 않음
+        const nb = c.a === cur ? c.b : (c.b === cur ? c.a : null);
+        if (nb !== null && !seen.has(nb)) { seen.add(nb); queue.push(nb); }
+      }
+      const g = this.parts.get(cur)?.group;
+      if (g != null) for (const m of this.groupMembers(g)) if (!seen.has(m)) { seen.add(m); queue.push(m); }
+    }
+    return seen;
+  }
+
+  // 월드 좌표 구멍 목록 (t: 판 두께 포함)
+  worldHoles(filter) {
+    const out = [];
+    const p = new THREE.Vector3(), n = new THREE.Vector3();
+    for (const part of this.parts.values()) {
+      if (filter && !filter(part.id)) continue;
+      part.root.updateMatrixWorld(true);
+      part.holes.forEach((h, index) => {
+        p.copy(h.p).applyMatrix4(part.root.matrixWorld);
+        n.copy(h.n).transformDirection(part.root.matrixWorld);
+        out.push({ partId: part.id, index, p: p.clone(), n: n.clone(), t: h.t || THICK, kind: part.kind });
+      });
+    }
+    return out;
+  }
+
+  // 월드 좌표 장공 목록: a·b = 중심선 양 끝, len, u = a→b 방향
+  worldSlots(filter) {
+    const out = [];
+    for (const part of this.parts.values()) {
+      if (!part.slots.length || (filter && !filter(part.id))) continue;
+      part.root.updateMatrixWorld(true);
+      part.slots.forEach((s, index) => {
+        const a = s.a.clone().applyMatrix4(part.root.matrixWorld), b = s.b.clone().applyMatrix4(part.root.matrixWorld);
+        const len = a.distanceTo(b);
+        out.push({ partId: part.id, index, a, b, len, u: b.clone().sub(a).divideScalar(len),
+          n: s.n.clone().transformDirection(part.root.matrixWorld), t: s.t || THICK });
+      });
+    }
+    return out;
+  }
+
+  // 축 부품(+ 모터 출력축)의 월드 축선 목록
+  worldAxes(filter) {
+    const out = [];
+    for (const part of this.parts.values()) {
+      if (part.kind !== 'axle' && part.kind !== 'motor') continue;
+      if (filter && !filter(part.id)) continue;
+      part.root.updateMatrixWorld(true);
+      if (part.kind === 'motor') { // 모터 출력축: 기어를 직접 끼울 수 있는 축선
+        out.push({ partId: part.id, origin: part.output.p.clone().applyMatrix4(part.root.matrixWorld),
+          dir: part.output.n.clone().transformDirection(part.root.matrixWorld), halfLen: part.output.len / 2, motor: true });
+        continue;
+      }
+      const dir = new THREE.Vector3(0, 1, 0).transformDirection(part.root.matrixWorld);
+      out.push({ partId: part.id, origin: part.root.getWorldPosition(new THREE.Vector3()), dir, halfLen: part.axisLen / 2 });
+    }
+    return out;
+  }
+
+  // 축이 꽂히는 허브 목록: 기어 중심 + 모터 출력축
+  worldHubs(filter) {
+    const out = [];
+    for (const part of this.parts.values()) {
+      if (part.kind !== 'gear' && part.kind !== 'motor') continue;
+      if (filter && !filter(part.id)) continue;
+      part.root.updateMatrixWorld(true);
+      if (part.kind === 'motor') {
+        const p = part.output.p.clone().applyMatrix4(part.root.matrixWorld);
+        const n = part.output.n.clone().transformDirection(part.root.matrixWorld);
+        out.push({ partId: part.id, p, n, motor: true });
+        continue;
+      }
+      const n = new THREE.Vector3(0, 1, 0).transformDirection(part.root.matrixWorld);
+      out.push({ partId: part.id, p: part.root.getWorldPosition(new THREE.Vector3()), n, gear: part.gear });
+    }
+    return out;
+  }
+
+  hasConnection(type, pa, ia, pb, ib) {
+    return this.connections.some(c => c.type === type && (
+      (c.a === pa && c.holeA === ia && c.b === pb && c.holeB === ib) ||
+      (c.a === pb && c.holeA === ib && c.b === pa && c.holeB === ia)));
+  }
+
+  hasLink(type, pa, pb) {
+    return this.connections.some(c => c.type === type &&
+      ((c.a === pa && c.b === pb) || (c.a === pb && c.b === pa)));
+  }
+}

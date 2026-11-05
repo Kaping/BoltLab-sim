@@ -1,0 +1,7 @@
+name: boltlab-sim
+
+services:
+  boltlab-sim:
+    build: .
+    ports:
+      - "8080:80"
