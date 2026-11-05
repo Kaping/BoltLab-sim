@@ -62,6 +62,11 @@
   .pal-item:active { transform: scale(.98); }
   .pal-item .qty { font: 400 12px/16px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
 
+  #sidebar footer { padding: 12px 16px; border-top: 1px solid var(--line); font-size: 12px; line-height: 16px; }
+  #sidebar footer a { color: var(--muted); text-decoration: none; transition: color .15s var(--ease); }
+  #sidebar footer a:hover { color: var(--text); }
+  body.sim #sidebar footer { pointer-events: none; }
+
   /* 작업 영역 */
   #main { flex: 1; position: relative; min-width: 0; }
   #viewport { width: 100%; height: 100%; display: block; }
@@ -154,6 +159,7 @@
       <span>부품</span>
     </header>
     <div id="palette"></div>
+    <footer><a href="./terms.html">이용약관</a></footer>
   </div>
   <div id="main">
     <canvas id="viewport"></canvas>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>이용약관 · BoltLab-sim</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  :root {
+    --bg: #141415; --card: #19191b; --raised: #232325;
+    --line: rgba(237,237,237,.08);
+    --text: #ededed; --text-2: #a1a1a6; --muted: #85858b;
+    --accent: #e0a458;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body { font: 400 15px/24px 'Pretendard Variable', Pretendard, 'Segoe UI', 'Malgun Gothic', sans-serif; background: var(--bg); color: var(--text-2); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  a { color: var(--text); text-decoration-color: var(--line); text-underline-offset: 4px; transition: color .15s var(--ease), text-decoration-color .15s var(--ease); }
+  a:hover { text-decoration-color: var(--accent); }
+  header { display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 24px; border-bottom: 1px solid var(--line); }
+  header svg { width: 16px; height: 16px; color: var(--accent); }
+  header a { font-size: 16px; font-weight: 500; text-decoration: none; }
+  header .back { margin-left: auto; font-size: 13px; font-weight: 400; color: var(--text-2); }
+  main { max-width: 680px; margin: 0 auto; padding: 48px 24px 96px; }
+  h1 { font-size: 32px; line-height: 36px; font-weight: 500; color: var(--text); }
+  .meta { margin-top: 8px; font-size: 13px; color: var(--muted); }
+  h2 { margin: 40px 0 8px; font-size: 16px; line-height: 24px; font-weight: 500; color: var(--text); }
+  p + p, ul + p, p + ul { margin-top: 8px; }
+  ul { padding-left: 20px; }
+  li + li { margin-top: 4px; }
+</style>
+</head>
+<body>
+  <header>
+    <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="1.75" fill="currentColor"/></svg>
+    <a href="./">BoltLab</a>
+    <a class="back" href="./">시뮬레이터로 돌아가기</a>
+  </header>
+  <main>
+    <h1>이용약관</h1>
+    <p class="meta">2026년 11월 5일 시행</p>
+
+    <h2>1. 서비스</h2>
+    <p>BoltLab-sim 은 브라우저에서 금속 구멍판 조립 키트 부품을 3D 로 맞춰 보고, 모터로 돌려 보는 무료 시뮬레이터예요. 계정 없이 쓸 수 있어요.</p>
+
+    <h2>2. 사용 범위</h2>
+    <ul>
+      <li>개인 학습, 설계 연습, 수업 자료 용도로 자유롭게 쓸 수 있어요</li>
+      <li>서비스를 해킹하거나 과도한 요청으로 방해하는 행위는 할 수 없어요</li>
+      <li>소스 코드의 이용 조건은 <a href="https://github.com/Kaping/BoltLab-sim">GitHub 저장소</a>의 안내를 따라요</li>
+    </ul>
+
+    <h2>3. 내가 만든 구조물</h2>
+    <p>조립한 구조물은 서버로 전송되지 않아요. 내보내기 코드나 파일로 직접 저장해야 하고, 저장하지 않은 작업은 페이지를 닫으면 사라져요. 구조물에 대한 권리는 만든 사람에게 있어요.</p>
+
+    <h2>4. 수집하는 정보</h2>
+    <p>이 서비스는 개인정보를 수집하지 않아요. 브라우저에는 도움말 열림 여부 하나만 저장돼요.</p>
+    <p>화면을 그리려고 외부 CDN(jsDelivr)에서 3D 라이브러리와 글꼴을 불러와요. 이때 접속 기록이 해당 CDN 에 남을 수 있어요.</p>
+
+    <h2>5. 정확도</h2>
+    <p>부품 치수와 움직임은 실물 규격을 참고해 계산한 근사값이에요. 실제 부품의 오차, 마찰, 강성은 반영하지 않아요. 시뮬레이션 결과를 실물 제작의 안전·성능 보증으로 쓰지 마세요.</p>
+
+    <h2>6. 제휴와 상표</h2>
+    <p>BoltLab-sim 은 특정 제조사나 판매사와 제휴·후원 관계가 없는 독립 프로젝트예요. 부품 이름과 규격에 언급되는 상표는 각 권리자의 것이에요.</p>
+
+    <h2>7. 책임의 한계</h2>
+    <p>서비스는 있는 그대로 제공돼요. 서비스 이용이나 중단, 오류로 생긴 손해에 대해 법이 허용하는 범위에서 책임지지 않아요.</p>
+
+    <h2>8. 약관 변경</h2>
+    <p>약관은 바뀔 수 있고, 바뀌면 이 페이지의 시행일을 갱신해요. 변경 뒤에도 계속 쓰면 새 약관에 동의한 것으로 봐요.</p>
+
+    <h2>9. 문의</h2>
+    <p>오류 제보와 문의는 <a href="https://github.com/Kaping/BoltLab-sim/issues">GitHub 이슈</a>로 남겨 주세요.</p>
+  </main>
+</body>
+</html>
