@@ -165,9 +165,9 @@ export function makeAngle(n) {
 
 // ── ㄷ형스트립-N (47~49) ──  납작한 스트립(구멍 N개) 양 끝만 위로 꺾은 모양 (상품 이미지 확인).
 // 바닥 길이 = (N-1)·12.7+12 → 37.4 / 62.8 / 88.2 (이미지 치수와 일치), 폭 12.7, 날개 길이 14.3, 날개 구멍 1개씩.
-// 꺾임각(바깥으로 20° 기울어짐)과 날개 구멍 위치(꺾임선에서 7mm)는 이미지에서 읽은 추정치.
+// 날개는 바닥에 수직(ㄷ자, 실물 확인). 날개 구멍 위치(꺾임선에서 7mm)는 이미지에서 읽은 추정치.
 const CHANNEL_TAB_L = 14.3;
-const CHANNEL_TAB_LEAN = 20 * Math.PI / 180;
+const CHANNEL_TAB_LEAN = 0;   // 날개는 바닥에 수직(ㄷ자). 처음엔 이미지 원근 때문에 바깥으로 20° 벌어진 줄 알고 잘못 만들었음
 const CHANNEL_TAB_HOLE = 7.0;
 export function makeChannel(n) {
   const W = STRIP_W;
@@ -633,31 +633,40 @@ export function makeMotor() {
 
 // 기어드모터 (100A) — 상품 이미지: 검정 플라스틱 기어박스 몸체 + 양옆에 세운 구멍판 + 금속 출력축.
 // 외형 52(축 방향) × 35(양옆 판 바깥 폭) mm, 4.5V · 무부하 250rpm. 출력축 = 로컬 +X, Ø4.
-// 몸체 높이·구멍판 구멍 배열(4×2 @12.7)·축 길이는 이미지 비율 추정치(실측 후 보정).
+// 구멍(사용자 제보로 보정): 양옆 판 구멍 3칸×2줄 / 바닥 3×3 격자 중 가운데 줄(x=0)을 뺀 6곳 — 아래에서 볼트 체결 가능.
+// 바닥 격자의 "가운데 줄" 방향(축 방향 x 로 가정)과 몸체 높이·축 길이는 추정치.
 export function makeGearedMotor() {
   const PL = 52, PW = 35, PT = 2, PH = 25.4;           // 구멍판 길이·바깥 폭·두께·높이
-  const BODY_L = 40, BODY_X = -2;                       // 몸체 길이, 중심 x
+  const BODY_L = 40, BODY_X = 0;                        // 몸체 길이, 중심 x
   const SHAFT_LEN = 14;
-  const cy = PH / 2;
+  const Y0 = -1, Y1 = Y0 + PH;                          // 바닥판 중심이 y=0 (다른 판 부품과 같은 기준)
+  const cy = (Y0 + Y1) / 2;                             // 옆판 중심 = 출력축 높이
   const group = new THREE.Group();
   const dark = plasticMaterial(0x34373c);
 
-  const body = new THREE.Mesh(new THREE.BoxGeometry(BODY_L, PH, PW - 2 * PT), dark);
-  body.position.set(BODY_X, cy, 0);
+  const body = new THREE.Mesh(new THREE.BoxGeometry(BODY_L, Y1 - (Y0 + 2), PW - 2 * PT), dark);
+  body.position.set(BODY_X, (Y0 + 2 + Y1) / 2, 0);
   group.add(body);
   const cover = new THREE.Mesh(new THREE.BoxGeometry(BODY_L - 12, 4, PW - 2 * PT - 8), dark);   // 윗면 기어박스 덮개
-  cover.position.set(BODY_X - 2, PH + 2, 0);
+  cover.position.set(BODY_X - 2, Y1 + 2, 0);
   group.add(cover);
   for (const [bx, bz] of [[-10, -8], [-10, 8], [6, -8], [6, 8]]) {                              // 겉모양 돌기
     const nub = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 1.8, 1.4, 12), dark);
-    nub.position.set(BODY_X + bx, PH + 0.7, bz);
+    nub.position.set(BODY_X + bx, Y1 + 0.7, bz);
     group.add(nub);
   }
 
-  // 양옆 구멍판 (세워서 붙임, 법선 = ±Z)
-  const holeXs = lineXs(4), holeYs = [PH / 2 - PITCH / 2, PH / 2 + PITCH / 2];
-  const plateHoles = holeXs.flatMap(x => holeYs.map(y => ({ x, z: y - cy })));
+  // 바닥판: 3×3 격자(12.7) 중 가운데 줄(x=0)은 막혀 있고 양쪽 두 줄 6곳에 구멍
   const holes = [];
+  const baseHoles = [];
+  for (const x of [-PITCH, PITCH]) for (const z of lineXs(3)) baseHoles.push({ x, z });
+  const base = new THREE.Mesh(flatPlateGeometry(BODY_L, PW - 2 * PT, baseHoles, 1.5, 2), dark);
+  group.add(base);
+  for (const h of baseHoles) holes.push(holeMeta(h.x, 0, h.z, 0, -1, 0, 2));
+
+  // 양옆 구멍판 (세워서 붙임, 법선 = ±Z), 구멍 3칸 × 2줄
+  const holeYs = [-PITCH / 2, PITCH / 2];
+  const plateHoles = lineXs(3).flatMap(x => holeYs.map(z => ({ x, z })));
   for (const side of [-1, 1]) {
     const plate = new THREE.Mesh(flatPlateGeometry(PL, PH, plateHoles, 3, PT), dark);
     plate.rotation.x = Math.PI / 2;
