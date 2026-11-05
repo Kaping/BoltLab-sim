@@ -242,10 +242,16 @@ export class KinematicModel {
     this.gears = [];
     const shaftBodies = new Set(shaftIds.map(id => this.bodyOf.get(id)));
     const gearParts = [...asm.parts.values()].filter(p => p.kind === 'gear');
-    const gInfo = gearParts.map(g => {
+    // 맞물림 단이 여럿인 기어(2단 평기어: gear.stages)는 단마다 항목 하나 — 중심만 축 방향으로 y 만큼 옮긴다
+    const gInfo = gearParts.flatMap(g => {
       const m = this.rest.get(g.id);
-      return { id: g.id, body: this.bodyOf.get(g.id), c: new THREE.Vector3().setFromMatrixPosition(m),
-        n: new THREE.Vector3(0, 1, 0).transformDirection(m), gear: g.gear };
+      const c0 = new THREE.Vector3().setFromMatrixPosition(m);
+      const n0 = new THREE.Vector3(0, 1, 0).transformDirection(m);
+      return (g.gear.stages ?? [null]).map(st => ({
+        id: g.id, body: this.bodyOf.get(g.id), n: n0.clone(),
+        c: st ? c0.clone().addScaledVector(n0, st.y) : c0.clone(),
+        gear: st ? { ...g.gear, ...st } : g.gear,
+      }));
     });
     const carriersOf = G => {
       const out = new Set([G.body]);
@@ -277,6 +283,23 @@ export class KinematicModel {
         if (Math.abs(d.dot(A.n)) > A.gear.len / 2 + 1) continue;          // 접점이 나사산 길이 안
         // 오른나사(hand=+1): 웜이 +θ 돌면 나사산이 접점에서 -축 방향으로 흘러 기어를 κ·θ/T 만큼 돌린다 (κ = 공통 수선 방향 부호)
         tA = A.gear.starts ?? 1; tB = B.gear.teeth; s = -(A.gear.hand ?? 1) * (Math.sign(de) || 1);
+      } else if (A.gear.crown || B.gear.crown) {
+        // 크라운기어: 상대 기어 축이 크라운 축에 직각으로 만나고(= 크라운 반지름 방향), 상대 기어 중심이 크라운 피치 반지름 위,
+        // 축 방향으로는 이빨 면(pitchY) 아래 상대 피치 반지름만큼 떨어진 곳에 있어야 맞물림.
+        // 접점 속도 일치로 θ상대 = -σ·(T크라운/T상대)·θ크라운, σ = 상대 축이 반지름 방향(u)과 같은 쪽이면 +1 → s = σ
+        if (B.gear.crown && !A.gear.crown) [A, B] = [B, A];                // A = 크라운
+        if (B.gear.crown || !B.gear.teeth) continue;
+        if (Math.abs(A.n.dot(B.n)) > 0.1) continue;                       // 두 축이 직각
+        const d = B.c.clone().sub(A.c);
+        const axial = d.dot(A.n);
+        const rad = d.clone().addScaledVector(A.n, -axial);
+        const rho = rad.length();
+        if (rho < 1e-6) continue;
+        const u = rad.divideScalar(rho);
+        if (Math.abs(B.n.dot(u)) < PARALLEL) continue;                    // 상대 축이 반지름 방향 (→ 크라운 축과 만남)
+        if (Math.abs(rho - A.gear.pitchR) > 2.0) continue;
+        if (Math.abs(axial - (A.gear.crown.pitchY - B.gear.pitchR)) > 1.5) continue;
+        tA = A.gear.teeth; tB = B.gear.teeth; s = Math.sign(B.n.dot(u)) || 1;
       } else {
         const dot = A.n.dot(B.n);
         if (Math.abs(dot) < PARALLEL) continue;

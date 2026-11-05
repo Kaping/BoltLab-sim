@@ -5,6 +5,9 @@ import {
   makeStrip, makeAngle, makeChannel, makeRectPlate, makeGridPlate, makeFlatPlateN, makePentagonPlate, makeTrianglePlate,
   makeAxle, makeSpurGearS, makeSpurGearL, makePinionGear, makeWormGear, makeWheelPlate8, makeGearedMotor,
   makeJoinPlate, makeLBracket, makeUBracket, makeMotor, makeSprocketS, makeSprocketL, makePulleyL, makePulleyM, makePulleyS, makeTirePulley, makeSlottedStrip, NARROW_W,
+  makeSupportPlate, makeReverseAngleBracket, makeCornerBracket, makeSteeringBracket, makeBoxBearing,
+  makeFlangePlateS, makeFlangePlateL, makeFlangePlate2x5, makeFlangePlate2x7, makeHalfDisc, makeWheelFlatPlate,
+  makeCurvedStrip, makeDoubleCrank, makeFacePlateWheel, makeCrownGear, makeTwoStageGear,
 } from './generators.js';
 
 export const CATALOG = [
@@ -18,6 +21,7 @@ export const CATALOG = [
       { id: 'strip-5',  label: '스트립-5',  make: () => makeStrip(5) },
       { id: 'sstrip-9', label: '장공스트립-9', make: () => makeSlottedStrip(9) },
       { id: 'sstrip-5', label: '장공스트립-5', make: () => makeSlottedStrip(5) },
+      { id: 'curved-strip', label: '곡면스트립', make: () => makeCurvedStrip() },
     ],
   },
   {
@@ -57,6 +61,12 @@ export const CATALOG = [
       { id: 'l-bracket-l',  label: 'ㄱ형브래킷(대)', make: () => makeLBracket(2) },
       { id: 'l-bracket-2x2', label: 'ㄱ형브래킷 2×2', make: () => makeLBracket(2, 2, 12.3) },
       { id: 'u-bracket-s',  label: 'ㄷ형브래킷(소)', make: () => makeUBracket() },
+      { id: 'support-plate', label: '지지판', make: () => makeSupportPlate() },
+      { id: 'rev-angle-bracket', label: '역각브래킷', make: () => makeReverseAngleBracket() },
+      { id: 'corner-bracket-l', label: '모서리브래킷(좌)', make: () => makeCornerBracket(-1) },
+      { id: 'corner-bracket-r', label: '모서리브래킷(우)', make: () => makeCornerBracket(1) },
+      { id: 'steering-bracket', label: '조향브래킷', make: () => makeSteeringBracket() },
+      { id: 'box-bearing', label: '상자형베어링', make: () => makeBoxBearing() },
     ],
   },
   {
@@ -71,6 +81,17 @@ export const CATALOG = [
       { id: 'plate-3x5', label: '사각평판 3×5', make: () => makeRectPlate(5, 3) },
       { id: 'plate-tri-3x5', label: '삼각평판 3×5', make: () => makeTrianglePlate() },
       { id: 'plate-pentagon', label: '오각평판', make: () => makePentagonPlate() },
+      { id: 'plate-half-disc', label: '반원판', make: () => makeHalfDisc() },
+      { id: 'plate-wheel-flat', label: '바퀴평판', make: () => makeWheelFlatPlate() },
+    ],
+  },
+  {
+    group: '플랜지판',
+    items: [
+      { id: 'flange-s', label: '플랜지판(소) 5×3', make: () => makeFlangePlateS() },
+      { id: 'flange-l', label: '플랜지판(대) 7×5', make: () => makeFlangePlateL() },
+      { id: 'flange-2x5', label: '플랜지판 2×5', make: () => makeFlangePlate2x5() },
+      { id: 'flange-2x7', label: '플랜지판 2×7', make: () => makeFlangePlate2x7() },
     ],
   },
   {
@@ -92,6 +113,8 @@ export const CATALOG = [
       { id: 'gear-spur-l', label: '평기어(대) 95T', make: () => makeSpurGearL() },
       { id: 'gear-spur-s', label: '평기어(소) 57T', make: () => makeSpurGearS() },
       { id: 'gear-pinion', label: '피니언기어 19T', make: () => makePinionGear() },
+      { id: 'gear-two-stage', label: '2단평기어(소) 57T+19T', make: () => makeTwoStageGear() },
+      { id: 'gear-crown', label: '크라운기어 50T', make: () => makeCrownGear() },
       { id: 'gear-worm', label: '워엄기어 Ø14', make: () => makeWormGear() },
       { id: 'sprocket-s', label: '체인기어(소) 12T', make: () => makeSprocketS() },
       { id: 'sprocket-l', label: '체인기어(대) 25T', make: () => makeSprocketL() },
@@ -105,6 +128,7 @@ export const CATALOG = [
       { id: 'pulley-s', label: '풀리(소) Ø25.5', make: () => makePulleyS() },
       { id: 'pulley-tire', label: '타이어풀리 Ø15.5', make: () => makeTirePulley() },
       { id: 'wheel-plate-8', label: '휠판-8 Ø36', make: () => makeWheelPlate8() },
+      { id: 'wheel-face-plate', label: '면판휠 Ø63', make: () => makeFacePlateWheel() },
     ],
   },
   {
@@ -112,6 +136,7 @@ export const CATALOG = [
     items: [
       { id: 'motor', label: '모터뭉치', make: () => makeMotor() },
       { id: 'gearmotor', label: '기어드모터', make: () => makeGearedMotor() },
+      { id: 'double-crank', label: '양팔크랭크', make: () => makeDoubleCrank() },
     ],
   },
 ];

@@ -524,13 +524,50 @@ function pulleyProfile(R, W, H, bossR) {
   pts.push([bossR, H - W / 2], [2.05, H - W / 2], [2.05, -W / 2]);
   return pts.map(([r, y]) => new THREE.Vector2(r, y));
 }
-function makePulley(D, W, H, tire = null) {
+// layout: 'none' = 속이 찬 원판(소·타이어풀리) / 'ring8' = 구멍 8개(중, 휠판-8 과 같은 R12.7 원) /
+// 'cross' = 십자 장공 4 + 대각선 구멍 8(대, 면판휠과 같은 배치). 대·중은 상품 이미지상 납작한 원판에 구멍이 뚫려 있고
+// 가장자리에만 고무줄·타이어용 홈이 파여 있다 — 얇은 판+두꺼운 림이 아님. 노란 플라스틱 원판 + 회색 금속 허브.
+function makePulley(D, W, H, tire = null, layout = 'none') {
   const R = D / 2;
-  const geo = new THREE.LatheGeometry(pulleyProfile(R, W, H, Math.min(5, R - 1.5)), 40);
+  const yellow = plasticMaterial(0xe8b90f);
+  yellow.side = THREE.DoubleSide;
   const spinner = new THREE.Group();
-  const body = new THREE.Mesh(geo, steelMaterial());
-  body.material.side = THREE.DoubleSide;
-  spinner.add(body);
+  const holes = [], slots = [];
+  if (layout === 'none') {
+    spinner.add(new THREE.Mesh(new THREE.LatheGeometry(pulleyProfile(R, W, H, Math.min(5, R - 1.5)), 40), yellow));
+  } else {
+    const Ri = R - 2.2;                                     // 림(홈이 파인 고리)과 구멍 뚫린 판의 경계
+    const rim = [[Ri - 0.01, -W / 2], [R, -W / 2], [R - PULLEY_GROOVE, 0], [R, W / 2], [Ri - 0.01, W / 2]].map(([r, y]) => new THREE.Vector2(r, y));
+    spinner.add(new THREE.Mesh(new THREE.LatheGeometry(rim, 48), yellow));
+    const shape = new THREE.Shape();
+    shape.absarc(0, 0, Ri, 0, Math.PI * 2, false);
+    const bore = new THREE.Path(); bore.absarc(0, 0, 2.05, 0, Math.PI * 2, true); shape.holes.push(bore);
+    const ringAt = (rad, angs) => {
+      for (const ang of angs) {
+        const sx = rad * Math.cos(ang), sy = rad * Math.sin(ang);
+        const p = new THREE.Path(); p.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true); shape.holes.push(p);
+        holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, W));
+      }
+    };
+    const diag = [1, 3, 5, 7].map(i => i * Math.PI / 4), all8 = [0, 1, 2, 3, 4, 5, 6, 7].map(i => i * Math.PI / 4);
+    if (layout === 'ring8') ringAt(PITCH, all8);
+    else {
+      ringAt(PITCH, diag); ringAt(2 * PITCH, diag);
+      for (let i = 0; i < 4; i++) {
+        const ux = Math.cos(i * Math.PI / 2), uy = Math.sin(i * Math.PI / 2);
+        shape.holes.push(stadiumPath(ux * PITCH, uy * PITCH, ux * 2 * PITCH, uy * 2 * PITCH, HOLE_R));
+        slots.push({ a: new THREE.Vector3(ux * PITCH, 0, -uy * PITCH), b: new THREE.Vector3(ux * 2 * PITCH, 0, -uy * 2 * PITCH), n: new THREE.Vector3(0, 1, 0), t: W });
+      }
+    }
+    const geo = new THREE.ExtrudeGeometry(shape, { depth: W, bevelEnabled: false, curveSegments: 48 });
+    geo.translate(0, 0, -W / 2);
+    geo.rotateX(-Math.PI / 2);
+    spinner.add(new THREE.Mesh(geo, yellow));
+    const hubR = 5;                                         // 허브: 판 위로 H-W 만큼 솟고 가운데 축 구멍
+    const hub = [[2.05, W / 2], [hubR, W / 2], [hubR, H - W / 2], [2.05, H - W / 2], [2.05, W / 2]].map(([r, y]) => new THREE.Vector2(r, y));
+    const hubMat = steelMaterial(); hubMat.side = THREE.DoubleSide;
+    spinner.add(new THREE.Mesh(new THREE.LatheGeometry(hub, 28), hubMat));
+  }
   // 회전 확인용 표식 (림 옆면 작은 점)
   const dot = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 1.6), new THREE.MeshBasicMaterial({ color: 0xe53935 }));
   dot.position.set(R - PULLEY_GROOVE - 1.4, W / 2 + 0.2, 0);
@@ -538,14 +575,14 @@ function makePulley(D, W, H, tire = null) {
   const group = new THREE.Group();
   group.add(spinner);
   return {
-    group, kind: 'gear', holes: [], spinner,
+    group, kind: 'gear', holes, spinner, ...(slots.length ? { slots } : {}),
     // pitchR = 고무줄이 감기는 홈 반지름. belt: 이빨 맞물림 없음, 고무줄로만 연동
     gear: { pitchR: R - PULLEY_GROOVE * 0.6, thick: W, belt: true, outerR: R },
     tireSpec: tire, // { od, w } — 씌울 수 있는 타이어 (없으면 null)
   };
 }
-export const makePulleyL = () => makePulley(76, 6, 14);
-export const makePulleyM = () => makePulley(38, 6, 14, { od: 50, w: 10, name: '타이어(대)' });
+export const makePulleyL = () => makePulley(76, 6, 14, null, 'cross');
+export const makePulleyM = () => makePulley(38, 6, 14, { od: 50, w: 10, name: '타이어(대)' }, 'ring8');
 export const makePulleyS = () => makePulley(25.5, 5, 14, { od: 37, w: 8.5, name: '타이어(중)' });
 export const makeTirePulley = () => makePulley(15.5, 5.5, 5.5, { od: 27, w: 7.7, name: '타이어(소)' });
 
@@ -763,4 +800,381 @@ export function makeClipRing(color = 0x444a52) {
     new THREE.TorusGeometry(2.6, 0.9, 8, 20),
     new THREE.MeshStandardMaterial({ color, metalness: 0.6, roughness: 0.5 })
   );
+}
+
+// ════════════════════════════════════════════════════════════════════════
+// 2026-11-05 추가 부품 (상품 이미지 확인): 지지판 · 역각브래킷 · 모서리브래킷 · 조향브래킷 · 상자형베어링 · 플랜지판 ·
+// 반원판 · 바퀴평판 · 곡면스트립 · 양팔크랭크 · 면판휠 · 크라운기어 · 2단평기어
+// ════════════════════════════════════════════════════════════════════════
+
+// 모서리별 반지름이 다른 둥근 사각형 Shape. rs = [r(+x,+z), r(+x,-z), r(-x,-z), r(-x,+z)] — 판 로컬 좌표 기준
+// (shape y = -z 이므로 shape 의 (+x,-y) 모서리가 로컬 (+x,+z)). ox, oy: shape 좌표 중심 이동
+function cornerShape(L, W, rs, ox = 0, oy = 0) {
+  const hx = L / 2, hy = W / 2;
+  const [r1, r2, r3, r4] = rs.map(r => Math.min(r, hx, hy));
+  const s = new THREE.Shape();
+  s.moveTo(ox - hx + r4, oy - hy);
+  s.lineTo(ox + hx - r1, oy - hy);
+  if (r1 > 0) s.absarc(ox + hx - r1, oy - hy + r1, r1, -Math.PI / 2, 0, false);
+  s.lineTo(ox + hx, oy + hy - r2);
+  if (r2 > 0) s.absarc(ox + hx - r2, oy + hy - r2, r2, 0, Math.PI / 2, false);
+  s.lineTo(ox - hx + r3, oy + hy);
+  if (r3 > 0) s.absarc(ox - hx + r3, oy + hy - r3, r3, Math.PI / 2, Math.PI, false);
+  s.lineTo(ox - hx, oy - hy + r4);
+  if (r4 > 0) s.absarc(ox - hx + r4, oy - hy + r4, r4, Math.PI, Math.PI * 1.5, false);
+  return s;
+}
+
+// 꺾인 판 부품 조립용: 판 한 장을 3D 임의 자세로 놓는다.
+// o = 판의 시작 변 중점, u = 길이 방향, n = 판 법선(구멍 축), 폭 방향 w = u × n. 길이 L(시작 변부터), 폭 W.
+// ext = [시작쪽, 끝쪽] 연장(꺾임부 겹침용). holes = [{s, z}] (s: o 에서 u 로 잰 거리, z: w 방향), slots = [{s1, s2, z}]
+function bentAcc() { return { group: new THREE.Group(), holes: [], slots: [] }; }
+function planeSeg(acc, { o, u, n, L, W = STRIP_W, rs = [1, 1, 1, 1], holes = [], slots = [], ext = [0, 0], t = THICK }) {
+  const O = new THREE.Vector3(...o), U = new THREE.Vector3(...u).normalize(), N = new THREE.Vector3(...n).normalize();
+  const Wv = new THREE.Vector3().crossVectors(U, N);
+  const Lt = L + ext[0] + ext[1], cx = -ext[0] + Lt / 2;
+  const hXZ = holes.map(h => ({ x: h.s - cx, z: h.z ?? 0 }));
+  const sXZ = slots.map(s => ({ x1: s.s1 - cx, x2: s.s2 - cx, z: s.z ?? 0 }));
+  const mesh = new THREE.Mesh(flatPlateGeometry(cornerShape(Lt, W, rs), 0, hXZ, 0, t, sXZ), steelMaterial());
+  mesh.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(U, N, Wv));
+  mesh.position.copy(O).addScaledVector(U, cx);
+  acc.group.add(mesh);
+  const at = (s, z) => O.clone().addScaledVector(U, s).addScaledVector(Wv, z);
+  for (const h of holes) acc.holes.push({ p: at(h.s, h.z ?? 0), n: N.clone(), t });
+  for (const s of slots) acc.slots.push({ a: at(s.s1, s.z ?? 0), b: at(s.s2, s.z ?? 0), n: N.clone(), t });
+}
+// 옆모습(XY 평면) 판: 점 a→b, 폭은 z. 법선 = (-uy, ux)
+function seg2(acc, a, b, opts) {
+  const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy);
+  planeSeg(acc, { o: [a[0], a[1], 0], u: [dx, dy, 0], n: [-dy, dx, 0], L: len, ...opts });
+}
+function bentResult(acc) {
+  const r = { group: acc.group, kind: 'plate', holes: acc.holes };
+  if (acc.slots.length) r.slots = acc.slots;
+  return r;
+}
+const FOOT_R = STRIP_W / 2;   // 폭 12.7 판 끝의 완전 반원
+
+// ── 지지판 (46) ──  모자(Ω)형: 위판 15, 전체 높이 13.8, 발끝 사이 36.4, 폭 12.7. 위판 구멍 1 + 양쪽 벽 구멍 1씩 + 양쪽 발 구멍 1씩(상품 이미지).
+// 발은 바깥쪽 끝이 반원. 벽 구멍은 높이 가운데(추정).
+export function makeSupportPlate() {
+  const acc = bentAcc();
+  const HW = 6.9, H = 13.8 - THICK, X = 36.4 / 2;           // 벽 중심선 x, 위판 중심 높이, 발끝 x
+  seg2(acc, [-X, 0], [-HW, 0], { L: X - HW, rs: [0, 0, FOOT_R, FOOT_R], holes: [{ s: FOOT_R }], ext: [0, 0.6] });
+  seg2(acc, [HW, 0], [X, 0], { L: X - HW, rs: [FOOT_R, FOOT_R, 0, 0], holes: [{ s: X - HW - FOOT_R }], ext: [0.6, 0] });
+  seg2(acc, [-HW, 0], [-HW, H], { L: H, rs: [0.5, 0.5, 0.5, 0.5], holes: [{ s: H / 2 }], ext: [0.6, 0.6] });
+  seg2(acc, [HW, H], [HW, 0], { L: H, rs: [0.5, 0.5, 0.5, 0.5], holes: [{ s: H / 2 }], ext: [0.6, 0.6] });
+  seg2(acc, [-HW, H], [HW, H], { L: 2 * HW, rs: [1, 1, 1, 1], holes: [{ s: HW }], ext: [0.6, 0.6] });
+  return bentResult(acc);
+}
+
+// ── 역각브래킷 (70) ──  Z 모양: 아래 발(장공, 13.7) + 벽(14.4, 세로 장공) + 위 발(반대쪽, 12, 둥근 구멍). 폭 12.7.
+// 장공 길이·위치는 이미지 비율 추정.
+export function makeReverseAngleBracket() {
+  const acc = bentAcc();
+  const H = 14.4 - THICK;
+  seg2(acc, [-13.1, 0], [0, 0], { L: 13.1, rs: [0, 0, FOOT_R, FOOT_R], slots: [{ s1: 4.1, s2: 8.1 }], ext: [0, 0.6] });
+  seg2(acc, [0, 0], [0, H], { L: H, rs: [0.5, 0.5, 0.5, 0.5], slots: [{ s1: 5.0, s2: 8.2 }], ext: [0.6, 0.6] });
+  seg2(acc, [0, H], [11.4, H], { L: 11.4, rs: [FOOT_R, FOOT_R, 0, 0], holes: [{ s: 11.4 - FOOT_R }], ext: [0.6, 0] });
+  return bentResult(acc);
+}
+
+// ── 모서리브래킷 좌(74)/우(75) ──  12.7 × 12.7 판 3장: 가운데 수평판(반원 끝, 둥근 구멍) + 한쪽 가장자리에서 위로 선 판(장공, 끝 반원)
+// + 인접 가장자리에서 아래로 내려온 작은 판(구멍 1). 좌/우는 거울상. (이미지가 모호해서 형태는 추정 — 보고 보정할 것)
+export function makeCornerBracket(hand) {
+  const acc = bentAcc();
+  const h = hand, hw = PITCH / 2;
+  planeSeg(acc, { o: [-hw * h, 0, 0], u: [h, 0, 0], n: [0, 1, 0], L: PITCH, rs: [hw, hw, 0, 0], holes: [{ s: hw }] });
+  planeSeg(acc, { o: [-hw * h, 0, 0], u: [0, 1, 0], n: [-h, 0, 0], L: PITCH, rs: [hw, hw, 0, 0], slots: [{ s1: 3.6, s2: 8.0 }], ext: [0.6, 0] });
+  planeSeg(acc, { o: [-hw * h / 2, 0, hw], u: [0, -1, 0], n: [0, 0, 1], L: PITCH, W: hw, rs: [1.5, 1.5, 0, 0], holes: [{ s: hw }], ext: [0.6, 0] });
+  return bentResult(acc);
+}
+
+// ── 조향브래킷 (133) ──  십자형 바닥(구멍 4: 가운데·좌·우·앞, 12.7 간격, 가로 36.4 × 세로 24.5) + 뒤쪽 가장자리에서 선 벽(폭 12.7, 높이 17.5)
+// + 벽 위에서 앞으로 나온 발(12, 반원 끝, 구멍 1). 벽에도 구멍 1(추정).
+export function makeSteeringBracket() {
+  const acc = bentAcc();
+  const R = 5.5, hw = PITCH / 2, depth = THICK;
+  const circ = (x, y) => { const p = new THREE.Path(); p.absarc(x, y, HOLE_R, 0, Math.PI * 2, true); return p; };
+  const horiz = cornerShape(2 * (PITCH + R), 2 * R, [R, R, R, R]);
+  const vert = cornerShape(2 * R, hw + PITCH + R, [R, 0, 0, R], 0, -(PITCH + R - hw) / 2);   // z ∈ [-6.35, 18.2] (shape y = -z)
+  horiz.holes.push(circ(-PITCH, 0), circ(0, 0), circ(PITCH, 0));
+  vert.holes.push(circ(0, 0), circ(0, -PITCH));
+  const geo = new THREE.ExtrudeGeometry([horiz, vert], { depth, bevelEnabled: false, curveSegments: 16 });
+  geo.translate(0, 0, -depth / 2);
+  geo.rotateX(-Math.PI / 2);
+  acc.group.add(new THREE.Mesh(geo, steelMaterial()));
+  for (const [x, z] of [[-PITCH, 0], [0, 0], [PITCH, 0], [0, PITCH]]) acc.holes.push({ p: new THREE.Vector3(x, 0, z), n: new THREE.Vector3(0, 1, 0), t: THICK });
+  const H = 17.5 - THICK;
+  planeSeg(acc, { o: [0, 0, -hw], u: [0, 1, 0], n: [0, 0, -1], L: H, rs: [1, 1, 0, 0], holes: [{ s: 8.5 }], ext: [0.6, 0.6] });
+  planeSeg(acc, { o: [0, H, -hw], u: [0, 0, 1], n: [0, 1, 0], L: 12, rs: [hw, hw, 0, 0], holes: [{ s: 12 - hw }], ext: [0.6, 0] });
+  return bentResult(acc);
+}
+
+// ── 상자형베어링 (76) ──  U자 홈통: 바닥판 37.5 × 14 + 양쪽 벽 37.5 × 26.5(바깥 간격 14). 벽마다 구멍 3칸 × 2줄(12.7 간격)이 서로 마주 봄 → 축을 양쪽 벽에 꽂는 베어링.
+export function makeBoxBearing() {
+  const L = 37.5, Ht = 26.5, GAP = 14, group = new THREE.Group(), holes = [];
+  group.add(new THREE.Mesh(flatPlateGeometry(L, GAP, [], 1.0), steelMaterial()));
+  const cy = -THICK / 2 + Ht / 2;
+  const wallHoles = lineXs(3).flatMap(x => [-PITCH / 2, PITCH / 2].map(z => ({ x, z })));
+  for (const side of [-1, 1]) {
+    const wall = new THREE.Mesh(flatPlateGeometry(cornerShape(L, Ht, [0, 5, 5, 0]), 0, wallHoles, 0, THICK), steelMaterial());
+    wall.rotation.x = Math.PI / 2;
+    wall.position.set(0, cy, side * (GAP / 2 - THICK / 2));
+    group.add(wall);
+    for (const h of wallHoles) holes.push(holeMeta(h.x, cy + h.z, side * (GAP / 2 - THICK / 2), 0, 0, side));
+  }
+  return { group, kind: 'plate', holes };
+}
+
+// ── 플랜지판 (50·51·168·169) ──  바닥판(구멍이 지그재그: 홀수 줄 cols개, 짝수 줄 cols-1개 반 칸 어긋남) + 양 끝에서 위로 꺾인 날개.
+// 50: 5×3 (62 × 36.6, 날개 높이 13.5, 날개에 세로 장공) / 51: 7×5 / 168: 2×5 (62.8 × 25.4, 날개 14.3, 날개 구멍 둥근 2개) / 169: 2×7 (88.2).
+// 구멍 배치는 이미지(원근)에서 읽은 추정: 앞쪽(+z) 줄이 cols개.
+function makeFlangedPlate({ cols, rows, margin, width, flangeH, flangeSlots, flangeR = 6.35 }) {
+  const acc = bentAcc();
+  const Lb = (cols - 1) * PITCH + 2 * margin, Wb = width ?? (rows - 1) * PITCH + 2 * margin;
+  const zs = lineXs(rows).reverse();                       // zs[0] = +z 쪽 줄
+  const baseHoles = [];
+  zs.forEach((z, k) => {
+    const xs = k % 2 === 0 ? lineXs(cols) : lineXs(cols - 1);
+    for (const x of xs) baseHoles.push({ x, z });
+  });
+  acc.group.add(new THREE.Mesh(flatPlateGeometry(Lb, Wb, baseHoles, 1.0), steelMaterial()));
+  for (const h of baseHoles) acc.holes.push({ p: new THREE.Vector3(h.x, 0, h.z), n: new THREE.Vector3(0, 1, 0), t: THICK });
+  const fz = lineXs(rows);                                  // 날개 구멍 줄(바닥 줄 수와 같음)
+  const hMid = flangeH / 2;
+  for (const side of [-1, 1]) {
+    const x = side * (Lb / 2 - THICK / 2);
+    const opts = flangeSlots
+      ? { slots: fz.map(z => ({ s1: hMid - 2.2, s2: hMid + 2.2, z })) }
+      : { holes: fz.map(z => ({ s: hMid, z })) };
+    // 왼쪽 날개: 아래(-0.6)→위, 오른쪽: 위→아래 (바깥쪽이 법선)
+    if (side < 0) planeSeg(acc, { o: [x, -THICK / 2, 0], u: [0, 1, 0], n: [-1, 0, 0], L: flangeH, W: Wb, rs: [flangeR, flangeR, 0, 0], ...opts });
+    else planeSeg(acc, { o: [x, flangeH - THICK / 2, 0], u: [0, -1, 0], n: [1, 0, 0], L: flangeH, W: Wb, rs: [0, 0, flangeR, flangeR], ...opts });
+  }
+  return bentResult(acc);
+}
+export const makeFlangePlateS = () => makeFlangedPlate({ cols: 5, rows: 3, margin: 5.6, flangeH: 13.5, flangeSlots: true });
+export const makeFlangePlateL = () => makeFlangedPlate({ cols: 7, rows: 5, margin: 5.6, flangeH: 13.5, flangeSlots: true });
+export const makeFlangePlate2x5 = () => makeFlangedPlate({ cols: 5, rows: 2, margin: 6, width: 25.4, flangeH: 14.3, flangeSlots: false });
+export const makeFlangePlate2x7 = () => makeFlangedPlate({ cols: 7, rows: 2, margin: 6, width: 25.4, flangeH: 14.3, flangeSlots: false });
+
+// ── 반원판 (87) ──  지름 74.8 / 높이 37.4 반원, 아래 두 모서리 R6. 구멍: 아랫줄 5 + 가운데 세로 2 더(12.7 격자, 이미지 비율로 확인).
+// 윤곽은 바닥 중심 기준 반원 + 모서리 라운드의 근사. 원점 = 윤곽 상자 중심.
+export function makeHalfDisc() {
+  const R = 37.4, r = 6, y0 = -R / 2, N = 40;
+  const pts = [];
+  const arc = (cx, cy, rad, a0, a1, n) => { for (let i = 0; i <= n; i++) { const a = a0 + (a1 - a0) * i / n; pts.push([cx + rad * Math.cos(a), cy + rad * Math.sin(a)]); } };
+  arc(R - r, y0 + r, r, -Math.PI / 2, 0, 6);
+  const th0 = Math.asin(r / R);
+  arc(0, y0, R, th0, Math.PI - th0, N);
+  arc(-R + r, y0 + r, r, Math.PI, Math.PI * 1.5, 6);
+  const shape = new THREE.Shape();
+  shape.moveTo(pts[0][0], pts[0][1]);
+  for (let i = 1; i < pts.length; i++) shape.lineTo(pts[i][0], pts[i][1]);
+  shape.closePath();
+  const rowY = y0 + 6.35;
+  const holesXZ = [...lineXs(5).map(x => ({ x, y: rowY })), { x: 0, y: rowY + PITCH }, { x: 0, y: rowY + 2 * PITCH }].map(h => ({ x: h.x, z: -h.y }));
+  const group = new THREE.Group();
+  group.add(new THREE.Mesh(flatPlateGeometry(shape, 0, holesXZ, 0, THICK), steelMaterial()));
+  return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)) };
+}
+
+// ── 바퀴평판 (131) ──  63.5 × 63.5 안에 ㄴ자: 가로 다리 5×2 + 세로 다리 2×5(폭 25.4), 안쪽 모서리는 Ø63.5 원호로 채움(원 중심 = 구멍 하나).
+// 구멍 17개: 가로 다리 10 + 세로 다리 위쪽 6 + 안쪽 모서리 어긋난 1(이미지). 원점 = 상자 중심, 그림에서 위쪽 = -z.
+export function makeWheelFlatPlate() {
+  const S = 63.5, C = S / 2, r = 6.35, Rc = 31.75, cx0 = 44.45, cy0 = 31.75;
+  const shape = new THREE.Shape();
+  const mv = (x, y) => shape.moveTo(x - C, y - C), ln = (x, y) => shape.lineTo(x - C, y - C);
+  const ar = (x, y, rad, a0, a1) => shape.absarc(x - C, y - C, rad, a0, a1, false);
+  const th1 = Math.PI + Math.asin(r / Rc);
+  mv(r, 0); ln(S - r, 0); ar(S - r, r, r, -Math.PI / 2, 0);
+  ln(S, S - r); ar(S - r, S - r, r, 0, Math.PI / 2);
+  ln(cx0, S); ar(cx0, cy0, Rc, Math.PI / 2, th1);
+  ln(r, 2 * PITCH); ar(r, 2 * PITCH - r, r, Math.PI / 2, Math.PI);
+  ln(0, r); ar(r, r, r, Math.PI, Math.PI * 1.5);
+  const pts = [];
+  for (let i = 0; i < 5; i++) for (const y of [r, r + PITCH]) pts.push([r + i * PITCH, y]);
+  for (const x of [cx0, cx0 + PITCH]) for (const y of [r + 2 * PITCH, r + 3 * PITCH, r + 4 * PITCH]) pts.push([x, y]);
+  pts.push([cx0 - r, 2 * PITCH]);                          // 안쪽 모서리의 어긋난 구멍
+  const holesXZ = pts.map(([x, y]) => ({ x: x - C, z: -(y - C) }));
+  const group = new THREE.Group();
+  group.add(new THREE.Mesh(flatPlateGeometry(shape, 0, holesXZ, 0, THICK), steelMaterial()));
+  return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)) };
+}
+
+// ── 곡면스트립 (88) ──  폭 12.7, 길이 69(중심선 호 + 양 끝 반원), 바깥 지름 Ø88 원의 일부(4개로 원). 양 끝은 곡선 장공, 아래쪽 가까이 둥근 구멍 1.
+// 곡선 장공은 장공 조인트(직선 이동)로 못 쓰므로 slots 메타는 없고, 장공 가운데에 고정용 구멍만 둔다. 원점 = 호의 꼭대기.
+const CURVED_RC = 44 - STRIP_W / 2;
+function arcStadiumPts(Rc, hw, t1, t2, n = 20) {          // 중심선 호(각 t1<t2) 둘레로 반폭 hw 인 스타디움 윤곽점 (원 중심 (0,-Rc))
+  const P = (r, t) => [r * Math.sin(t), -Rc + r * Math.cos(t)];
+  const out = [];
+  for (let i = 0; i <= n; i++) out.push(P(Rc + hw, t1 + (t2 - t1) * i / n));
+  const c2 = P(Rc, t2), er2 = [Math.sin(t2), Math.cos(t2)], tg2 = [Math.cos(t2), -Math.sin(t2)];
+  for (let i = 1; i < 12; i++) { const f = Math.PI * i / 12; out.push([c2[0] + hw * (Math.cos(f) * er2[0] + Math.sin(f) * tg2[0]), c2[1] + hw * (Math.cos(f) * er2[1] + Math.sin(f) * tg2[1])]); }
+  for (let i = 0; i <= n; i++) out.push(P(Rc - hw, t2 + (t1 - t2) * i / n));
+  const c1 = P(Rc, t1), er1 = [Math.sin(t1), Math.cos(t1)], tg1 = [-Math.cos(t1), Math.sin(t1)];
+  for (let i = 1; i < 12; i++) { const f = Math.PI * i / 12; out.push([c1[0] + hw * (-Math.cos(f) * er1[0] + Math.sin(f) * tg1[0]), c1[1] + hw * (-Math.cos(f) * er1[1] + Math.sin(f) * tg1[1])]); }
+  return out;
+}
+export function makeCurvedStrip() {
+  const Rc = CURVED_RC, hw = STRIP_W / 2, total = 69.1;
+  const alpha = (total - STRIP_W) / (2 * Rc);
+  const fill = (pts, S) => { S.moveTo(pts[0][0], pts[0][1]); for (let i = 1; i < pts.length; i++) S.lineTo(pts[i][0], pts[i][1]); S.closePath(); return S; };
+  const shape = fill(arcStadiumPts(Rc, hw, -alpha, alpha), new THREE.Shape());
+  const thOf = s => alpha - (s - hw) / Rc;                 // 끝(+각) 가장자리에서 중심선을 따라 잰 거리 s → 각
+  const slotSpan = [[thOf(15.95), thOf(4.05)]];
+  slotSpan.push([-slotSpan[0][1], -slotSpan[0][0]]);
+  for (const [a, b] of slotSpan) shape.holes.push(fill(arcStadiumPts(Rc, HOLE_R, a, b, 12), new THREE.Path()));
+  const hole = t => ({ x: Rc * Math.sin(t), z: Rc * (1 - Math.cos(t)) });
+  const round = hole(thOf(44.2));
+  const rp = new THREE.Path(); rp.absarc(round.x, -round.z, HOLE_R, 0, Math.PI * 2, true); shape.holes.push(rp);
+  const group = new THREE.Group();
+  group.add(new THREE.Mesh(flatPlateGeometry(shape, 0, [], 0, THICK), steelMaterial()));
+  const centers = [...slotSpan.map(([a, b]) => hole((a + b) / 2)), round];
+  return { group, kind: 'plate', holes: centers.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)) };
+}
+
+// ── 양팔크랭크 (53) ──  38 × 12.7 판(양 끝 반원) + 가운데 황동 보스(축·멈춤나사). 한쪽 끝 둥근 구멍(−12.7), 반대쪽 끝 장공(+12.7, 길이 방향).
+// 축에 끼워 돌리면 구멍/장공이 링크 핀 자리가 된다. 보스 Ø9×7·판 두께 1.5 는 추정.
+export function makeDoubleCrank() {
+  const L = 38, T = 1.5, hubR = 4.5, hubH = 7;
+  const slot = { x1: PITCH - 2.4, x2: PITCH + 2.4, z: 0 };
+  const geo = flatPlateGeometry(L, STRIP_W, [{ x: -PITCH, z: 0 }], STRIP_W / 2, T, [slot]);
+  const spinner = new THREE.Group();
+  spinner.add(new THREE.Mesh(geo, steelMaterial()));
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(hubR, hubR, hubH, 24), new THREE.MeshStandardMaterial({ color: 0xd4a017, metalness: 0.7, roughness: 0.35 }));
+  hub.position.y = T / 2 + hubH / 2;
+  spinner.add(hub);
+  const dot = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 1.6), new THREE.MeshBasicMaterial({ color: 0xe53935 }));
+  dot.position.set(-L / 2 + 3, T / 2 + 0.2, 0);
+  spinner.add(dot);
+  const group = new THREE.Group();
+  group.add(spinner);
+  return {
+    group, kind: 'gear', spinner,
+    holes: [holeMeta(-PITCH, 0, 0, 0, 1, 0, T)],
+    slots: [{ a: new THREE.Vector3(slot.x1, 0, 0), b: new THREE.Vector3(slot.x2, 0, 0), n: new THREE.Vector3(0, 1, 0), t: T }],
+    gear: { pitchR: PITCH, thick: T, noMesh: true },
+  };
+}
+
+// ── 면판휠 (64) ──  Ø63 원판 + 가운데 황동 보스. 십자 방향 장공 4개(중심에서 12.7~25.4) + 대각선 둥근 구멍 8개(R12.7, R25.4 각 4개). 이빨·홈 없음.
+// 장공 구간·대각선 구멍 반지름은 이미지 비율로 12.7 격자에 맞춰 읽은 값. 보스·두께는 휠판-8 과 같은 추정치.
+export function makeFacePlateWheel() {
+  const R = 31.5, T = 1.5, hubR = 4.5, hubH = 9;
+  const shape = new THREE.Shape();
+  shape.absarc(0, 0, R, 0, Math.PI * 2, false);
+  const hubHole = new THREE.Path(); hubHole.absarc(0, 0, 2.05, 0, Math.PI * 2, true); shape.holes.push(hubHole);
+  const holes = [], slots = [];
+  for (const rad of [PITCH, 2 * PITCH]) for (let i = 0; i < 4; i++) {
+    const ang = Math.PI / 4 + i * Math.PI / 2, sx = rad * Math.cos(ang), sy = rad * Math.sin(ang);
+    const p = new THREE.Path(); p.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true); shape.holes.push(p);
+    holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, T));
+  }
+  for (let i = 0; i < 4; i++) {
+    const ang = i * Math.PI / 2, ux = Math.cos(ang), uy = Math.sin(ang);
+    shape.holes.push(stadiumPath(ux * PITCH, uy * PITCH, ux * 2 * PITCH, uy * 2 * PITCH, HOLE_R));
+    slots.push({ a: new THREE.Vector3(ux * PITCH, 0, -uy * PITCH), b: new THREE.Vector3(ux * 2 * PITCH, 0, -uy * 2 * PITCH), n: new THREE.Vector3(0, 1, 0), t: T });
+  }
+  const geo = new THREE.ExtrudeGeometry(shape, { depth: T, bevelEnabled: false, curveSegments: 48 });
+  geo.translate(0, 0, -T / 2);
+  geo.rotateX(-Math.PI / 2);
+  const spinner = new THREE.Group();
+  spinner.add(new THREE.Mesh(geo, steelMaterial()));
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(hubR, hubR, hubH, 24), new THREE.MeshStandardMaterial({ color: 0xd4a017, metalness: 0.7, roughness: 0.35 }));
+  hub.position.y = T / 2 + hubH / 2;
+  spinner.add(hub);
+  const dot = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 1.6), new THREE.MeshBasicMaterial({ color: 0xe53935 }));
+  dot.position.set(R - 2.2, T / 2 + 0.2, 0);
+  spinner.add(dot);
+  const group = new THREE.Group();
+  group.add(spinner);
+  return { group, kind: 'gear', holes, slots, spinner, gear: { pitchR: 2 * PITCH, thick: T, noMesh: true } };
+}
+
+// ── 크라운기어 (36) ──  50T, Ø36.2, 높이 15. 원판 가장자리 한 면(−Y)에 축 방향 이빨 → 피니언·평기어와 직각으로 맞물림.
+// 모듈은 다른 기어와 같음(0.668) → 피치 반지름 16.7. 원판 구멍 8개(R10.5)·허브(+Y, Ø9)·원판 두께 1.5·이빨 높이 1.6 은 이미지 비율 추정.
+// 맞물림은 kinematics.js 의 crown 분기: 상대 기어 축이 크라운 축에 직각으로 만나고(반지름 방향), 피치원이 이빨 면 아래에 접함.
+export const CROWN_TEETH = 50;
+export function makeCrownGear() {
+  const mod = GEAR_MODULE, R = 18.1, T = 1.5, toothH = 1.6, pitchR = mod * CROWN_TEETH / 2;
+  const disc = new THREE.Shape();
+  disc.absarc(0, 0, R, 0, Math.PI * 2, false);
+  const hubHole = new THREE.Path(); hubHole.absarc(0, 0, 2.05, 0, Math.PI * 2, true); disc.holes.push(hubHole);
+  const holes = [];
+  for (let i = 0; i < 8; i++) {
+    const ang = i * Math.PI / 4, sx = 10.5 * Math.cos(ang), sy = 10.5 * Math.sin(ang);
+    const p = new THREE.Path(); p.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true); disc.holes.push(p);
+    holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, T));
+  }
+  const discGeo = new THREE.ExtrudeGeometry(disc, { depth: T, bevelEnabled: false, curveSegments: 48 });
+  discGeo.translate(0, 0, -T / 2);
+  discGeo.rotateX(-Math.PI / 2);
+
+  const rt = pitchR + 0.7, rg = pitchR - 1.3, Tt = (Math.PI * 2) / CROWN_TEETH;
+  const ring = new THREE.Shape();
+  for (let i = 0; i < CROWN_TEETH; i++) {
+    for (const [r, f] of [[rg, 0], [rg, 0.2], [rt, 0.3], [rt, 0.7], [rg, 0.8]]) {
+      const a = (i + f) * Tt, x = r * Math.cos(a), y = r * Math.sin(a);
+      if (i === 0 && f === 0) ring.moveTo(x, y); else ring.lineTo(x, y);
+    }
+  }
+  ring.closePath();
+  const inner = new THREE.Path(); inner.absarc(0, 0, rg - 1.0, 0, Math.PI * 2, true); ring.holes.push(inner);
+  const ringGeo = new THREE.ExtrudeGeometry(ring, { depth: toothH, bevelEnabled: false, curveSegments: 4 });
+  ringGeo.translate(0, 0, T / 2);                          // 압출 +z → 회전 후 -Y 방향으로 돌출하도록 아래에서 반전
+  ringGeo.rotateX(Math.PI / 2);                            // (x,y,z) → (x,-z,y): 이빨이 원판 아래(-Y)로 자란다 (shape y → +z)
+
+  const spinner = new THREE.Group();
+  const yellow = plasticMaterial(0xe8b90f);
+  spinner.add(new THREE.Mesh(discGeo, yellow), new THREE.Mesh(ringGeo, yellow));
+  const hubH = 15 - toothH - T;
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(4.5, 4.5, hubH, 24), steelMaterial());
+  hub.position.y = T / 2 + hubH / 2;
+  spinner.add(hub);
+  const group = new THREE.Group();
+  group.add(spinner);
+  return {
+    group, kind: 'gear', holes, spinner,
+    gear: { teeth: CROWN_TEETH, pitchR, thick: T, crown: { pitchY: -T / 2 - toothH / 2 } },
+  };
+}
+
+// ── 2단 평기어(소) (140) ──  57T(Ø39.4, 구멍 8개 R12.7) 위에 19T 피니언(Ø14)이 한 몸으로 붙은 기어, 위에 금속 허브. 총 높이 20.4.
+// 한 부품에 맞물림 단이 둘: gear.stages = [{teeth, pitchR, y}] — kinematics 가 단마다 따로 맞물림을 찾는다(y = 원점에서 축 방향 위치).
+// 피니언 길이 7·허브 반경 4.5 는 이미지 비율 추정.
+function gearExtrude(teeth, depth, y0, ringHoles = []) {
+  const shape = gearShape(teeth, GEAR_MODULE);
+  const hubHole = new THREE.Path(); hubHole.absarc(0, 0, 2.05, 0, Math.PI * 2, true); shape.holes.push(hubHole);
+  for (const [sx, sy] of ringHoles) { const p = new THREE.Path(); p.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true); shape.holes.push(p); }
+  const geo = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: false, curveSegments: 8 });
+  geo.translate(0, 0, y0);
+  geo.rotateX(-Math.PI / 2);
+  return geo;
+}
+export function makeTwoStageGear() {
+  const mod = GEAR_MODULE, T = 4, pinionLen = 7, topY = 20.4 - T / 2;
+  const ring = [], holes = [];
+  for (let i = 0; i < 8; i++) { const a = i * Math.PI / 4, sx = PITCH * Math.cos(a), sy = PITCH * Math.sin(a); ring.push([sx, sy]); holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, T)); }
+  const black = plasticMaterial(0x2b2d31);
+  const spinner = new THREE.Group();
+  spinner.add(new THREE.Mesh(gearExtrude(57, T, -T / 2, ring), black));
+  spinner.add(new THREE.Mesh(gearExtrude(19, pinionLen, T / 2), black));
+  const hubH = topY - (T / 2 + pinionLen);
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(4.5, 4.5, hubH, 24), steelMaterial());
+  hub.position.y = T / 2 + pinionLen + hubH / 2;
+  spinner.add(hub);
+  const group = new THREE.Group();
+  group.add(spinner);
+  return {
+    group, kind: 'gear', holes, spinner,
+    gear: {
+      teeth: 57, pitchR: mod * 57 / 2, thick: T,
+      stages: [
+        { teeth: 57, pitchR: mod * 57 / 2, y: 0 },
+        { teeth: 19, pitchR: mod * 19 / 2, y: T / 2 + pinionLen / 2 },
+      ],
+    },
+  };
 }
