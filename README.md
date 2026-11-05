@@ -82,7 +82,7 @@ npx serve .
 ```
 index.html          UI 레이아웃 + importmap
 src/generators.js   파라메트릭 지오메트리 (판/축/기어, 구멍 메타데이터)
-src/catalog.js      6호 부품 카탈로그 (CSV 수량 반영)
+src/catalog.js      6호 부품 카탈로그 (재고 수량 제한 없음)
 src/assembly.js     부품 인스턴스 + 체결 그래프 (bolt/pivot/clip/bearing/drive/chain)
 src/chain.js        체인 경로(외접선+원호) 계산과 링크 표시
 src/preset.js       구조물 내보내기/불러오기 (코드 BL1.=deflate+base64url, 파일 JSON, 검증)

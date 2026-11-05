@@ -844,7 +844,7 @@ function refreshMotorPanel() {
 function setMotorRpm(v) {
   const part = selectedId !== null ? assembly.parts.get(selectedId) : null;
   if (!part || part.kind !== 'motor') return;
-  part.motorRpm = Math.max(-120, Math.min(120, Math.round(v)));
+  part.motorRpm = Math.max(-300, Math.min(300, Math.round(v)));   // 기어드모터 정격 250rpm 까지
   refreshMotorPanel();
 }
 rpmInput.addEventListener('input', () => setMotorRpm(Number(rpmInput.value)));

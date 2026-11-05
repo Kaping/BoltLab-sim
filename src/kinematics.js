@@ -261,7 +261,7 @@ export class KinematicModel {
     };
     for (let i = 0; i < gInfo.length; i++) for (let k = i + 1; k < gInfo.length; k++) {
       const A = gInfo[i], B = gInfo[k];
-      if (A.gear.chain || B.gear.chain || A.gear.belt || B.gear.belt) continue; // 체인기어·풀리는 이빨로 안 맞물림
+      if (A.gear.chain || B.gear.chain || A.gear.belt || B.gear.belt || A.gear.noMesh || B.gear.noMesh) continue; // 체인기어·풀리·휠판은 이빨로 안 맞물림
       const dot = A.n.dot(B.n);
       if (Math.abs(dot) < PARALLEL) continue;
       const d = B.c.clone().sub(A.c);

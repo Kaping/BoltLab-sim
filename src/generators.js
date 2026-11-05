@@ -45,22 +45,49 @@ function roundedRectShape(L, W, r) {
   return s;
 }
 
+// 장공 윤곽(양 끝 반원, 폭 = 구멍 지름). (ax,ay)~(bx,by) = 볼트 중심이 움직이는 선분 (shape 좌표)
+function stadiumPath(ax, ay, bx, by, r) {
+  const th = Math.atan2(by - ay, bx - ax), N = 10, pts = [];
+  for (let i = 0; i <= N; i++) { const a = th - Math.PI / 2 + Math.PI * i / N; pts.push([bx + r * Math.cos(a), by + r * Math.sin(a)]); }
+  for (let i = 0; i <= N; i++) { const a = th + Math.PI / 2 + Math.PI * i / N; pts.push([ax + r * Math.cos(a), ay + r * Math.sin(a)]); }
+  const path = new THREE.Path();
+  path.moveTo(pts[0][0], pts[0][1]);
+  for (let i = 1; i < pts.length; i++) path.lineTo(pts[i][0], pts[i][1]);
+  path.closePath();
+  return path;
+}
+
+// 중심점들(반시계 볼록 다각형)을 반지름 R 만큼 부풀린 윤곽 — 구멍 중심에서 가장자리까지 R 인 판(삼각·오각평판)에 씀
+function hullShape(centers, R) {
+  const m = centers.length, s = new THREE.Shape();
+  const edgeAng = i => { const p = centers[i % m], q = centers[(i + 1) % m]; return Math.atan2(-(q.x - p.x), q.y - p.y); };
+  for (let i = 0; i < m; i++) {
+    const a0 = edgeAng(i - 1 + m);
+    let a1 = edgeAng(i);
+    while (a1 < a0) a1 += Math.PI * 2;
+    s.absarc(centers[i].x, centers[i].y, R, a0, a1, false);
+  }
+  s.closePath();
+  return s;
+}
+
 // 구멍 뚫린 평판 지오메트리. holesXZ = [{x, z}] (3D 기준).
-// slotsXZ = [{ x1, x2, z }]: X 방향 장공(양 끝 반원, 폭 = 구멍 지름)
-function flatPlateGeometry(L, W, holesXZ, cornerR, depth = THICK, slotsXZ = []) {
-  const shape = roundedRectShape(L, W, cornerR);
+// L 자리에 THREE.Shape 를 주면 그 윤곽을 그대로 씀 (shape y = -z).
+// slotsXZ = [{ x1, x2, z }] (X 방향) 또는 [{ x1, z1, x2, z2 }] (임의 방향): 장공
+// polyHoles = [[[x,y],…]]: 다각형 창 (shape 좌표)
+function flatPlateGeometry(L, W, holesXZ, cornerR, depth = THICK, slotsXZ = [], polyHoles = []) {
+  const shape = L instanceof THREE.Shape ? L : roundedRectShape(L, W, cornerR);
   for (const h of holesXZ) {
     const path = new THREE.Path();
     path.absarc(h.x, -h.z, HOLE_R, 0, Math.PI * 2, true); // shape y = -z 매핑 보정
     shape.holes.push(path);
   }
-  for (const s of slotsXZ) {
-    const y = -s.z, path = new THREE.Path();
-    path.moveTo(s.x1, y - HOLE_R);
-    path.absarc(s.x1, y, HOLE_R, -Math.PI / 2, Math.PI / 2, true);  // 왼쪽 반원 (시계 방향 = 구멍)
-    path.lineTo(s.x2, y + HOLE_R);
-    path.absarc(s.x2, y, HOLE_R, Math.PI / 2, -Math.PI / 2, true);  // 오른쪽 반원
-    path.lineTo(s.x1, y - HOLE_R);
+  for (const s of slotsXZ) shape.holes.push(stadiumPath(s.x1, -(s.z1 ?? s.z), s.x2, -(s.z2 ?? s.z), HOLE_R));
+  for (const pts of polyHoles) {
+    const path = new THREE.Path();
+    path.moveTo(pts[0][0], pts[0][1]);
+    for (let i = 1; i < pts.length; i++) path.lineTo(pts[i][0], pts[i][1]);
+    path.closePath();
     shape.holes.push(path);
   }
   const geo = new THREE.ExtrudeGeometry(shape, { depth, bevelEnabled: false, curveSegments: 16 });
@@ -136,24 +163,35 @@ export function makeAngle(n) {
   return { group, kind: 'plate', holes };
 }
 
-// ── ㄷ형스트립-N ──  채널 단면, 벽 깊이 14.3 (실측)
+// ── ㄷ형스트립-N (47~49) ──  납작한 스트립(구멍 N개) 양 끝만 위로 꺾은 모양 (상품 이미지 확인).
+// 바닥 길이 = (N-1)·12.7+12 → 37.4 / 62.8 / 88.2 (이미지 치수와 일치), 폭 12.7, 날개 길이 14.3, 날개 구멍 1개씩.
+// 꺾임각(바깥으로 20° 기울어짐)과 날개 구멍 위치(꺾임선에서 7mm)는 이미지에서 읽은 추정치.
+const CHANNEL_TAB_L = 14.3;
+const CHANNEL_TAB_LEAN = 20 * Math.PI / 180;
+const CHANNEL_TAB_HOLE = 7.0;
 export function makeChannel(n) {
   const W = STRIP_W;
-  const H = 14.3;
-  const L = stripLength(n, 5.5);
+  const Lw = (n - 1) * PITCH + 12;
   const xs = lineXs(n);
   const holesXZ = xs.map(x => ({ x, z: 0 }));
   const group = new THREE.Group();
 
-  const web = new THREE.Mesh(flatPlateGeometry(L, W, holesXZ, 1.5), steelMaterial());
-  group.add(web);
+  group.add(new THREE.Mesh(flatPlateGeometry(Lw, W, holesXZ, 1.0), steelMaterial()));
+  const holes = xs.map(x => holeMeta(x, 0, 0, 0, 1, 0));
+
+  const a = CHANNEL_TAB_LEAN;
   for (const side of [-1, 1]) {
-    const wall = new THREE.Mesh(flatPlateGeometry(L, H, [], 1.0), steelMaterial());
-    wall.rotation.x = Math.PI / 2;
-    wall.position.set(0, H / 2, side * (W / 2 - THICK / 2));
-    group.add(wall);
+    const u = new THREE.Vector3(side * Math.sin(a), Math.cos(a), 0);        // 날개가 뻗는 방향
+    const base = new THREE.Vector3(side * Lw / 2, 0, 0);
+    const tab = new THREE.Mesh(
+      flatPlateGeometry(CHANNEL_TAB_L, W, [{ x: CHANNEL_TAB_HOLE - CHANNEL_TAB_L / 2, z: 0 }], 5, 1.0), steelMaterial());
+    tab.rotation.z = Math.atan2(u.y, u.x);
+    tab.position.copy(base).addScaledVector(u, CHANNEL_TAB_L / 2);
+    group.add(tab);
+    const hp = base.clone().addScaledVector(u, CHANNEL_TAB_HOLE);
+    holes.push(holeMeta(hp.x, hp.y, 0, Math.cos(a), -side * Math.sin(a), 0, 1.0));
   }
-  return { group, kind: 'plate', holes: xs.map(x => holeMeta(x, 0, 0, 0, 1, 0)) };
+  return { group, kind: 'plate', holes };
 }
 
 // ── 평판 cols×rows ──
@@ -166,6 +204,71 @@ export function makeRectPlate(cols, rows) {
   const group = new THREE.Group();
   group.add(mesh);
   return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)) };
+}
+
+// ── 평판(대) 11×5 / 평판(소) 3×3 (55·56) ──  가로·세로 = 칸수 × 12.7, 모서리 R6.35, 구멍이 12.7 격자 (상품 이미지 확인)
+export function makeGridPlate(cols, rows) {
+  const L = cols * PITCH, W = rows * PITCH;
+  const holesXZ = [];
+  for (const x of lineXs(cols)) for (const z of lineXs(rows)) holesXZ.push({ x, z });
+  const group = new THREE.Group();
+  group.add(new THREE.Mesh(flatPlateGeometry(L, W, holesXZ, 6.35), steelMaterial()));
+  return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)) };
+}
+
+// ── 평판-N (60~63) ──  N칸 × 27.3, 모서리 R7. 한 줄은 둥근 구멍 N개, 다른 줄은 (폭 방향) 긴 구멍 N개.
+// 길이 = (N-1)·12.7+12 → 평판-9 = 113.6 ✓(이미지). 평판-7/5/3 은 규격 이미지가 없어 같은 규칙으로 계산(사진으로 구성만 확인).
+// 줄 위치(둥근 구멍 +7.35 / 장공 중심 -5.35, 이동폭 ±2.8)는 이미지 픽셀 측정 추정치.
+const FLAT_PLATE_W = 27.3, FLAT_ROUND_Z = 7.35, FLAT_SLOT_Z1 = -2.55, FLAT_SLOT_Z2 = -8.15;
+export function makeFlatPlateN(n) {
+  const L = (n - 1) * PITCH + 12;
+  const xs = lineXs(n);
+  const holesXZ = xs.map(x => ({ x, z: FLAT_ROUND_Z }));
+  const slotsXZ = xs.map(x => ({ x1: x, z1: FLAT_SLOT_Z1, x2: x, z2: FLAT_SLOT_Z2 }));
+  const group = new THREE.Group();
+  group.add(new THREE.Mesh(flatPlateGeometry(L, FLAT_PLATE_W, holesXZ, 7, THICK, slotsXZ), steelMaterial()));
+  return {
+    group, kind: 'plate',
+    holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)),
+    slots: xs.map(x => ({ a: new THREE.Vector3(x, 0, FLAT_SLOT_Z1), b: new THREE.Vector3(x, 0, FLAT_SLOT_Z2), n: new THREE.Vector3(0, 1, 0), t: THICK })),
+  };
+}
+
+// ── 오각평판 (71) ──  너비 37.4 × 높이 37.7, 둥근 구멍 5개(아래 3 + 가운데 + 꼭대기, 12.7 격자) + 삼각 창 2개 (상품 이미지)
+// 윤곽은 구멍 중심 + 반지름 6 로 부풀려 만든 근사 (꼭지각 80° 표기는 둥근 모서리 때문에 정확히 재현 안 됨)
+export function makePentagonPlate() {
+  const G = [{ x: -12.7, y: 6 }, { x: 12.7, y: 6 }, { x: 12.7, y: 18.7 }, { x: 0, y: 31.7 }, { x: -12.7, y: 18.7 }];
+  const hy = [[-12.7, 6.35], [0, 6.35], [12.7, 6.35], [0, 19.05], [0, 31.75]];
+  const holesXZ = hy.map(([x, y]) => ({ x, z: -y }));
+  const win = [[-11.7, 13.7], [-6.7, 13.7], [-6.7, 26.5], [-11.7, 21.0]];
+  const windows = [win, win.map(([x, y]) => [-x, y])];
+  const group = new THREE.Group();
+  const mesh = new THREE.Mesh(flatPlateGeometry(hullShape(G, 6), 0, holesXZ, 0, THICK, [], windows), steelMaterial());
+  mesh.position.z = 18.85;     // 윤곽 중심(높이 방향)을 원점 근처로
+  group.add(mesh);
+  return { group, kind: 'plate', holes: holesXZ.map(h => holeMeta(h.x, 0, h.z + 18.85, 0, 1, 0)) };
+}
+
+// ── 삼각평판 3×5 (130) ──  63.5 × 38.1 직각삼각형(직각은 오른쪽 아래), 모서리 R6.35.
+// 구멍 8개: 아랫줄 5 + 오른쪽 줄 추가 2 + 빗변 중점 1. 빗변 위(구멍 중심들을 잇는 선)에 장공 2개 (이미지 측정 추정)
+export function makeTrianglePlate() {
+  const CX = 31.75, CY = 19.05;                                 // 윤곽 중심을 원점으로
+  const P = (x, y) => ({ x: x - CX, y: y - CY });
+  const hullPts = [P(6.35, 6.35), P(57.15, 6.35), P(57.15, 31.75)];
+  const hy = [];
+  for (let i = 0; i < 5; i++) hy.push([6.35 + i * PITCH, 6.35]);
+  hy.push([57.15, 19.05], [57.15, 31.75], [31.75, 19.05]);
+  const holesXZ = hy.map(([x, y]) => { const p = P(x, y); return { x: p.x, z: -p.y }; });
+  const lineY = x => 6.35 + 0.5 * (x - 6.35);                   // 빗변(구멍 중심선)
+  const slotEnds = [[20.9, 24.8], [39.3, 49.4]];
+  const slotsXZ = slotEnds.map(([xa, xb]) => { const a = P(xa, lineY(xa)), b = P(xb, lineY(xb)); return { x1: a.x, z1: -a.y, x2: b.x, z2: -b.y }; });
+  const group = new THREE.Group();
+  group.add(new THREE.Mesh(flatPlateGeometry(hullShape(hullPts, 6.35), 0, holesXZ, 0, THICK, slotsXZ), steelMaterial()));
+  return {
+    group, kind: 'plate',
+    holes: holesXZ.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)),
+    slots: slotsXZ.map(s => ({ a: new THREE.Vector3(s.x1, 0, s.z1), b: new THREE.Vector3(s.x2, 0, s.z2), n: new THREE.Vector3(0, 1, 0), t: THICK })),
+  };
 }
 
 // ── 이음판 (12) ──  23×12.7, 구멍 2개 @12.7 피치
@@ -205,9 +308,10 @@ export function makeLBracket(nFoot = 1, nWide = 1, wallH = 10.7) {
   return { group, kind: 'plate', holes };
 }
 
-// ── ㄷ형브래킷 (13) ──  U자: 바닥(span) + 양쪽 날개(높이 15), 구멍 각 1개
-export function makeUBracket(span = 12.5) {
-  const W = STRIP_W, wingH = 15;
+// ── ㄷ형브래킷 (13) ──  U자: 바닥 폭 15 + 양쪽 날개(높이 12.5), 구멍 각 1개 (상품 이미지: 15=바닥 폭, 12.5=날개 높이.
+// geometry_spec 의 flange/span 라벨이 뒤바뀌어 있어서 이전엔 거꾸로 만들었음)
+export function makeUBracket(span = 15, wingH = 12.5) {
+  const W = STRIP_W;
   const group = new THREE.Group();
 
   const webHoles = span > 20 ? [{ x: -PITCH / 2, z: 0 }, { x: PITCH / 2, z: 0 }] : [{ x: 0, z: 0 }];
@@ -398,6 +502,41 @@ export const makePulleyM = () => makePulley(38, 6, 14, { od: 50, w: 10, name: '�
 export const makePulleyS = () => makePulley(25.5, 5, 14, { od: 37, w: 8.5, name: '타이어(중)' });
 export const makeTirePulley = () => makePulley(15.5, 5.5, 5.5, { od: 27, w: 7.7, name: '타이어(소)' });
 
+// ── 휠판-8 (30) ──  Ø36 얇은 원판 + 가운데 황동 허브(멈춤나사), 원판에 구멍 8개 (상품 이미지: 구멍 원 R≈12.7, 0°·45°… 배치)
+// 이빨·홈이 없어 기어/벨트로는 안 엮임(noMesh). 허브 치수(Ø9×9)와 원판 두께 1.5 는 추정치.
+export function makeWheelPlate8() {
+  const R = 18, T = 1.5, hubR = 4.5, hubH = 9, boltR = 12.7;
+  const shape = new THREE.Shape();
+  shape.absarc(0, 0, R, 0, Math.PI * 2, false);
+  const hubHole = new THREE.Path();
+  hubHole.absarc(0, 0, 2.05, 0, Math.PI * 2, true);
+  shape.holes.push(hubHole);
+  const holes = [];
+  for (let i = 0; i < 8; i++) {
+    const ang = i * Math.PI / 4, sx = boltR * Math.cos(ang), sy = boltR * Math.sin(ang);
+    const path = new THREE.Path();
+    path.absarc(sx, sy, HOLE_R, 0, Math.PI * 2, true);
+    shape.holes.push(path);
+    holes.push(holeMeta(sx, 0, -sy, 0, 1, 0, T));
+  }
+  const geo = new THREE.ExtrudeGeometry(shape, { depth: T, bevelEnabled: false, curveSegments: 32 });
+  geo.translate(0, 0, -T / 2);
+  geo.rotateX(-Math.PI / 2);
+
+  const spinner = new THREE.Group();
+  spinner.add(new THREE.Mesh(geo, steelMaterial()));
+  const hub = new THREE.Mesh(new THREE.CylinderGeometry(hubR, hubR, hubH, 24),
+    new THREE.MeshStandardMaterial({ color: 0xd4a017, metalness: 0.7, roughness: 0.35 }));
+  hub.position.y = T / 2 + hubH / 2;
+  spinner.add(hub);
+  const dot = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.4, 1.6), new THREE.MeshBasicMaterial({ color: 0xe53935 })); // 회전 확인 표식
+  dot.position.set(R - 2.2, T / 2 + 0.2, 0);
+  spinner.add(dot);
+  const group = new THREE.Group();
+  group.add(spinner);
+  return { group, kind: 'gear', holes, spinner, gear: { pitchR: boltR, thick: T, noMesh: true } };
+}
+
 // 타이어: 풀리 홈에 끼우는 고무 링 (단면 = 둥근 사각형). spinner 에 붙여서 같이 돎.
 export function makeTireMesh(spec, pulleyR) {
   const ri = pulleyR - PULLEY_GROOVE, ro = spec.od / 2, hw = spec.w / 2, c = Math.min(2.2, (ro - ri) / 2, hw);
@@ -489,6 +628,61 @@ export function makeMotor() {
     holes: baseHoles.map(h => holeMeta(h.x, 0, h.z, 0, 1, 0)),
     // 출력축 중심점(축 중간) · 방향 · 길이
     output: { p: new THREE.Vector3(faceX + MOTOR_SHAFT_LEN / 2, cy, 0), n: new THREE.Vector3(1, 0, 0), len: MOTOR_SHAFT_LEN },
+  };
+}
+
+// 기어드모터 (100A) — 상품 이미지: 검정 플라스틱 기어박스 몸체 + 양옆에 세운 구멍판 + 금속 출력축.
+// 외형 52(축 방향) × 35(양옆 판 바깥 폭) mm, 4.5V · 무부하 250rpm. 출력축 = 로컬 +X, Ø4.
+// 몸체 높이·구멍판 구멍 배열(4×2 @12.7)·축 길이는 이미지 비율 추정치(실측 후 보정).
+export function makeGearedMotor() {
+  const PL = 52, PW = 35, PT = 2, PH = 25.4;           // 구멍판 길이·바깥 폭·두께·높이
+  const BODY_L = 40, BODY_X = -2;                       // 몸체 길이, 중심 x
+  const SHAFT_LEN = 14;
+  const cy = PH / 2;
+  const group = new THREE.Group();
+  const dark = plasticMaterial(0x34373c);
+
+  const body = new THREE.Mesh(new THREE.BoxGeometry(BODY_L, PH, PW - 2 * PT), dark);
+  body.position.set(BODY_X, cy, 0);
+  group.add(body);
+  const cover = new THREE.Mesh(new THREE.BoxGeometry(BODY_L - 12, 4, PW - 2 * PT - 8), dark);   // 윗면 기어박스 덮개
+  cover.position.set(BODY_X - 2, PH + 2, 0);
+  group.add(cover);
+  for (const [bx, bz] of [[-10, -8], [-10, 8], [6, -8], [6, 8]]) {                              // 겉모양 돌기
+    const nub = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 1.8, 1.4, 12), dark);
+    nub.position.set(BODY_X + bx, PH + 0.7, bz);
+    group.add(nub);
+  }
+
+  // 양옆 구멍판 (세워서 붙임, 법선 = ±Z)
+  const holeXs = lineXs(4), holeYs = [PH / 2 - PITCH / 2, PH / 2 + PITCH / 2];
+  const plateHoles = holeXs.flatMap(x => holeYs.map(y => ({ x, z: y - cy })));
+  const holes = [];
+  for (const side of [-1, 1]) {
+    const plate = new THREE.Mesh(flatPlateGeometry(PL, PH, plateHoles, 3, PT), dark);
+    plate.rotation.x = Math.PI / 2;
+    plate.position.set(0, cy, side * (PW / 2 - PT / 2));
+    group.add(plate);
+    for (const h of plateHoles) holes.push(holeMeta(h.x, cy + h.z, side * (PW / 2 - PT / 2), 0, 0, side, PT));
+  }
+
+  // 출력축 (spinner: 시뮬에서 몸체와 따로 회전)
+  const faceX = BODY_X + BODY_L / 2;
+  const spinner = new THREE.Group();
+  spinner.position.set(faceX, cy, 0);
+  const shaftMat = new THREE.MeshStandardMaterial({ color: 0xc9ccd1, metalness: 0.8, roughness: 0.3 });
+  const shaft = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, SHAFT_LEN, 20), shaftMat);
+  shaft.rotation.z = Math.PI / 2;
+  shaft.position.x = SHAFT_LEN / 2;
+  spinner.add(shaft);
+  const mark = new THREE.Mesh(new THREE.BoxGeometry(2.2, 1.0, 1.0), new THREE.MeshBasicMaterial({ color: 0xe53935 }));
+  mark.position.set(SHAFT_LEN * 0.55, 2, 0);
+  spinner.add(mark);
+  group.add(spinner);
+
+  return {
+    group, kind: 'motor', spinner, holes, ratedRpm: 250,
+    output: { p: new THREE.Vector3(faceX + SHAFT_LEN / 2, cy, 0), n: new THREE.Vector3(1, 0, 0), len: SHAFT_LEN },
   };
 }
 
