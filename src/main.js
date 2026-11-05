@@ -20,7 +20,7 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x1a1d21);
+scene.background = new THREE.Color(0x141415);
 
 const camera = new THREE.PerspectiveCamera(50, 1, 1, 5000);
 camera.position.set(160, 190, 240);
@@ -37,7 +37,7 @@ const fill = new THREE.DirectionalLight(0x88aaff, 0.4);
 fill.position.set(-150, 100, -100);
 scene.add(fill);
 
-scene.add(new THREE.GridHelper(PITCH * 40, 40, 0x3a3f47, 0x2a2e34));
+scene.add(new THREE.GridHelper(PITCH * 40, 40, 0x2e2e31, 0x1e1e20));
 
 function resize() {
   const w = canvas.clientWidth || canvas.parentElement.clientWidth;
@@ -65,6 +65,10 @@ const sim = { active: false, playing: false, blocked: false, model: null, meter:
 
 const statusEl = document.getElementById('status');
 const setStatus = t => { statusEl.textContent = t; };
+const setBtn = (btn, icon, label) => {
+  btn.querySelector('use').setAttribute('href', `#i-${icon}`);
+  btn.querySelector('.lbl').textContent = label;
+};
 
 const snapRing = ringMesh(0x38d178);
 snapRing.visible = false;
@@ -165,7 +169,7 @@ function select(id, toggle = false) {
     if (selection.size === 2 && type && !assembly.hasLink(type, hubs[0].partId, hubs[1].partId)) {
       const { why } = wrapCheck(hubs[0], hubs[1]);
       const nm = type === 'chain' ? '체인기어' : '풀리';
-      setStatus(why ? `${nm} 2개 선택됨 — 아직 ${WRAP_LABEL[type]}을 못 걸어요: ${why}` : `${nm} 2개 선택됨 — C 를 누르면 ${WRAP_LABEL[type]}이 연결돼요.`);
+      setStatus(why ? `${nm} 2개 선택됨 — 아직 ${WRAP_LABEL[type]}을 못 걸어요: ${why}` : `${nm} 2개 선택됨 — C 를 누르면 ${WRAP_LABEL[type]}이 연결돼요`);
     }
   }
 }
@@ -311,11 +315,11 @@ function wrapCheck(A, B) {
 function connectChainSelected() {
   if (sim.active) return;
   const hubs = assembly.worldHubs(id => selection.has(id));
-  if (hubs.length !== 2) { setStatus('체인기어 두 개(체인) 또는 풀리 두 개(고무줄)를 Ctrl+클릭으로 선택한 뒤 C 를 누르세요.'); return; }
+  if (hubs.length !== 2) { setStatus('체인기어 두 개(체인) 또는 풀리 두 개(고무줄)를 Ctrl+클릭으로 선택한 뒤 C 를 누르세요'); return; }
   const [A, B] = hubs;
   const { type, why } = wrapCheck(A, B);
   if (why) { setStatus(`${type ? WRAP_LABEL[type] : '연결'} 불가 — ${why}`); return; }
-  if (assembly.hasLink(type, A.partId, B.partId)) { setStatus(`이미 ${WRAP_LABEL[type]}로 연결돼 있어요.`); return; }
+  if (assembly.hasLink(type, A.partId, B.partId)) { setStatus(`이미 ${WRAP_LABEL[type]}로 연결돼 있어요`); return; }
   addConnection({ type, axle: { partId: A.partId }, other: { partId: B.partId } });
 }
 // 체인 링크·고무줄을 현재 바퀴 위치(+시뮬 중이면 흐른 거리)에 맞춰 다시 배치
@@ -347,13 +351,13 @@ function toggleTire() {
   const pulleys = [...selection].map(id => assembly.parts.get(id)).filter(p => p && p.tireSpec !== undefined);
   if (!pulleys.length) { setStatus('타이어: 풀리를 선택하고 T 를 누르세요.'); return; }
   const fit = pulleys.filter(p => p.tireSpec);
-  if (!fit.length) { setStatus('풀리(대) Ø76 에 맞는 타이어는 6호에 없어요 (풀리 중·소·타이어풀리에 씌울 수 있어요).'); return; }
+  if (!fit.length) { setStatus('풀리(대) Ø76 에 맞는 타이어는 6호에 없어요 (풀리 중·소·타이어풀리에 씌울 수 있어요)'); return; }
   const on = !fit[0].tire; // 첫 풀리 기준으로 일괄 씌우기/벗기기
   const belted = fit.filter(p => assembly.connections.some(c => c.type === 'belt' && (c.a === p.id || c.b === p.id)));
-  if (on && belted.length) { setStatus('고무줄이 걸린 풀리엔 타이어를 못 씌워요 — B 모드에서 고무줄을 먼저 풀어 주세요.'); return; }
+  if (on && belted.length) { setStatus('고무줄이 걸린 풀리엔 타이어를 못 씌워요 — B 모드에서 고무줄을 먼저 풀어 주세요'); return; }
   pushUndo();
   for (const p of fit) setTire(p, on);
-  setStatus(on ? `타이어 씌움 — ${[...new Set(fit.map(p => p.tireSpec.name))].join(', ')} (T 다시 누르면 벗김)` : '타이어를 벗겼어요.');
+  setStatus(on ? `타이어 씌움 — ${[...new Set(fit.map(p => p.tireSpec.name))].join(', ')} (T 다시 누르면 벗김)` : '타이어를 벗겼어요');
 }
 
 function refreshMarkers() {
@@ -368,7 +372,7 @@ function refreshMarkers() {
   }
   setStatus(cands.length
     ? `체결 가능 ${cands.length}곳 — 노랑=볼트(Shift+클릭: 회전볼트), 하늘=클립, 보라=베어링, 초록=모터 연결, 분홍=체인, 주황=고무줄, 라임=장공(미끄럼)`
-    : '체결 가능한 지점이 없습니다. 구멍을 겹치거나 축을 관통시키세요.');
+    : '체결 가능한 지점이 없어요 — 구멍을 겹치거나 축을 관통시켜 보세요');
 }
 
 function makeConnMesh(type) {
@@ -423,8 +427,8 @@ function addConnection(c, pivot = false) {
   registerConnection(type, a, b, holeA, holeB, mesh);
   if (WRAP.has(type)) updateChains();
   refreshMarkers();
-  const msg = { bolt: '볼트 고정', pivot: '회전볼트 체결(두 부품이 이 구멍을 축으로 돌 수 있음)', clip: '스프링클립 고정 — 이제 기어가 이 축과 같이 돌아요', bearing: '베어링 연결 — 축은 판 구멍에서 자유롭게 돌아요(위치만 잡음)', drive: '모터 축에 고정 — 모터가 이걸 돌립니다', chain: '체인 연결 — 두 체인기어가 같은 방향으로 잇수비만큼 돌아요', belt: '고무줄 연결 — 두 풀리가 같은 방향으로 지름비만큼 돌아요', slot: '장공 볼트 — 볼트가 장공을 따라 미끄러지고 돌 수 있어요 (볼트 2개면 직선으로만 미끄러짐: 피스톤)' };
-  setStatus(`${msg[type]} 완료.`);
+  const msg = { bolt: '볼트 고정', pivot: '회전볼트 체결(두 부품이 이 구멍을 축으로 돌 수 있음)', clip: '스프링클립 고정 — 이제 기어가 이 축과 같이 돌아요', bearing: '베어링 연결 — 축은 판 구멍에서 자유롭게 돌아요(위치만 잡음)', drive: '모터 축에 고정 — 모터가 이걸 돌려요', chain: '체인 연결 — 두 체인기어가 같은 방향으로 잇수비만큼 돌아요', belt: '고무줄 연결 — 두 풀리가 같은 방향으로 지름비만큼 돌아요', slot: '장공 볼트 — 볼트가 장공을 따라 미끄러지고 돌 수 있어요 (볼트 2개면 직선으로만 미끄러짐: 피스톤)' };
+  setStatus(`${msg[type]} 완료`);
 }
 
 // ── 드래그 & 스냅 ───────────────────────────────────────
@@ -447,7 +451,7 @@ canvas.addEventListener('pointerdown', e => {
     if (bHits.length) {
       pushUndo();
       const conn = assembly.disconnectByMesh(bHits[0].object);
-      if (conn) { conn.mesh.parent.remove(conn.mesh); refreshMarkers(); setStatus('체결을 해제했습니다.'); }
+      if (conn) { conn.mesh.parent.remove(conn.mesh); refreshMarkers(); setStatus('체결을 해제했어요'); }
     }
     return;
   }
@@ -633,14 +637,14 @@ function deleteSelected() {
   select(null);
   renderPalette();
   if (boltMode) refreshMarkers();
-  setStatus(`부품 ${ids.length}개를 삭제했습니다. (Ctrl+Z 되돌리기)`);
+  setStatus(`부품 ${ids.length}개를 삭제했어요 · Ctrl+Z 로 되돌리기`);
 }
 function toggleBoltMode() {
   if (sim.active) return;
   boltMode = !boltMode;
   document.getElementById('btn-bolt').classList.toggle('active', boltMode);
   refreshMarkers();
-  if (!boltMode) setStatus('볼트 모드 해제.');
+  if (!boltMode) setStatus('볼트 모드 해제');
 }
 
 // ── 직렬화 (되돌리기·복사 공용) ─────────────────────────
@@ -712,19 +716,19 @@ function pushUndo(snap = serialize()) {
   redoStack.length = 0;
 }
 function undo() {
-  if (sim.active) { setStatus('시뮬 중에는 되돌릴 수 없어요. Esc로 먼저 원위치.'); return; }
-  if (!undoStack.length) { setStatus('더 되돌릴 작업이 없습니다.'); return; }
+  if (sim.active) { setStatus('시뮬 중에는 되돌릴 수 없어요 — Esc 로 먼저 원위치'); return; }
+  if (!undoStack.length) { setStatus('더 되돌릴 작업이 없어요'); return; }
   redoStack.push(serialize());
   deserialize(undoStack.pop(), { replace: true });
   select(null);
-  setStatus(`되돌렸습니다. (남은 기록 ${undoStack.length}개 · Ctrl+Y 다시하기)`);
+  setStatus(`되돌렸어요 · 남은 기록 ${undoStack.length}개 · Ctrl+Y 로 다시 실행`);
 }
 function redo() {
   if (sim.active || !redoStack.length) return;
   undoStack.push(serialize());
   deserialize(redoStack.pop(), { replace: true });
   select(null);
-  setStatus('다시 실행했습니다.');
+  setStatus('다시 실행했어요');
 }
 
 // ── 복사 / 붙여넣기 ─────────────────────────────────────
@@ -756,13 +760,13 @@ function groupSelection() {
   pushUndo();
   assembly.setGroup([...selection]);
   selectMany(assembly.groupMembers(assembly.parts.get(selectedId).group));
-  setStatus(`그룹으로 고정했습니다 (${selection.size}개). 함께 움직이고 시뮬에서도 한 덩어리 · Ctrl+Shift+G 해제`);
+  setStatus(`그룹으로 고정했어요 (${selection.size}개) — 함께 움직이고 시뮬에서도 한 덩어리 · Ctrl+Shift+G 해제`);
 }
 function ungroupSelection() {
   if (sim.active || selection.size === 0) return;
   pushUndo();
   const n = assembly.ungroup([...selection]);
-  setStatus(n ? '그룹을 해제했습니다.' : '선택한 부품은 그룹이 아닙니다.');
+  setStatus(n ? '그룹을 해제했어요' : '선택한 부품은 그룹이 아니에요');
   if (!n) undoStack.pop();
   select(selectedId);
 }
@@ -790,8 +794,8 @@ function startSim() {
   sim.blocked = sim.model.warnings.some(w => w.blocking);
   setStatus(`시뮬 시작 — 강체 ${m.bodies} · 회전축 ${m.joints} · 자유도 ${m.dof} · 폐루프 ${m.loops} · 모터 ${m.motors} · 기어쌍 ${m.gears} · 체인/고무줄 ${m.chains}`
     + (m.motors ? '' : '  |  모터가 없어요: 축·기어를 선택하고 , / . 로 손으로 돌려보세요')
-    + (sim.model.warnings.some(w => w.type === 'mesh-no-carrier' && !w.blocking) ? '  |  ⚠ 맞물렸지만 받침(프레임)이 이어지지 않은 기어쌍이 있어 그 기어는 연동 안 됨' : '')
-    + (sim.model.warnings.some(w => w.type === 'chain-separate-ground') ? '  |  ℹ 체인/고무줄 양쪽(모터·프레임)이 볼트로 안 이어져 있어 둘 다 바닥에 고정된 것으로 보고 돌려요 — 실물에선 볼트로 묶어야 해요' : ''));
+    + (sim.model.warnings.some(w => w.type === 'mesh-no-carrier' && !w.blocking) ? '  |  주의: 맞물렸지만 받침(프레임)이 이어지지 않은 기어쌍이 있어 그 기어는 연동 안 됨' : '')
+    + (sim.model.warnings.some(w => w.type === 'chain-separate-ground') ? '  |  참고: 체인/고무줄 양쪽(모터·프레임)이 볼트로 안 이어져 있어 둘 다 바닥에 고정된 것으로 보고 돌려요 — 실물에선 볼트로 묶어야 해요' : ''));
 }
 function togglePlay() {
   if (!sim.active) startSim();
@@ -799,16 +803,16 @@ function togglePlay() {
     const w = sim.model.warnings.find(x => x.blocking);
     resetSim();
     if (w.type === 'chain-no-carrier') {
-      setStatus('⚠ 체인/고무줄로 이은 두 바퀴가 같은 프레임에 받쳐져 있지 않아요 — 각 체인기어·풀리의 축을 같은 프레임 구멍에 베어링(보라)으로 꽂고, 바퀴는 축에 클립(하늘)으로 고정하세요.');
+      setStatus('주의: 체인/고무줄로 이은 두 바퀴가 같은 프레임에 받쳐져 있지 않아요 — 각 체인기어·풀리의 축을 같은 프레임 구멍에 베어링(보라)으로 꽂고, 바퀴는 축에 클립(하늘)으로 고정하세요.');
       return;
     }
     setStatus(w.type === 'mesh-no-carrier'
-      ? '⚠ 모터가 프레임에 고정되어 있지 않아요 — 모터 축의 기어와 맞물린 기어가 있는데 둘을 잇는 프레임이 없어서 기어가 안 돌아요. B → 모터 받침판 구멍을 프레임 구멍에 볼트(노랑)로 체결하거나 Ctrl+G 로 그룹 고정하세요.'
-      : '⚠ 모터가 프레임에 고정되어 있지 않아요 — 이대로면 모터 대신 프레임이 통째로 돌아요. B → 모터 받침판 구멍을 프레임 구멍에 볼트(노랑)로 체결하거나 Ctrl+G 로 그룹 고정하세요.');
+      ? '주의: 모터가 프레임에 고정되어 있지 않아요 — 모터 축의 기어와 맞물린 기어가 있는데 둘을 잇는 프레임이 없어서 기어가 안 돌아요. B → 모터 받침판 구멍을 프레임 구멍에 볼트(노랑)로 체결하거나 Ctrl+G 로 그룹 고정하세요.'
+      : '주의: 모터가 프레임에 고정되어 있지 않아요 — 이대로면 모터 대신 프레임이 통째로 돌아요. B → 모터 받침판 구멍을 프레임 구멍에 볼트(노랑)로 체결하거나 Ctrl+G 로 그룹 고정하세요.');
     return;
   }
   sim.playing = !sim.playing;
-  btnPlay.textContent = sim.playing ? '⏸ 일시정지' : '▶ 재생';
+  setBtn(btnPlay, sim.playing ? 'pause' : 'play', sim.playing ? '일시정지' : '재생');
   btnPlay.classList.toggle('active', sim.playing);
 }
 function resetSim() {
@@ -818,22 +822,22 @@ function resetSim() {
   sim.active = false;
   sim.playing = false;
   sim.blocked = false;
-  btnPlay.textContent = '▶ 재생';
+  setBtn(btnPlay, 'play', '재생');
   btnPlay.classList.remove('active');
   document.body.classList.remove('sim');
-  setStatus('원위치로 되돌렸습니다. 다시 편집할 수 있어요.');
+  setStatus('원위치로 되돌렸어요 — 다시 편집할 수 있어요');
 }
 function handCrank(delta) {
   if (selectedId === null) { setStatus('돌릴 축·기어·부품을 먼저 선택하세요.'); return; }
   if (!sim.active) startSim();
-  if (!sim.model.nudge(selectedId, delta)) { setStatus('이 부품은 고정 강체라 돌릴 수 없어요.'); return; }
+  if (!sim.model.nudge(selectedId, delta)) { setStatus('이 부품은 고정 강체라 돌릴 수 없어요'); return; }
   if (!sim.playing) { sim.model.step(0); sim.model.apply(); }
 }
 function togglePin() {
   if (selectedId === null) return;
   pinnedPartId = pinnedPartId === selectedId ? null : selectedId;
   setStatus(pinnedPartId === null ? '고정 해제 — 시뮬 시 프레임을 자동으로 고릅니다.'
-    : '📌 이 부품이 붙은 덩어리를 바닥(고정)으로 씁니다. (다음 시뮬부터 적용)');
+    : '이 부품이 붙은 덩어리를 바닥(고정)으로 써요 — 다음 시뮬부터 적용');
 }
 function refreshMotorPanel() {
   const part = selectedId !== null ? assembly.parts.get(selectedId) : null;
@@ -863,7 +867,7 @@ function updateMeter(dt) {
     const rpm = ((ang - m.angle) / m.t) / (2 * Math.PI) * 60;
     const part = assembly.parts.get(selectedId);
     const label = findDef(part.defId)?.label ?? '';
-    setStatus(`▶ ${label}: ${Math.abs(rpm) < 0.05 ? '정지' : `${rpm.toFixed(1)} rpm`}  (연결된 부모 부품 기준)`);
+    setStatus(`${label}: ${Math.abs(rpm) < 0.05 ? '정지' : `${rpm.toFixed(1)} rpm`}  (연결된 부모 부품 기준)`);
   }
   m.t = 0; m.id = selectedId; m.angle = ang ?? 0;
 }
@@ -918,7 +922,7 @@ const btnHelp = document.getElementById('btn-help');
 function toggleHelp(open = helpEl.hidden) {
   helpEl.hidden = !open;
   btnHelp.classList.toggle('active', open);
-  btnHelp.textContent = open ? '✕ 도움말 닫기' : '❔ 도움말';
+  setBtn(btnHelp, open ? 'x' : 'help', open ? '도움말 닫기' : '도움말');
   try { localStorage.setItem('boltlab.help', open ? '1' : '0'); } catch {}
 }
 { let open = false; try { open = localStorage.getItem('boltlab.help') === '1'; } catch {} toggleHelp(open); }
@@ -932,11 +936,11 @@ const ioShow = (id, on) => { document.getElementById(id).hidden = !on; };
 const setIoMsg = (t, err = false) => { ioMsg.textContent = t; ioMsg.classList.toggle('err', err); };
 
 async function openExport() {
-  if (assembly.parts.size === 0) { setStatus('내보낼 부품이 없어요.'); return; }
+  if (assembly.parts.size === 0) { setStatus('내보낼 부품이 없어요'); return; }
   const data = serialize();
   ioDialog.dataset.mode = 'export';
-  document.getElementById('io-title').textContent = '📤 구조물 내보내기';
-  document.getElementById('io-desc').textContent = '아래 코드를 복사해 두거나 파일로 저장하세요. 나중에 📥 불러오기에 붙여넣거나 파일을 열면 그대로 복원돼요.';
+  document.getElementById('io-title').textContent = '구조물 내보내기';
+  document.getElementById('io-desc').textContent = '아래 코드를 복사해 두거나 파일로 저장하세요. 나중에 불러오기에 붙여넣거나 파일을 열면 그대로 복원돼요.';
   ioShow('io-copy', true); ioShow('io-save', true); ioShow('io-file', false); ioShow('io-load', false);
   ioText.readOnly = true;
   ioText.value = '코드 만드는 중…';
@@ -949,7 +953,7 @@ async function openExport() {
 function openImport() {
   if (sim.active) resetSim();
   ioDialog.dataset.mode = 'import';
-  document.getElementById('io-title').textContent = '📥 구조물 불러오기';
+  document.getElementById('io-title').textContent = '구조물 불러오기';
   document.getElementById('io-desc').textContent = '내보내기 코드(BL1.…)를 붙여넣거나 저장한 파일을 고르세요. 지금 화면의 구조물은 바뀌고, Ctrl+Z 로 되돌릴 수 있어요.';
   ioShow('io-copy', false); ioShow('io-save', false); ioShow('io-file', true); ioShow('io-load', true);
   ioText.readOnly = false;
@@ -978,18 +982,18 @@ async function importPresetText(text, source = '코드') {
   const ids = deserialize(data, { replace: true });
   selectMany([]);
   const extra = data.skipped.length ? ` (모르는 부품 ${data.skipped.length}개는 건너뜀: ${[...new Set(data.skipped)].join(', ')})` : '';
-  setStatus(`${source}에서 부품 ${ids.length}개 · 체결 ${data.conns.length}개를 불러왔어요${extra}. Ctrl+Z 로 되돌리기.`);
+  setStatus(`${source}에서 부품 ${ids.length}개 · 체결 ${data.conns.length}개를 불러왔어요${extra} · Ctrl+Z 로 되돌리기`);
   return { ok: true };
 }
 async function importFile(file) {
   if (!file) return;
-  if (file.size > 5e6) { setStatus('파일이 너무 커요 (5MB 이하).'); return { ok: false, msg: '파일이 너무 커요 (5MB 이하)' }; }
+  if (file.size > 5e6) { setStatus('파일이 너무 커요 (5MB 이하)'); return { ok: false, msg: '파일이 너무 커요 (5MB 이하)' }; }
   const res = await importPresetText(await file.text(), `파일 ${file.name}`);
   if (!res.ok) setStatus(`불러오기 실패 — ${res.msg}`);
   return res;
 }
 document.getElementById('io-copy').addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText(ioText.value); setIoMsg('복사했어요 ✓'); }
+  try { await navigator.clipboard.writeText(ioText.value); setIoMsg('복사했어요'); }
   catch { ioText.select(); setIoMsg('자동 복사가 막혔어요 — 선택된 코드를 Ctrl+C 로 복사하세요', true); }
 });
 document.getElementById('io-save').addEventListener('click', () => {
@@ -1001,7 +1005,7 @@ document.getElementById('io-save').addEventListener('click', () => {
   a.download = name;
   a.click();
   setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-  setIoMsg(`${name} 로 저장했어요 ✓`);
+  setIoMsg(`${name} 로 저장했어요`);
 });
 document.getElementById('io-file').addEventListener('click', () => ioFileInput.click());
 ioFileInput.addEventListener('change', async () => {
@@ -1037,7 +1041,7 @@ renderer.setAnimationLoop(() => {
     const wasStalled = sim.model.stalled;
     sim.model.step(dt);
     sim.model.apply();
-    if (sim.model.stalled && !wasStalled) setStatus('⚠ 기구 잠김 — 이 자세에서 더 못 움직여요 (링크 길이·기어비·고정 상태 확인). Esc로 원위치.');
+    if (sim.model.stalled && !wasStalled) setStatus('주의: 기구가 잠겼어요 — 이 자세에서 더 못 움직여요 (링크 길이·기어비·고정 상태 확인) · Esc 로 원위치');
     if (!sim.model.stalled) updateMeter(dt);
   }
   updateChains();

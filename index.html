@@ -4,59 +4,117 @@
 <meta charset="utf-8">
 <title>BoltLab-sim</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
   :root {
-    --bg: #1a1d21; --panel: #23272e; --border: #3a3f47;
-    --text: #e6e8ea; --dim: #9aa0a8; --accent: #4da3ff; --warn: #ff6b6b;
+    /* 흑연 램프 */
+    --side: #0f0f10; --bg: #141415; --card: #19191b; --raised: #232325;
+    --line: rgba(237,237,237,.08); --line-strong: rgba(237,237,237,.16);
+    --text: #ededed; --text-2: #a1a1a6; --muted: #85858b;
+    /* 황동 악센트: 선택·주 동작·상태 점에만 */
+    --accent: #e0a458; --on-accent: #141415;
+    --pos: #4cc38a; --neg: #e5484d;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --mono: ui-monospace, 'JetBrains Mono', Consolas, monospace;
   }
   * { box-sizing: border-box; margin: 0; }
+  [hidden] { display: none !important; }
   html, body { height: 100%; overflow: hidden; }
-  body { font-family: 'Segoe UI', 'Malgun Gothic', sans-serif; background: var(--bg); color: var(--text); display: flex; }
+  body { font: 400 14px/20px 'Pretendard Variable', Pretendard, 'Segoe UI', 'Malgun Gothic', sans-serif; background: var(--bg); color: var(--text); display: flex; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  #sidebar { width: 230px; min-width: 230px; background: var(--panel); border-right: 1px solid var(--border); display: flex; flex-direction: column; }
-  #sidebar h1 { font-size: 15px; padding: 12px 14px; border-bottom: 1px solid var(--border); }
-  #palette { flex: 1; overflow-y: auto; padding: 8px; }
-  .pal-group { font-size: 11px; color: var(--dim); margin: 10px 6px 4px; letter-spacing: .5px; }
-  .pal-item { display: flex; justify-content: space-between; align-items: center; padding: 7px 10px; margin: 2px 0; border-radius: 6px; cursor: pointer; font-size: 13px; border: 1px solid transparent; }
-  .pal-item:hover { background: #2c313a; border-color: var(--border); }
-  .pal-item .qty { font-size: 11px; color: var(--dim); }
+  /* 아이콘: lucide, 16px, 1.5 */
+  .i { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; color: var(--muted); transition: color .15s var(--ease); }
+  .sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
 
-  #main { flex: 1; position: relative; }
+  /* 버튼 공통 */
+  .btn { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px; border: 1px solid transparent; border-radius: 8px; background: transparent; color: var(--text); font-size: 13px; white-space: nowrap;
+         transition: background-color .15s var(--ease), color .15s var(--ease), border-color .15s var(--ease), transform .15s var(--ease); }
+  .btn:hover { background: var(--raised); }
+  .btn:hover .i { color: var(--text); }
+  .btn:active { transform: scale(.98); }
+  .btn.active { background: var(--raised); border-color: var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,.08); color: var(--accent); }
+  .btn.active .i { color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); }
+  .btn.primary .i { color: var(--on-accent); }
+  .btn.primary:hover { background: #e9b46c; }
+  .btn.primary.active { background: var(--raised); color: var(--accent); }
+  .btn.primary.active .i { color: var(--accent); }
+  .btn.boxed { background: var(--raised); border-color: var(--line); }
+  .btn.boxed:hover { border-color: var(--line-strong); }
+
+  kbd { display: inline-block; min-width: 20px; padding: 0 6px; border: 1px solid var(--line-strong); border-bottom-width: 2px; border-radius: 4px; background: var(--raised); color: var(--text); font: 400 12px/16px var(--mono); text-align: center; }
+
+  /* 사이드바 */
+  #sidebar { width: 240px; min-width: 240px; background: var(--side); border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+  #sidebar header { display: flex; align-items: center; gap: 8px; height: 56px; padding: 0 16px; border-bottom: 1px solid var(--line); }
+  #sidebar h1 { font-size: 16px; line-height: 1; font-weight: 500; }
+  #sidebar header span { margin-left: auto; font-size: 12px; color: var(--muted); }
+  .mark { width: 16px; height: 16px; flex: none; color: var(--accent); }
+  #palette { flex: 1; overflow-y: auto; padding: 4px 12px 16px; scrollbar-width: thin; scrollbar-color: var(--raised) transparent; }
+  .pal-group { font-size: 12px; line-height: 16px; color: var(--muted); margin: 24px 12px 8px; }
+  .pal-group:first-child { margin-top: 16px; }
+  .pal-item { display: flex; justify-content: space-between; align-items: center; height: 32px; padding: 0 12px; margin: 2px 0; border-radius: 8px; cursor: pointer; font-size: 14px; color: var(--text-2);
+              transition: background-color .15s var(--ease), color .15s var(--ease), transform .15s var(--ease); }
+  .pal-item:hover { background: var(--raised); color: var(--text); }
+  .pal-item:active { transform: scale(.98); }
+  .pal-item .qty { font: 400 12px/16px var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* 작업 영역 */
+  #main { flex: 1; position: relative; min-width: 0; }
   #viewport { width: 100%; height: 100%; display: block; }
 
-  #toolbar { position: absolute; top: 10px; left: 10px; display: flex; gap: 6px; }
-  #toolbar button { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
-  #toolbar button:hover { border-color: var(--accent); }
-  #toolbar button.active { background: var(--accent); color: #10141a; border-color: var(--accent); }
+  #toolbar, #btn-help { position: absolute; top: 12px; height: 40px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+  #toolbar { left: 12px; display: flex; align-items: center; gap: 2px; padding: 3px; max-width: calc(100% - 140px); overflow-x: auto; scrollbar-width: none; }
+  #toolbar .sep { width: 1px; height: 16px; background: var(--line-strong); margin: 0 4px; flex: none; }
+  #btn-help { right: 12px; padding: 0 14px; gap: 8px; border-radius: 12px; }
+  #btn-help.active { border-color: var(--line-strong); }
 
-  #status { position: absolute; bottom: 0; left: 0; right: 0; padding: 6px 12px; font-size: 12px; color: var(--dim); background: rgba(26,29,33,.85); pointer-events: none; }
-  #help { position: absolute; top: 48px; right: 10px; max-width: min(560px, calc(100% - 20px)); max-height: calc(100% - 90px); overflow-y: auto;
-          background: rgba(35,39,46,.95); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; font-size: 12px; color: var(--dim); line-height: 1.8; }
-  #help[hidden] { display: none; }
-  #help b { color: var(--text); }
-  #btn-help { position: absolute; top: 10px; right: 10px; background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
-  #btn-help:hover, #btn-help.active { border-color: var(--accent); }
+  #status { position: absolute; bottom: 0; left: 0; right: 0; display: flex; gap: 8px; padding: 8px 16px; font-size: 13px; line-height: 20px; color: var(--text-2); background: rgba(20,20,21,.88); border-top: 1px solid var(--line); pointer-events: none; }
+  #status::before { content: ''; flex: none; width: 8px; height: 8px; margin-top: 6px; border-radius: 50%; border: 1.5px solid var(--accent); }
 
-  #io-dialog { background: var(--panel); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 16px; width: min(560px, calc(100vw - 32px)); }
-  #io-dialog::backdrop { background: rgba(0,0,0,.5); }
-  #io-dialog h2 { font-size: 15px; margin-bottom: 6px; }
-  #io-dialog p { font-size: 12px; color: var(--dim); margin-bottom: 10px; line-height: 1.6; }
-  #io-text { width: 100%; height: 140px; resize: vertical; background: #181b20; color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 8px; font: 12px/1.4 Consolas, monospace; word-break: break-all; }
-  #io-msg { min-height: 18px; font-size: 12px; margin-top: 6px; color: var(--dim); }
-  #io-msg.err { color: var(--warn); }
-  .io-actions { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; margin-top: 8px; }
-  .io-actions button { background: #2c313a; color: var(--text); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-size: 13px; cursor: pointer; }
-  .io-actions button:hover { border-color: var(--accent); }
-  .io-actions button.primary { background: var(--accent); color: #10141a; border-color: var(--accent); }
-  body.drop-hover #main::before { content: '여기에 놓으면 구조물을 불러와요'; position: absolute; inset: 10px; border: 2px dashed var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 16px; background: rgba(77,163,255,.08); z-index: 5; pointer-events: none; }
-  #toolbar .sep { width: 1px; background: var(--border); margin: 0 4px; }
+  #motor-panel { position: absolute; top: 64px; left: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 13px; color: var(--text-2); display: flex; gap: 12px; align-items: center; }
+  #motor-panel input[type=range] { accent-color: var(--accent); width: 160px; }
+  #rpm-label { min-width: 64px; text-align: right; font: 400 13px/20px var(--mono); color: var(--text); font-variant-numeric: tabular-nums; }
+  #motor-panel .btn { height: 28px; padding: 0 8px; }
+
+  /* 도움말 */
+  #help { position: absolute; top: 64px; right: 12px; width: min(560px, calc(100% - 24px)); max-height: calc(100% - 64px - 56px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--raised) transparent;
+          background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; font-size: 13px; line-height: 24px; color: var(--text-2); }
+  #help h3 { font-size: 12px; line-height: 16px; font-weight: 400; color: var(--muted); margin: 24px 0 8px; }
+  #help h3:first-child { margin-top: 0; }
+  #help p { margin: 0; }
+  #help b { color: var(--text); font-weight: 500; }
+  #help .legend { display: grid; grid-template-columns: 72px 1fr; column-gap: 12px; }
+  #help .legend dt { display: flex; align-items: center; gap: 8px; color: var(--text); font-weight: 500; }
+  #help .legend dd { margin: 0; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+
+  /* 불러오기·내보내기 */
+  #io-dialog { background: var(--card); color: var(--text); border: 1px solid var(--line-strong); border-radius: 16px; padding: 24px; width: min(560px, calc(100vw - 32px)); }
+  #io-dialog::backdrop { background: rgba(0,0,0,.56); }
+  #io-dialog h2 { font-size: 16px; line-height: 24px; font-weight: 500; margin-bottom: 8px; }
+  #io-dialog p { font-size: 13px; color: var(--text-2); margin-bottom: 16px; line-height: 20px; }
+  #io-text { width: 100%; height: 140px; resize: vertical; background: var(--bg); color: var(--text); border: 1px solid var(--line); border-radius: 8px; padding: 12px; font: 12px/16px var(--mono); word-break: break-all; }
+  #io-text:focus-visible { outline-offset: 0; }
+  #io-msg { min-height: 20px; font-size: 13px; margin-top: 8px; color: var(--text-2); }
+  #io-msg.err { color: var(--neg); }
+  .io-actions { display: flex; gap: 8px; justify-content: flex-end; flex-wrap: wrap; margin-top: 16px; }
+
+  body.drop-hover #main::before { content: '여기에 놓으면 구조물을 불러와요'; position: absolute; inset: 12px; border: 1.5px dashed var(--accent); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 16px; background: rgba(224,164,88,.06); z-index: 5; pointer-events: none; }
+
+  /* 시뮬 상태 */
   body.sim #btn-bolt, body.sim #btn-rotate, body.sim #btn-tilt, body.sim #btn-delete { opacity: .35; pointer-events: none; }
   body.sim #sidebar { opacity: .5; pointer-events: none; }
-  body.sim #main::after { content: 'SIM'; position: absolute; bottom: 34px; right: 12px; font-size: 11px; letter-spacing: 2px; color: #10141a; background: #7cff6b; padding: 2px 8px; border-radius: 4px; }
-  #motor-panel { position: absolute; top: 52px; left: 10px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; font-size: 12px; display: flex; gap: 8px; align-items: center; }
-  #motor-panel[hidden] { display: none; }
-  #motor-panel button { background: #2c313a; color: var(--text); border: 1px solid var(--border); border-radius: 5px; padding: 3px 8px; cursor: pointer; }
-  #rpm-label { min-width: 62px; text-align: right; font-variant-numeric: tabular-nums; }
+  body.sim #main::after { content: '시뮬 중'; position: absolute; bottom: 48px; right: 12px; font: 400 12px/16px var(--mono); color: var(--pos); background: var(--card); border: 1px solid var(--line); padding: 4px 8px; border-radius: 6px; }
+  body.sim #status::before { border-color: var(--pos); background: var(--pos); }
+
+  @media (max-width: 1360px) {
+    #toolbar .btn:not(.primary) .lbl { display: none; }
+    #toolbar .btn:not(.primary) { padding: 0 8px; }
+  }
 </style>
 <script type="importmap">
 {
@@ -68,51 +126,85 @@
 </script>
 </head>
 <body>
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-mark" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="1.75" fill="currentColor"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><circle cx="12" cy="12" r="4"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></symbol>
+    <symbol id="i-tilt" viewBox="0 0 24 24"><path d="M16.466 7.5C15.643 4.237 13.952 2 12 2 9.239 2 7 6.477 7 12s2.239 10 5 10c.342 0 .677-.069 1-.2"/><path d="m15.194 13.707 3.814 1.86-1.86 3.814"/><path d="M19 15.57c-1.804.885-4.274 1.43-7 1.43-5.523 0-10-2.239-10-5s4.477-5 10-5c4.838 0 8.873 1.718 9.8 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6"/><path d="M14 11v6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><rect x="14" y="4" width="4" height="16" rx="1"/><rect x="6" y="4" width="4" height="16" rx="1"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7"/><path d="M7 3v4a1 1 0 0 0 1 1h7"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2"/></symbol>
+    <symbol id="i-swap" viewBox="0 0 24 24"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></symbol>
+  </svg>
+
   <div id="sidebar">
-    <h1>BoltLab · 부품</h1>
+    <header>
+      <svg class="mark"><use href="#i-mark"/></svg>
+      <h1>BoltLab</h1>
+      <span>부품</span>
+    </header>
     <div id="palette"></div>
   </div>
   <div id="main">
     <canvas id="viewport"></canvas>
     <div id="toolbar">
-      <button id="btn-bolt" title="B">🔩 볼트 모드</button>
-      <button id="btn-chain" title="C — 체인기어 두 개(체인) 또는 풀리 두 개(고무줄) 선택 후">⛓ 체인/고무줄</button>
-      <button id="btn-rotate" title="R">↻ 회전 90°</button>
-      <button id="btn-tilt" title="F">⤴ 세우기 90°</button>
-      <button id="btn-delete" title="Del">🗑 삭제</button>
+      <button class="btn" id="btn-bolt" title="볼트 모드 · B"><svg class="i"><use href="#i-bolt"/></svg><span class="lbl">볼트 모드</span></button>
+      <button class="btn" id="btn-chain" title="체인/고무줄 · C — 체인기어 두 개(체인) 또는 풀리 두 개(고무줄)를 선택한 뒤"><svg class="i"><use href="#i-link"/></svg><span class="lbl">체인/고무줄</span></button>
+      <button class="btn" id="btn-rotate" title="회전 90° · R"><svg class="i"><use href="#i-rotate"/></svg><span class="lbl">회전 90°</span></button>
+      <button class="btn" id="btn-tilt" title="세우기 90° · F"><svg class="i"><use href="#i-tilt"/></svg><span class="lbl">세우기 90°</span></button>
+      <button class="btn" id="btn-delete" title="삭제 · Del"><svg class="i"><use href="#i-trash"/></svg><span class="lbl">삭제</span></button>
       <span class="sep"></span>
-      <button id="btn-play" title="Space">▶ 재생</button>
-      <button id="btn-reset" title="Esc">⟲ 원위치</button>
-      <button id="btn-pin" title="G">📌 고정</button>
+      <button class="btn primary" id="btn-play" title="재생 · Space"><svg class="i"><use href="#i-play"/></svg><span class="lbl">재생</span></button>
+      <button class="btn" id="btn-reset" title="원위치 · Esc"><svg class="i"><use href="#i-reset"/></svg><span class="lbl">원위치</span></button>
+      <button class="btn" id="btn-pin" title="고정 · G"><svg class="i"><use href="#i-pin"/></svg><span class="lbl">고정</span></button>
       <span class="sep"></span>
-      <button id="btn-export" title="구조물을 코드/파일로 내보내기">📤 내보내기</button>
-      <button id="btn-import" title="코드/파일에서 구조물 불러오기 (파일을 화면에 끌어놓아도 됨)">📥 불러오기</button>
+      <button class="btn" id="btn-export" title="구조물을 코드/파일로 내보내기"><svg class="i"><use href="#i-upload"/></svg><span class="lbl">내보내기</span></button>
+      <button class="btn" id="btn-import" title="코드/파일에서 구조물 불러오기 (파일을 화면에 끌어놓아도 됨)"><svg class="i"><use href="#i-download"/></svg><span class="lbl">불러오기</span></button>
     </div>
-    <button id="btn-help" title="H">❔ 도움말</button>
+    <button class="btn" id="btn-help" title="도움말 · H"><svg class="i"><use href="#i-help"/></svg><span class="lbl">도움말</span></button>
     <div id="motor-panel" hidden>
       모터 속도 <input id="rpm" type="range" min="-300" max="300" step="5" value="60">
       <span id="rpm-label">60 rpm</span>
-      <button id="btn-reverse" title="역회전">⇄</button>
+      <button class="btn boxed" id="btn-reverse" title="역회전"><svg class="i"><use href="#i-swap"/></svg></button>
     </div>
     <div id="help" hidden>
-      <b>드래그</b> 이동 · <b>Shift+드래그</b> 세로 이동 (구멍/축 자동 스냅)<br>
-      <b>R</b> 회전 · <b>F</b> 세우기 · <b>Q/E</b> 높이 (Shift: 미세)<br>
-      <b>B</b> 볼트 모드 → 링을 클릭해 체결 (노랑 = 고정 / 주황 = 회전):<br>
-      &nbsp;<span style="color:#ffd54a">● 볼트</span> 판↔판 구멍 고정 (<b>Shift</b>+클릭: <span style="color:#ff8a3d">회전볼트</span>)<br>
-      &nbsp;<span style="color:#da70d6">● 베어링</span> 축을 판 구멍에 꽂기 — 위치만 잡고 축은 자유롭게 돎<br>
-      &nbsp;<span style="color:#4dd0e1">● 클립</span> 기어를 축에 끼워 고정 — 클립해야 기어가 축과 <b>같이 돎</b><br>
-      &nbsp;<span style="color:#7cff6b">● 모터</span> 모터 출력축에 기어/축 고정 — 모터가 이걸 돌림<br>
-      &nbsp;<span style="color:#ff5c8a">● 체인</span> 같은 평면의 체인기어 두 개를 체인으로 감기 — 같은 방향으로 잇수비만큼 돎<br>
-      &nbsp;<span style="color:#c6ff00">● 장공</span> 장공에 볼트 — 미끄러지면서 돎 (볼트 2개 = 직선 피스톤)<br>
-      &nbsp;<span style="color:#ffa040">● 고무줄</span> 같은 평면의 풀리 두 개를 고무줄로 감기 — 같은 방향으로 지름비만큼 돎<br>
-      <b>체인/고무줄</b>: 체인기어 또는 풀리 두 개를 <b>Ctrl+클릭</b>으로 선택 → <b>C</b> (또는 B 모드의 분홍/주황 링)<br>
-      <b>T</b> 선택한 풀리에 타이어 씌우기/벗기기 (풀리 중·소·타이어풀리)<br>
-      <b>모터 쓰는 순서</b>: ① 모터 받침판을 프레임에 <b>볼트로 고정</b> ② 기어를 모터 축 쪽으로 끌어다 대면 방향·높이가 자동으로 맞춰짐 → B 에서 초록 링 ③ <b>Space</b> 재생<br>
-      <b>Space</b> 재생/일시정지 · <b>Esc</b> 원위치 · <b>G</b> 바닥 고정 · <b>[ ]</b> 모터 속도<br>
-      <b>Ctrl+클릭</b> 여러 개 선택 · <b>Ctrl+G</b> 그룹 고정 (<b>Ctrl+Shift+G</b> 해제)<br>
-      <b>Ctrl+C / V / X</b> 복사·붙여넣기·잘라내기 · <b>Ctrl+Z / Y</b> 되돌리기·다시하기<br>
-      <b>, / .</b> 선택 부품 손으로 돌리기 · <b>Del</b> 삭제 · 빈 곳 드래그: 카메라<br>
-      <b>📤 내보내기 / 📥 불러오기</b> 구조물을 코드·파일로 저장하고 다시 불러오기 (파일은 화면에 끌어놓아도 됨) · <b>H</b> 이 도움말 열기/닫기
+      <h3>조작</h3>
+      <p><b>드래그</b> 이동 · <b>Shift+드래그</b> 세로 이동 — 구멍·축에 자동 스냅</p>
+      <p><kbd>R</kbd> 회전 · <kbd>F</kbd> 세우기 · <kbd>Q</kbd> <kbd>E</kbd> 높이 (Shift: 미세)</p>
+      <p><b>Ctrl+클릭</b> 여러 개 선택 · <kbd>Ctrl+G</kbd> 그룹 고정 (<kbd>Ctrl+Shift+G</kbd> 해제)</p>
+      <p><kbd>Ctrl+C</kbd> <kbd>V</kbd> <kbd>X</kbd> 복사·붙여넣기·잘라내기 · <kbd>Ctrl+Z</kbd> <kbd>Y</kbd> 되돌리기·다시하기</p>
+      <p><kbd>,</kbd> <kbd>.</kbd> 선택 부품 손으로 돌리기 · <kbd>Del</kbd> 삭제 · 빈 곳 드래그: 카메라</p>
+      <p><kbd>T</kbd> 선택한 풀리에 타이어 씌우기·벗기기 (풀리 중·소·타이어풀리)</p>
+      <p><kbd>H</kbd> 이 도움말 열기·닫기</p>
+
+      <h3>체결 — <kbd>B</kbd> 를 누르고 링을 클릭</h3>
+      <dl class="legend">
+        <dt><span class="dot" style="--c:#ffd54a"></span>볼트</dt><dd>판↔판 구멍 고정 (<b>Shift+클릭</b>: <span class="dot" style="--c:#ff8a3d;display:inline-block"></span> 회전볼트)</dd>
+        <dt><span class="dot" style="--c:#da70d6"></span>베어링</dt><dd>축을 판 구멍에 꽂기 — 위치만 잡고 축은 자유롭게 돎</dd>
+        <dt><span class="dot" style="--c:#4dd0e1"></span>클립</dt><dd>기어를 축에 끼워 고정 — 클립해야 기어가 축과 같이 돎</dd>
+        <dt><span class="dot" style="--c:#7cff6b"></span>모터</dt><dd>모터 출력축에 기어·축 고정 — 모터가 이걸 돌림</dd>
+        <dt><span class="dot" style="--c:#ff5c8a"></span>체인</dt><dd>같은 평면의 체인기어 두 개를 체인으로 감기 — 같은 방향으로 잇수비만큼 돎</dd>
+        <dt><span class="dot" style="--c:#c6ff00"></span>장공</dt><dd>장공에 볼트 — 미끄러지면서 돎 (볼트 2개 = 직선 피스톤)</dd>
+        <dt><span class="dot" style="--c:#ffa040"></span>고무줄</dt><dd>같은 평면의 풀리 두 개를 고무줄로 감기 — 같은 방향으로 지름비만큼 돎</dd>
+      </dl>
+      <p>체인·고무줄은 체인기어 또는 풀리 두 개를 <b>Ctrl+클릭</b>으로 선택한 뒤 <kbd>C</kbd> 를 누르거나, B 모드의 분홍·주황 링을 클릭해요</p>
+
+      <h3>모터와 재생</h3>
+      <p>① 모터 받침판을 프레임에 <b>볼트로 고정</b> ② 기어를 모터 축 쪽으로 끌어다 대면 방향·높이가 자동으로 맞춰짐 → B 모드에서 초록 링 ③ <kbd>Space</kbd> 재생</p>
+      <p><kbd>Space</kbd> 재생·일시정지 · <kbd>Esc</kbd> 원위치 · <kbd>G</kbd> 바닥 고정 · <kbd>[</kbd> <kbd>]</kbd> 모터 속도</p>
+
+      <h3>저장</h3>
+      <p><b>내보내기</b>·<b>불러오기</b> 로 구조물을 코드나 파일로 저장하고 다시 불러와요. 파일은 화면에 끌어놓아도 돼요</p>
     </div>
     <dialog id="io-dialog">
       <h2 id="io-title"></h2>
@@ -120,15 +212,15 @@
       <textarea id="io-text" spellcheck="false"></textarea>
       <div id="io-msg"></div>
       <div class="io-actions">
-        <button id="io-copy">📋 코드 복사</button>
-        <button id="io-save">💾 파일로 저장</button>
-        <button id="io-file">📂 파일 선택…</button>
-        <button id="io-load" class="primary">불러오기</button>
-        <button id="io-close">닫기</button>
+        <button class="btn boxed" id="io-copy"><svg class="i"><use href="#i-copy"/></svg>코드 복사</button>
+        <button class="btn boxed" id="io-save"><svg class="i"><use href="#i-save"/></svg>파일로 저장</button>
+        <button class="btn boxed" id="io-file"><svg class="i"><use href="#i-folder"/></svg>파일 선택</button>
+        <button class="btn primary" id="io-load">불러오기</button>
+        <button class="btn boxed" id="io-close">닫기</button>
       </div>
       <input id="io-file-input" type="file" accept=".json,.txt,application/json,text/plain" hidden>
     </dialog>
-    <div id="status">부품을 팔레트에서 클릭해 추가하세요.</div>
+    <div id="status">부품을 팔레트에서 클릭해 추가하세요</div>
   </div>
   <script type="module" src="./src/main.js"></script>
 </body>
